@@ -1,0 +1,850 @@
+@HD	VN:1.4	SO:unsorted
+@SQ	SN:NC_000001.11 Homo sapiens chromosome 1, GRCh38.p12 Primary Assembly	LN:248956422
+@SQ	SN:NT_187361.1 Homo sapiens chromosome 1 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR1_CTG1_UNLOCALIZED	LN:175055
+@SQ	SN:NT_187362.1 Homo sapiens chromosome 1 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR1_CTG2_UNLOCALIZED	LN:32032
+@SQ	SN:NT_187363.1 Homo sapiens chromosome 1 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR1_CTG3_UNLOCALIZED	LN:127682
+@SQ	SN:NT_187364.1 Homo sapiens chromosome 1 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR1_CTG4_UNLOCALIZED	LN:66860
+@SQ	SN:NT_187365.1 Homo sapiens chromosome 1 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR1_CTG5_UNLOCALIZED	LN:40176
+@SQ	SN:NT_187366.1 Homo sapiens chromosome 1 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR1_CTG6_UNLOCALIZED	LN:42210
+@SQ	SN:NT_187367.1 Homo sapiens chromosome 1 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR1_CTG7_UNLOCALIZED	LN:176043
+@SQ	SN:NT_187368.1 Homo sapiens chromosome 1 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR1_CTG8_UNLOCALIZED	LN:40745
+@SQ	SN:NT_187369.1 Homo sapiens chromosome 1 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR1_CTG9_UNLOCALIZED	LN:41717
+@SQ	SN:NC_000002.12 Homo sapiens chromosome 2, GRCh38.p12 Primary Assembly	LN:242193529
+@SQ	SN:NT_187370.1 Homo sapiens chromosome 2 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR2_RANDOM_CTG1	LN:161471
+@SQ	SN:NT_187371.1 Homo sapiens chromosome 2 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR2_RANDOM_CTG2	LN:153799
+@SQ	SN:NC_000003.12 Homo sapiens chromosome 3, GRCh38.p12 Primary Assembly	LN:198295559
+@SQ	SN:NT_167215.1 Homo sapiens chromosome 3 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR3UN_CTG2	LN:155397
+@SQ	SN:NC_000004.12 Homo sapiens chromosome 4, GRCh38.p12 Primary Assembly	LN:190214555
+@SQ	SN:NT_113793.3 Homo sapiens chromosome 4 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR4_RANDOM_CTG4	LN:209709
+@SQ	SN:NC_000005.10 Homo sapiens chromosome 5, GRCh38.p12 Primary Assembly	LN:181538259
+@SQ	SN:NT_113948.1 Homo sapiens chromosome 5 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR5_RANDOM_CTG1	LN:92689
+@SQ	SN:NC_000006.12 Homo sapiens chromosome 6, GRCh38.p12 Primary Assembly	LN:170805979
+@SQ	SN:NC_000007.14 Homo sapiens chromosome 7, GRCh38.p12 Primary Assembly	LN:159345973
+@SQ	SN:NC_000008.11 Homo sapiens chromosome 8, GRCh38.p12 Primary Assembly	LN:145138636
+@SQ	SN:NC_000009.12 Homo sapiens chromosome 9, GRCh38.p12 Primary Assembly	LN:138394717
+@SQ	SN:NT_187372.1 Homo sapiens chromosome 9 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR9_UNLOCALIZED_CTG1	LN:40062
+@SQ	SN:NT_187373.1 Homo sapiens chromosome 9 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR9_UNLOCALIZED_CTG2	LN:38054
+@SQ	SN:NT_187374.1 Homo sapiens chromosome 9 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR9_UNLOCALIZED_CTG3	LN:176845
+@SQ	SN:NT_187375.1 Homo sapiens chromosome 9 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR9_UNLOCALIZED_CTG4	LN:39050
+@SQ	SN:NC_000010.11 Homo sapiens chromosome 10, GRCh38.p12 Primary Assembly	LN:133797422
+@SQ	SN:NC_000011.10 Homo sapiens chromosome 11, GRCh38.p12 Primary Assembly	LN:135086622
+@SQ	SN:NT_187376.1 Homo sapiens chromosome 11 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR11_CTG1_UNLOCALIZED	LN:100316
+@SQ	SN:NC_000012.12 Homo sapiens chromosome 12, GRCh38.p12 Primary Assembly	LN:133275309
+@SQ	SN:NC_000013.11 Homo sapiens chromosome 13, GRCh38.p12 Primary Assembly	LN:114364328
+@SQ	SN:NC_000014.9 Homo sapiens chromosome 14, GRCh38.p12 Primary Assembly	LN:107043718
+@SQ	SN:NT_113796.3 Homo sapiens chromosome 14 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR14_CTG1_UNLOCALIZED	LN:201709
+@SQ	SN:NT_167219.1 Homo sapiens chromosome 14 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR14_CTG2_UNLOCALIZED	LN:211173
+@SQ	SN:NT_187377.1 Homo sapiens chromosome 14 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR14_CTG3_UNLOCALIZED	LN:194050
+@SQ	SN:NT_113888.1 Homo sapiens chromosome 14 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR14_CTG4_UNLOCALIZED	LN:191469
+@SQ	SN:NT_187378.1 Homo sapiens chromosome 14 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR14_CTG5_UNLOCALIZED	LN:38115
+@SQ	SN:NT_187379.1 Homo sapiens chromosome 14 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR14_CTG6_UNLOCALIZED	LN:39555
+@SQ	SN:NT_187380.1 Homo sapiens chromosome 14 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR14_CTG7_UNLOCALIZED	LN:172810
+@SQ	SN:NT_187381.1 Homo sapiens chromosome 14 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR14_CTG8_UNLOCALIZED	LN:43739
+@SQ	SN:NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	LN:101991189
+@SQ	SN:NT_187382.1 Homo sapiens chromosome 15 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR15_RANDOM_CTG1	LN:448248
+@SQ	SN:NC_000016.10 Homo sapiens chromosome 16, GRCh38.p12 Primary Assembly	LN:90338345
+@SQ	SN:NT_187383.1 Homo sapiens chromosome 16 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR16_RANDOM_CTG1	LN:1872759
+@SQ	SN:NC_000017.11 Homo sapiens chromosome 17, GRCh38.p12 Primary Assembly	LN:83257441
+@SQ	SN:NT_113930.2 Homo sapiens chromosome 17 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR17_RANDOM_CTG3	LN:185591
+@SQ	SN:NT_187384.1 Homo sapiens chromosome 17 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR17_RANDOM_CTG4	LN:280839
+@SQ	SN:NT_187385.1 Homo sapiens chromosome 17 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR17_RANDOM_CTG5	LN:112551
+@SQ	SN:NC_000018.10 Homo sapiens chromosome 18, GRCh38.p12 Primary Assembly	LN:80373285
+@SQ	SN:NC_000019.10 Homo sapiens chromosome 19, GRCh38.p12 Primary Assembly	LN:58617616
+@SQ	SN:NC_000020.11 Homo sapiens chromosome 20, GRCh38.p12 Primary Assembly	LN:64444167
+@SQ	SN:NC_000021.9 Homo sapiens chromosome 21, GRCh38.p12 Primary Assembly	LN:46709983
+@SQ	SN:NC_000022.11 Homo sapiens chromosome 22, GRCh38.p12 Primary Assembly	LN:50818468
+@SQ	SN:NT_187386.1 Homo sapiens chromosome 22 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR22_UNLOCALIZED_CTG1	LN:150754
+@SQ	SN:NT_187387.1 Homo sapiens chromosome 22 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR22_UNLOCALIZED_CTG2	LN:41543
+@SQ	SN:NT_187388.1 Homo sapiens chromosome 22 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR22_UNLOCALIZED_CTG3	LN:179772
+@SQ	SN:NT_187389.1 Homo sapiens chromosome 22 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR22_UNLOCALIZED_CTG4	LN:165050
+@SQ	SN:NT_187390.1 Homo sapiens chromosome 22 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR22_UNLOCALIZED_CTG5	LN:42811
+@SQ	SN:NT_187391.1 Homo sapiens chromosome 22 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR22_UNLOCALIZED_CTG6	LN:181920
+@SQ	SN:NT_187392.1 Homo sapiens chromosome 22 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR22_UNLOCALIZED_CTG7	LN:103838
+@SQ	SN:NT_187393.1 Homo sapiens chromosome 22 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR22_UNLOCALIZED_CTG8	LN:99375
+@SQ	SN:NT_187394.1 Homo sapiens chromosome 22 unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHR22_UNLOCALIZED_CTG9	LN:73985
+@SQ	SN:NC_000023.11 Homo sapiens chromosome X, GRCh38.p12 Primary Assembly	LN:156040895
+@SQ	SN:NC_000024.10 Homo sapiens chromosome Y, GRCh38.p12 Primary Assembly	LN:57227415
+@SQ	SN:NT_187395.1 Homo sapiens chromosome Y unlocalized genomic scaffold, GRCh38.p12 Primary Assembly HSCHRY_RANDOM_CTG1	LN:37240
+@SQ	SN:NT_187396.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_100	LN:2274
+@SQ	SN:NT_187397.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_101	LN:2165
+@SQ	SN:NT_187398.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_102	LN:1942
+@SQ	SN:NT_187399.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_103	LN:1472
+@SQ	SN:NT_187400.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_104	LN:21476
+@SQ	SN:NT_187401.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_105	LN:4416
+@SQ	SN:NT_187402.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_106	LN:1201
+@SQ	SN:NT_187403.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_107	LN:1444
+@SQ	SN:NT_187404.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_108	LN:2276
+@SQ	SN:NT_187405.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_109	LN:998
+@SQ	SN:NT_187406.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_110	LN:12399
+@SQ	SN:NT_187407.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_111	LN:37690
+@SQ	SN:NT_187408.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_112	LN:1179
+@SQ	SN:NT_187409.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_113	LN:2646
+@SQ	SN:NT_187410.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_114	LN:2489
+@SQ	SN:NT_187411.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_115	LN:1029
+@SQ	SN:NT_187412.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_116	LN:2145
+@SQ	SN:NT_187413.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_117	LN:2321
+@SQ	SN:NT_187414.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_118	LN:2140
+@SQ	SN:NT_187415.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_119	LN:2043
+@SQ	SN:NT_187416.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_120	LN:1445
+@SQ	SN:NT_187417.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_121	LN:981
+@SQ	SN:NT_187418.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_122	LN:1884
+@SQ	SN:NT_187419.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_123	LN:1361
+@SQ	SN:NT_187420.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_124	LN:392061
+@SQ	SN:NT_187421.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_125	LN:1233
+@SQ	SN:NT_187422.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_126	LN:1774
+@SQ	SN:NT_187423.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_127	LN:3920
+@SQ	SN:NT_187424.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_128	LN:92983
+@SQ	SN:NT_187425.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_129	LN:112505
+@SQ	SN:NT_187426.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_130	LN:4055
+@SQ	SN:NT_187427.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_131	LN:2415
+@SQ	SN:NT_187428.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_132	LN:2318
+@SQ	SN:NT_187429.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_133	LN:2186
+@SQ	SN:NT_187430.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_134	LN:1951
+@SQ	SN:NT_187431.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_135	LN:1300
+@SQ	SN:NT_187432.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_136	LN:22689
+@SQ	SN:NT_187433.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_137	LN:138126
+@SQ	SN:NT_187434.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_138	LN:5674
+@SQ	SN:NT_187435.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_139	LN:8127
+@SQ	SN:NT_187436.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_140	LN:6361
+@SQ	SN:NT_187437.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_141	LN:5353
+@SQ	SN:NT_187438.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_142	LN:3253
+@SQ	SN:NT_187439.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_143	LN:1899
+@SQ	SN:NT_187440.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_144	LN:2983
+@SQ	SN:NT_187441.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_145	LN:2168
+@SQ	SN:NT_187442.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_146	LN:993
+@SQ	SN:NT_187443.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_147	LN:91309
+@SQ	SN:NT_187444.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_148	LN:1202
+@SQ	SN:NT_187445.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_149	LN:1599
+@SQ	SN:NT_187446.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_154	LN:1400
+@SQ	SN:NT_187447.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_155	LN:2969
+@SQ	SN:NT_187448.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_156	LN:1553
+@SQ	SN:NT_187449.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_157	LN:7046
+@SQ	SN:NT_187450.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_158	LN:31033
+@SQ	SN:NT_187451.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_159	LN:44474
+@SQ	SN:NT_187452.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_160	LN:4685
+@SQ	SN:NT_187453.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_161	LN:4513
+@SQ	SN:NT_187454.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_162	LN:6504
+@SQ	SN:NT_187455.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_163	LN:6158
+@SQ	SN:NT_187456.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_164	LN:3041
+@SQ	SN:NT_187457.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_165	LN:5796
+@SQ	SN:NT_187458.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_166	LN:1652
+@SQ	SN:NT_187459.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_167	LN:1040
+@SQ	SN:NT_187460.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_168	LN:1368
+@SQ	SN:NT_187461.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_169	LN:2699
+@SQ	SN:NT_187462.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_170	LN:1048
+@SQ	SN:NT_187463.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_171	LN:1428
+@SQ	SN:NT_187464.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_172	LN:1428
+@SQ	SN:NT_187465.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_173	LN:1026
+@SQ	SN:NT_187466.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_174	LN:1121
+@SQ	SN:NT_187467.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_175	LN:1803
+@SQ	SN:NT_187468.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_176	LN:2855
+@SQ	SN:NT_187469.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_177	LN:3530
+@SQ	SN:NT_187470.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_178	LN:8320
+@SQ	SN:NT_187471.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_179	LN:1048
+@SQ	SN:NT_187472.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_180	LN:1045
+@SQ	SN:NT_187473.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_181	LN:1298
+@SQ	SN:NT_187474.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_182	LN:2387
+@SQ	SN:NT_187475.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_183	LN:1537
+@SQ	SN:NT_187476.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_184	LN:1143
+@SQ	SN:NT_187477.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_185	LN:1880
+@SQ	SN:NT_187478.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_186	LN:1216
+@SQ	SN:NT_187479.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_187	LN:970
+@SQ	SN:NT_187480.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_188	LN:1788
+@SQ	SN:NT_187481.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_189	LN:1484
+@SQ	SN:NT_187482.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_190	LN:1750
+@SQ	SN:NT_187483.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_191	LN:1308
+@SQ	SN:NT_187484.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_192	LN:1658
+@SQ	SN:NT_187485.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_193	LN:971
+@SQ	SN:NT_187486.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_194	LN:1930
+@SQ	SN:NT_187487.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_195	LN:990
+@SQ	SN:NT_187488.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_196	LN:4215
+@SQ	SN:NT_187489.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_197	LN:1136
+@SQ	SN:NT_187490.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_198	LN:2656
+@SQ	SN:NT_187491.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_199	LN:1650
+@SQ	SN:NT_187492.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_200	LN:1451
+@SQ	SN:NT_187493.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_201	LN:2378
+@SQ	SN:NT_187494.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_202	LN:2805
+@SQ	SN:NT_187495.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_203	LN:7992
+@SQ	SN:NT_187496.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_204	LN:7642
+@SQ	SN:NT_113901.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG1	LN:182896
+@SQ	SN:NT_167213.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG10	LN:179198
+@SQ	SN:NT_167214.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG11	LN:161802
+@SQ	SN:NT_167218.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG16	LN:179693
+@SQ	SN:NT_187497.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG17	LN:157432
+@SQ	SN:NT_167220.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG19	LN:15008
+@SQ	SN:NT_167208.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG2	LN:164239
+@SQ	SN:NT_187498.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG20	LN:210658
+@SQ	SN:NT_187499.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG21	LN:168472
+@SQ	SN:NT_187500.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG22	LN:41891
+@SQ	SN:NT_187501.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG23	LN:66486
+@SQ	SN:NT_187502.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG24	LN:198735
+@SQ	SN:NT_187503.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG25	LN:93321
+@SQ	SN:NT_187504.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG26	LN:158759
+@SQ	SN:NT_187505.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG27	LN:148850
+@SQ	SN:NT_187506.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG28	LN:150742
+@SQ	SN:NT_187508.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG30	LN:62944
+@SQ	SN:NT_187509.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG33	LN:40191
+@SQ	SN:NT_187510.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG34	LN:36723
+@SQ	SN:NT_187511.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG35	LN:79590
+@SQ	SN:NT_187512.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG36	LN:71251
+@SQ	SN:NT_167209.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG4	LN:137718
+@SQ	SN:NT_187513.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG42	LN:186739
+@SQ	SN:NT_167211.2 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG6	LN:176608
+@SQ	SN:NT_113889.1 Homo sapiens unplaced genomic scaffold, GRCh38.p12 Primary Assembly HSCHRUN_RANDOM_CTG9	LN:161147
+@SQ	SN:NW_012132914.1 Homo sapiens chromosome 1 genomic patch of type FIX, GRCh38.p12 PATCHES HG1342_HG2282_PATCH	LN:467143
+@SQ	SN:NW_015495298.1 Homo sapiens chromosome 1 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR1_5_CTG3	LN:278659
+@SQ	SN:NW_011332688.1 Homo sapiens chromosome 1 genomic patch of type FIX, GRCh38.p12 PATCHES HG2095_PATCH	LN:305542
+@SQ	SN:NW_014040926.1 Homo sapiens chromosome 1 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR1_4_CTG3	LN:349938
+@SQ	SN:NW_009646195.1 Homo sapiens chromosome 1 genomic patch of type FIX, GRCh38.p12 PATCHES HG2058_PATCH	LN:166200
+@SQ	SN:NW_018654706.1 Homo sapiens chromosome 1 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR1_8_CTG3	LN:166136
+@SQ	SN:NW_019805487.1 Homo sapiens chromosome 1 genomic patch of type FIX, GRCh38.p12 PATCHES HG460_PATCH	LN:44955
+@SQ	SN:NW_009646194.1 Homo sapiens chromosome 1 genomic patch of type FIX, GRCh38.p12 PATCHES HG986_PATCH	LN:186494
+@SQ	SN:NW_018654707.1 Homo sapiens chromosome 1 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR1_9_CTG3	LN:140355
+@SQ	SN:NW_014040925.1 Homo sapiens chromosome 1 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR1_3_CTG3	LN:141019
+@SQ	SN:NW_017852928.1 Homo sapiens chromosome 1 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR1_6_CTG3	LN:551020
+@SQ	SN:NW_009646196.1 Homo sapiens chromosome 1 genomic patch of type FIX, GRCh38.p12 PATCHES HG2104_PATCH	LN:122022
+@SQ	SN:NW_011332687.1 Homo sapiens chromosome 1 genomic patch of type FIX, GRCh38.p12 PATCHES HG1832_PATCH	LN:460100
+@SQ	SN:NW_018654708.1 Homo sapiens chromosome 1 genomic patch of type FIX, GRCh38.p12 PATCHES HG2002_PATCH	LN:330031
+@SQ	SN:NW_014040927.1 Homo sapiens chromosome 1 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR1_5_CTG32_1	LN:212205
+@SQ	SN:NW_012132915.1 Homo sapiens chromosome 2 genomic patch of type FIX, GRCh38.p12 PATCHES HG2290_PATCH	LN:481245
+@SQ	SN:NW_018654709.1 Homo sapiens chromosome 2 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR2_7_CTG7_2	LN:181658
+@SQ	SN:NW_015495299.1 Homo sapiens chromosome 2 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR2_6_CTG7_2	LN:535088
+@SQ	SN:NW_018654710.1 Homo sapiens chromosome 2 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR2_8_CTG7_2	LN:140361
+@SQ	SN:NW_011332690.1 Homo sapiens chromosome 2 genomic patch of type FIX, GRCh38.p12 PATCHES HG2232_PATCH	LN:365499
+@SQ	SN:NW_011332689.1 Homo sapiens chromosome 2 genomic patch of type FIX, GRCh38.p12 PATCHES HG2233_PATCH	LN:208149
+@SQ	SN:NW_017363813.1 Homo sapiens chromosome 3 genomic patch of type FIX, GRCh38.p12 PATCHES HG2236_PATCH	LN:411654
+@SQ	SN:NW_009646197.1 Homo sapiens chromosome 3 genomic patch of type FIX, GRCh38.p12 PATCHES HG2066_PATCH	LN:451168
+@SQ	SN:NW_012132916.1 Homo sapiens chromosome 3 genomic patch of type FIX, GRCh38.p12 PATCHES HG2235_PATCH	LN:373699
+@SQ	SN:NW_011332691.1 Homo sapiens chromosome 3 genomic patch of type FIX, GRCh38.p12 PATCHES HG126_PATCH	LN:415308
+@SQ	SN:NW_018654711.1 Homo sapiens chromosome 3 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR3_4_CTG1	LN:175849
+@SQ	SN:NW_012132917.1 Homo sapiens chromosome 3 genomic patch of type FIX, GRCh38.p12 PATCHES HG2237_PATCH	LN:165718
+@SQ	SN:NW_009646198.1 Homo sapiens chromosome 3 genomic patch of type FIX, GRCh38.p12 PATCHES HG2022_PATCH	LN:305979
+@SQ	SN:NW_019805491.1 Homo sapiens chromosome 3 genomic patch of type FIX, GRCh38.p12 PATCHES HG2133_PATCH	LN:105527
+@SQ	SN:NW_019805492.1 Homo sapiens chromosome 3 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR3_6_CTG2_1	LN:195063
+@SQ	SN:NW_019805490.1 Homo sapiens chromosome 3 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR3_9_CTG2_1	LN:302885
+@SQ	SN:NW_019805489.1 Homo sapiens chromosome 3 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR3_8_CTG2_1	LN:197752
+@SQ	SN:NW_019805488.1 Homo sapiens chromosome 3 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR3_7_CTG2_1	LN:164041
+@SQ	SN:NW_013171799.1 Homo sapiens chromosome 4 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR4_2_CTG4	LN:90922
+@SQ	SN:NW_013171800.1 Homo sapiens chromosome 4 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR4_8_CTG12	LN:163749
+@SQ	SN:NW_013171801.1 Homo sapiens chromosome 4 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR4_9_CTG12	LN:236512
+@SQ	SN:NW_017363814.1 Homo sapiens chromosome 4 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR4_12_CTG12	LN:420675
+@SQ	SN:NW_015495300.1 Homo sapiens chromosome 4 genomic patch of type FIX, GRCh38.p12 PATCHES HG2023_PATCH	LN:230434
+@SQ	SN:NW_015495301.1 Homo sapiens chromosome 4 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR4_11_CTG12	LN:205407
+@SQ	SN:NW_018654712.1 Homo sapiens chromosome 5 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR5_9_CTG1	LN:135987
+@SQ	SN:NW_009646199.1 Homo sapiens chromosome 5 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR5_7_CTG1	LN:139087
+@SQ	SN:NW_016107297.1 Homo sapiens chromosome 5 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR5_8_CTG1	LN:362221
+@SQ	SN:NW_016107298.1 Homo sapiens chromosome 5 genomic patch of type FIX, GRCh38.p12 PATCHES HG30_PATCH	LN:673059
+@SQ	SN:NW_018654713.1 Homo sapiens chromosome 6 genomic patch of type FIX, GRCh38.p12 PATCHES HG2057_PATCH	LN:242796
+@SQ	SN:NW_013171803.1 Homo sapiens chromosome 6 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR6_1_CTG10	LN:82315
+@SQ	SN:NW_012132918.1 Homo sapiens chromosome 6 genomic patch of type FIX, GRCh38.p12 PATCHES HG1651_PATCH	LN:320750
+@SQ	SN:NW_009646200.1 Homo sapiens chromosome 6 genomic patch of type FIX, GRCh38.p12 PATCHES HG2128_PATCH	LN:268330
+@SQ	SN:NW_013171802.1 Homo sapiens chromosome 6 genomic patch of type FIX, GRCh38.p12 PATCHES HG2072_PATCH	LN:245716
+@SQ	SN:NW_017363815.1 Homo sapiens chromosome 6 genomic patch of type FIX, GRCh38.p12 PATCHES HG2121_PATCH	LN:139427
+@SQ	SN:NW_019805493.1 Homo sapiens chromosome 7 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR7_3_CTG1	LN:172555
+@SQ	SN:NW_017852929.1 Homo sapiens chromosome 7 genomic patch of type FIX, GRCh38.p12 PATCHES HG2088_PATCH	LN:142129
+@SQ	SN:NW_017852930.1 Homo sapiens chromosome 7 genomic patch of type FIX, GRCh38.p12 PATCHES HG2266_PATCH	LN:468267
+@SQ	SN:NW_018654714.1 Homo sapiens chromosome 7 genomic patch of type FIX, GRCh38.p12 PATCHES HG708_PATCH	LN:589656
+@SQ	SN:NW_018654715.1 Homo sapiens chromosome 7 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR7_3_CTG4_4	LN:680662
+@SQ	SN:NW_012132919.1 Homo sapiens chromosome 7 genomic patch of type FIX, GRCh38.p12 PATCHES HG2239_PATCH	LN:179932
+@SQ	SN:NW_018654717.1 Homo sapiens chromosome 8 genomic patch of type FIX, GRCh38.p12 PATCHES HG76_PATCH	LN:6367528
+@SQ	SN:NW_017852932.1 Homo sapiens chromosome 8 genomic patch of type FIX, GRCh38.p12 PATCHES HG2068_PATCH	LN:265876
+@SQ	SN:NW_017852931.1 Homo sapiens chromosome 8 genomic patch of type FIX, GRCh38.p12 PATCHES HG2067_PATCH	LN:156998
+@SQ	SN:NW_019805494.1 Homo sapiens chromosome 8 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR8_7_CTG7	LN:103072
+@SQ	SN:NW_018654716.1 Homo sapiens chromosome 8 genomic patch of type FIX, GRCh38.p12 PATCHES HG2419_PATCH	LN:165120
+@SQ	SN:NW_013171804.1 Homo sapiens chromosome 9 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR9_1_CTG6	LN:163882
+@SQ	SN:NW_013171805.1 Homo sapiens chromosome 9 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR9_1_CTG7	LN:134099
+@SQ	SN:NW_009646201.1 Homo sapiens chromosome 9 genomic patch of type FIX, GRCh38.p12 PATCHES HG2030_PATCH	LN:330164
+@SQ	SN:NW_011332694.1 Homo sapiens chromosome 10 genomic patch of type FIX, GRCh38.p12 PATCHES HG2244_HG2245_PATCH	LN:420164
+@SQ	SN:NW_013171806.1 Homo sapiens chromosome 10 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR10_1_CTG6	LN:185507
+@SQ	SN:NW_009646202.1 Homo sapiens chromosome 10 genomic patch of type FIX, GRCh38.p12 PATCHES HG2191_PATCH	LN:277797
+@SQ	SN:NW_013171807.1 Homo sapiens chromosome 10 genomic patch of type FIX, GRCh38.p12 PATCHES HG2334_PATCH	LN:264545
+@SQ	SN:NW_011332693.1 Homo sapiens chromosome 10 genomic patch of type FIX, GRCh38.p12 PATCHES HG2242_HG2243_PATCH	LN:85284
+@SQ	SN:NW_011332692.1 Homo sapiens chromosome 10 genomic patch of type FIX, GRCh38.p12 PATCHES HG2241_PATCH	LN:14347
+@SQ	SN:NW_015148966.1 Homo sapiens chromosome 11 genomic patch of type FIX, GRCh38.p12 PATCHES HG107_PATCH	LN:196940
+@SQ	SN:NW_011332695.1 Homo sapiens chromosome 11 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR11_1_CTG1_2	LN:203552
+@SQ	SN:NW_019805496.1 Homo sapiens chromosome 11 genomic patch of type FIX, GRCh38.p12 PATCHES HG2114_PATCH	LN:279644
+@SQ	SN:NW_019805495.1 Homo sapiens chromosome 11 genomic patch of type FIX, GRCh38.p12 PATCHES HG2060_PATCH	LN:305244
+@SQ	SN:NW_017363816.1 Homo sapiens chromosome 11 genomic patch of type FIX, GRCh38.p12 PATCHES HG1708_PATCH	LN:140877
+@SQ	SN:NW_019805498.1 Homo sapiens chromosome 11 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR11_1_CTG3_1	LN:181167
+@SQ	SN:NW_019805497.1 Homo sapiens chromosome 11 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR11_2_CTG8	LN:301637
+@SQ	SN:NW_013171808.1 Homo sapiens chromosome 11 genomic patch of type FIX, GRCh38.p12 PATCHES HG2116_PATCH	LN:181958
+@SQ	SN:NW_009646203.1 Homo sapiens chromosome 11 genomic patch of type FIX, GRCh38.p12 PATCHES HG2217_PATCH	LN:108875
+@SQ	SN:NW_013171809.1 Homo sapiens chromosome 12 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR12_2_CTG1	LN:109323
+@SQ	SN:NW_018654718.1 Homo sapiens chromosome 12 genomic patch of type FIX, GRCh38.p12 PATCHES HG1815_PATCH	LN:1046838
+@SQ	SN:NW_011332696.1 Homo sapiens chromosome 12 genomic patch of type FIX, GRCh38.p12 PATCHES HG1362_PATCH	LN:541038
+@SQ	SN:NW_009646204.1 Homo sapiens chromosome 12 genomic patch of type FIX, GRCh38.p12 PATCHES HG23_PATCH	LN:211377
+@SQ	SN:NW_018654720.1 Homo sapiens chromosome 12 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR12_8_CTG2_1	LN:174808
+@SQ	SN:NW_015148967.1 Homo sapiens chromosome 12 genomic patch of type FIX, GRCh38.p12 PATCHES HG2063_PATCH	LN:315610
+@SQ	SN:NW_018654719.1 Homo sapiens chromosome 12 genomic patch of type FIX, GRCh38.p12 PATCHES HG2047_PATCH	LN:64689
+@SQ	SN:NW_011332697.1 Homo sapiens chromosome 12 genomic patch of type FIX, GRCh38.p12 PATCHES HG2247_PATCH	LN:86533
+@SQ	SN:NW_019805499.1 Homo sapiens chromosome 12 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR12_9_CTG2_1	LN:154139
+@SQ	SN:NW_011332699.1 Homo sapiens chromosome 13 genomic patch of type FIX, GRCh38.p12 PATCHES HG2291_PATCH	LN:356766
+@SQ	SN:NW_013171810.1 Homo sapiens chromosome 13 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR13_1_CTG7	LN:168146
+@SQ	SN:NW_009646205.1 Homo sapiens chromosome 13 genomic patch of type FIX, GRCh38.p12 PATCHES HG2216_PATCH	LN:35455
+@SQ	SN:NW_011332700.1 Homo sapiens chromosome 13 genomic patch of type FIX, GRCh38.p12 PATCHES HG2249_PATCH	LN:148762
+@SQ	SN:NW_013171811.1 Homo sapiens chromosome 13 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR13_1_CTG8	LN:123480
+@SQ	SN:NW_011332698.1 Homo sapiens chromosome 13 genomic patch of type FIX, GRCh38.p12 PATCHES HG2288_HG2289_PATCH	LN:206320
+@SQ	SN:NW_018654722.1 Homo sapiens chromosome 14 genomic patch of type FIX, GRCh38.p12 PATCHES HG1_PATCH	LN:690932
+@SQ	SN:NW_018654721.1 Homo sapiens chromosome 14 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR14_8_CTG1	LN:171798
+@SQ	SN:NW_011332701.1 Homo sapiens chromosome 15 genomic patch of type FIX, GRCh38.p12 PATCHES HG2139_PATCH	LN:4998962
+@SQ	SN:NW_012132920.1 Homo sapiens chromosome 15 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR15_6_CTG8	LN:2365364
+@SQ	SN:NW_013171812.1 Homo sapiens chromosome 16 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR16_5_CTG1	LN:59016
+@SQ	SN:NW_019805500.1 Homo sapiens chromosome 16 genomic patch of type FIX, GRCh38.p12 PATCHES HG2263_PATCH	LN:480415
+@SQ	SN:NW_017852933.1 Homo sapiens chromosome 16 genomic patch of type FIX, GRCh38.p12 PATCHES HG926_PATCH	LN:1927115
+@SQ	SN:NW_013171813.1 Homo sapiens chromosome 16 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR16_4_CTG3_1	LN:267463
+@SQ	SN:NW_018654723.1 Homo sapiens chromosome 16 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR16_5_CTG3_1	LN:78609
+@SQ	SN:NW_012132921.1 Homo sapiens chromosome 16 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR16_3_CTG3_1	LN:169136
+@SQ	SN:NW_017363817.1 Homo sapiens chromosome 17 genomic patch of type FIX, GRCh38.p12 PATCHES HG2285_HG106_HG2252_PATCH	LN:281919
+@SQ	SN:NW_016107299.1 Homo sapiens chromosome 17 genomic patch of type FIX, GRCh38.p12 PATCHES HG2046_PATCH	LN:154723
+@SQ	SN:NW_017363819.1 Homo sapiens chromosome 17 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR17_3_CTG1	LN:276292
+@SQ	SN:NW_017363818.1 Homo sapiens chromosome 17 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR17_11_CTG4	LN:246895
+@SQ	SN:NW_019805501.1 Homo sapiens chromosome 17 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR17_12_CTG4	LN:116753
+@SQ	SN:NW_019805503.1 Homo sapiens chromosome 18 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR18_1_CTG1	LN:163186
+@SQ	SN:NW_014040928.1 Homo sapiens chromosome 18 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR18_5_CTG1_1	LN:205101
+@SQ	SN:NW_019805502.1 Homo sapiens chromosome 18 genomic patch of type FIX, GRCh38.p12 PATCHES HG2412_PATCH	LN:230843
+@SQ	SN:NW_013171814.1 Homo sapiens chromosome 18 genomic patch of type FIX, GRCh38.p12 PATCHES HG2213_PATCH	LN:407387
+@SQ	SN:NW_018654724.1 Homo sapiens chromosome 18 genomic patch of type FIX, GRCh38.p12 PATCHES HG2442_PATCH	LN:93070
+@SQ	SN:NW_014040929.1 Homo sapiens chromosome 19 genomic patch of type FIX, GRCh38.p12 PATCHES HG26_PATCH	LN:405389
+@SQ	SN:NW_009646206.1 Homo sapiens chromosome 19 genomic patch of type FIX, GRCh38.p12 PATCHES HG2021_PATCH	LN:370917
+@SQ	SN:NW_016107300.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_0019-4656-A_CTG3_1	LN:163926
+@SQ	SN:NW_016107301.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_CA01-TA01_1_CTG3_1	LN:170206
+@SQ	SN:NW_016107302.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_CA01-TA01_2_CTG3_1	LN:168131
+@SQ	SN:NW_016107303.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_CA01-TB04_CTG3_1	LN:293522
+@SQ	SN:NW_016107304.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_CA01-TB01_CTG3_1	LN:241058
+@SQ	SN:NW_016107305.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_HG2394_CTG3_1	LN:159285
+@SQ	SN:NW_016107306.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_502960008-2_CTG3_1	LN:178197
+@SQ	SN:NW_016107307.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_502960008-1_CTG3_1	LN:166713
+@SQ	SN:NW_016107308.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_0010-5217-AB_CTG3_1	LN:99845
+@SQ	SN:NW_016107309.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_7191059-1_CTG3_1	LN:161095
+@SQ	SN:NW_016107310.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_0019-4656-B_CTG3_1	LN:223118
+@SQ	SN:NW_016107311.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_CA04_CTG3_1	LN:100553
+@SQ	SN:NW_016107313.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_7191059-2_CTG3_1	LN:171263
+@SQ	SN:NW_016107314.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_HG2396_CTG3_1	LN:145691
+@SQ	SN:NW_016107312.1 Homo sapiens chromosome 19 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR19KIR_HG2393_CTG3_1	LN:156965
+@SQ	SN:NW_009646207.1 Homo sapiens chromosome 22 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR22_4_CTG1	LN:156562
+@SQ	SN:NW_014040930.1 Homo sapiens chromosome 22 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR22_6_CTG1	LN:155930
+@SQ	SN:NW_014040931.1 Homo sapiens chromosome 22 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR22_7_CTG1	LN:174749
+@SQ	SN:NW_009646208.1 Homo sapiens chromosome 22 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR22_5_CTG1	LN:153027
+@SQ	SN:NW_015148968.1 Homo sapiens chromosome 22 genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHR22_8_CTG1	LN:145162
+@SQ	SN:NW_015148969.1 Homo sapiens chromosome 22 genomic patch of type FIX, GRCh38.p12 PATCHES HG1311_PATCH	LN:101037
+@SQ	SN:NW_017363820.1 Homo sapiens chromosome X genomic patch of type NOVEL, GRCh38.p12 PATCHES HSCHRX_3_CTG7	LN:188004
+@SQ	SN:NW_018654725.1 Homo sapiens chromosome Y genomic patch of type FIX, GRCh38.p12 PATCHES HG1531_PATCH	LN:48370
+@SQ	SN:NW_018654726.1 Homo sapiens chromosome Y genomic patch of type FIX, GRCh38.p12 PATCHES HG1535_PATCH	LN:209722
+@SQ	SN:NW_009646209.1 Homo sapiens chromosome Y genomic patch of type FIX, GRCh38.p12 PATCHES HG2062_PATCH	LN:101150
+@SQ	SN:NT_187515.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_1_CTG3	LN:354444
+@SQ	SN:NT_187517.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_2_CTG3	LN:256271
+@SQ	SN:NT_187514.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_1_CTG11	LN:109528
+@SQ	SN:NT_187520.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_4_CTG31	LN:185285
+@SQ	SN:NW_003315905.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_1_CTG31	LN:182439
+@SQ	SN:NW_003315906.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_2_CTG31	LN:110268
+@SQ	SN:NW_003315907.2 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_3_CTG31	LN:366580
+@SQ	SN:NT_187521.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_4_CTG32_1	LN:50258
+@SQ	SN:NT_187519.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_3_CTG32_1	LN:911658
+@SQ	SN:NT_187516.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_1_CTG32_1	LN:425601
+@SQ	SN:NT_187518.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR1_2_CTG32_1	LN:165834
+@SQ	SN:NT_187525.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_2_CTG1	LN:136240
+@SQ	SN:NT_187526.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_3_CTG1	LN:70887
+@SQ	SN:NT_187529.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_4_CTG1	LN:223625
+@SQ	SN:NT_187522.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_1_CTG1	LN:120616
+@SQ	SN:NW_003315908.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_1_CTG5	LN:143390
+@SQ	SN:NT_187524.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_1_CTG7	LN:133041
+@SQ	SN:NT_187531.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_5_CTG7_2	LN:138019
+@SQ	SN:NT_187530.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_4_CTG7_2	LN:110395
+@SQ	SN:NT_187528.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_3_CTG7_2	LN:110099
+@SQ	SN:NW_003571033.2 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_2_CTG7_2	LN:96131
+@SQ	SN:NW_003315909.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_1_CTG7_2	LN:123821
+@SQ	SN:NT_187527.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_3_CTG15	LN:174166
+@SQ	SN:NT_187523.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR2_1_CTG15	LN:161578
+@SQ	SN:NW_003871060.2 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_1_CTG1	LN:173151
+@SQ	SN:NT_187535.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_3_CTG1	LN:109187
+@SQ	SN:NT_187537.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_4_CTG2_1	LN:224108
+@SQ	SN:NW_003315913.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_1_CTG2_1	LN:180671
+@SQ	SN:NT_187533.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_2_CTG2_1	LN:173649
+@SQ	SN:NT_187536.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_3_CTG2_1	LN:248252
+@SQ	SN:NT_187538.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_5_CTG2_1	LN:113034
+@SQ	SN:NT_187532.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_1_CTG3	LN:205312
+@SQ	SN:NT_187534.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_2_CTG3	LN:162429
+@SQ	SN:NT_187539.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR3_9_CTG3	LN:184404
+@SQ	SN:NT_187540.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR4_1_CTG4	LN:220246
+@SQ	SN:NW_003315915.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR4_1_CTG6	LN:376187
+@SQ	SN:NT_187541.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR4_1_CTG8_1	LN:111943
+@SQ	SN:NT_167250.2 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR4_1_CTG9	LN:586476
+@SQ	SN:NT_187544.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR4_4_CTG12	LN:158965
+@SQ	SN:NW_003315914.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR4_1_CTG12	LN:164536
+@SQ	SN:NT_187542.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR4_2_CTG12	LN:119912
+@SQ	SN:NT_187545.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR4_5_CTG12	LN:205944
+@SQ	SN:NT_187543.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR4_3_CTG12	LN:244096
+@SQ	SN:NT_187550.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_5_CTG1	LN:126136
+@SQ	SN:NT_187548.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_4_CTG1	LN:179043
+@SQ	SN:NT_187547.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_3_CTG1	LN:195710
+@SQ	SN:NW_003315920.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_1_CTG1	LN:82728
+@SQ	SN:NW_003571036.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_2_CTG1	LN:226852
+@SQ	SN:NT_187551.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_6_CTG1	LN:164558
+@SQ	SN:NW_003315917.2 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_2_CTG1_1	LN:1612928
+@SQ	SN:NW_003315918.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_3_CTG1_1	LN:101241
+@SQ	SN:NT_187549.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_4_CTG1_1	LN:172708
+@SQ	SN:NW_003315919.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_1_CTG5	LN:173459
+@SQ	SN:NT_187546.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR5_2_CTG5	LN:131892
+@SQ	SN:NT_167244.2 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR6_MHC_APD_CTG1	LN:4672374
+@SQ	SN:NT_187555.1 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR6_1_CTG7	LN:175808
+@SQ	SN:NT_187554.1 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR6_1_CTG6	LN:152148
+@SQ	SN:NW_003315921.1 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR6_1_CTG2	LN:124736
+@SQ	SN:NT_187556.1 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR6_1_CTG8	LN:870480
+@SQ	SN:NT_187557.1 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR6_1_CTG9	LN:75005
+@SQ	SN:NW_004166862.2 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR6_1_CTG3	LN:185823
+@SQ	SN:NT_187552.1 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR6_1_CTG4	LN:197536
+@SQ	SN:NT_187553.1 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR6_1_CTG5	LN:271782
+@SQ	SN:NT_187558.1 Homo sapiens chromosome 7 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR7_1_CTG1	LN:157952
+@SQ	SN:NT_187561.1 Homo sapiens chromosome 7 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR7_2_CTG4_4	LN:209586
+@SQ	SN:NT_187559.1 Homo sapiens chromosome 7 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR7_1_CTG4_4	LN:158166
+@SQ	SN:NW_003315922.2 Homo sapiens chromosome 7 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR7_1_CTG6	LN:119183
+@SQ	SN:NT_187562.1 Homo sapiens chromosome 7 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR7_2_CTG6	LN:1111570
+@SQ	SN:NT_187564.1 Homo sapiens chromosome 7 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR7_3_CTG6	LN:271455
+@SQ	SN:NT_187563.1 Homo sapiens chromosome 7 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR7_2_CTG7	LN:126434
+@SQ	SN:NT_187560.1 Homo sapiens chromosome 7 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR7_1_CTG7	LN:209988
+@SQ	SN:NT_187572.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_4_CTG1	LN:145606
+@SQ	SN:NT_187568.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_2_CTG1	LN:282736
+@SQ	SN:NT_187565.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_1_CTG1	LN:292436
+@SQ	SN:NT_187576.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_8_CTG1	LN:985506
+@SQ	SN:NT_187570.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_3_CTG1	LN:300230
+@SQ	SN:NT_187577.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_9_CTG1	LN:624492
+@SQ	SN:NT_187566.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_1_CTG6	LN:141812
+@SQ	SN:NT_187567.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_1_CTG7	LN:374415
+@SQ	SN:NT_187574.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_5_CTG7	LN:133535
+@SQ	SN:NT_187575.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_6_CTG7	LN:36640
+@SQ	SN:NT_187573.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_4_CTG7	LN:158983
+@SQ	SN:NT_187571.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_3_CTG7	LN:305841
+@SQ	SN:NT_187569.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR8_2_CTG7	LN:132244
+@SQ	SN:NW_003315928.1 Homo sapiens chromosome 9 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR9_1_CTG1	LN:162988
+@SQ	SN:NW_003315929.1 Homo sapiens chromosome 9 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR9_1_CTG2	LN:71551
+@SQ	SN:NW_003315930.1 Homo sapiens chromosome 9 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR9_1_CTG3	LN:171286
+@SQ	SN:NW_003315931.1 Homo sapiens chromosome 9 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR9_1_CTG4	LN:60032
+@SQ	SN:NT_187578.1 Homo sapiens chromosome 9 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR9_1_CTG5	LN:439082
+@SQ	SN:NW_003315934.1 Homo sapiens chromosome 10 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR10_1_CTG1	LN:179254
+@SQ	SN:NT_187579.1 Homo sapiens chromosome 10 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR10_1_CTG3	LN:181496
+@SQ	SN:NW_003315935.1 Homo sapiens chromosome 10 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR10_1_CTG2	LN:309802
+@SQ	SN:NT_187580.1 Homo sapiens chromosome 10 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR10_1_CTG4	LN:188315
+@SQ	SN:NT_187586.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR11_1_CTG8	LN:210133
+@SQ	SN:NT_187584.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR11_1_CTG6	LN:177092
+@SQ	SN:NT_187585.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR11_1_CTG7	LN:296895
+@SQ	SN:NT_187583.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR11_1_CTG5	LN:204059
+@SQ	SN:NW_003315936.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR11_1_CTG1_1	LN:154407
+@SQ	SN:NW_003871073.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HG142_HG150_NOVEL_TEST	LN:200998
+@SQ	SN:NW_003871074.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HG151_NOVEL_TEST	LN:191409
+@SQ	SN:NT_187582.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR11_1_CTG3	LN:67707
+@SQ	SN:NT_187581.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR11_1_CTG2	LN:186169
+@SQ	SN:NW_003571049.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_1_CTG1	LN:167313
+@SQ	SN:NW_003571050.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_2_CTG2	LN:408271
+@SQ	SN:NT_187588.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_5_CTG2	LN:40090
+@SQ	SN:NW_003315938.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_1_CTG2	LN:120804
+@SQ	SN:NT_187587.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_4_CTG2	LN:238139
+@SQ	SN:NW_003315939.2 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_1_CTG2_1	LN:169178
+@SQ	SN:NW_003315941.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_2_CTG2_1	LN:138655
+@SQ	SN:NW_003315942.2 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_3_CTG2_1	LN:152874
+@SQ	SN:NT_187590.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_6_CTG2_1	LN:119498
+@SQ	SN:NW_003315940.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_4_CTG2_1	LN:184319
+@SQ	SN:NT_187589.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_5_CTG2_1	LN:76061
+@SQ	SN:NT_187591.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR12_7_CTG2_1	LN:56134
+@SQ	SN:NT_187594.1 Homo sapiens chromosome 13 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR13_1_CTG3	LN:191684
+@SQ	SN:NT_187593.1 Homo sapiens chromosome 13 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR13_1_CTG2	LN:180306
+@SQ	SN:NT_187597.1 Homo sapiens chromosome 13 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR13_1_CTG6	LN:103832
+@SQ	SN:NT_187595.1 Homo sapiens chromosome 13 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR13_1_CTG4	LN:169134
+@SQ	SN:NT_187592.1 Homo sapiens chromosome 13 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR13_1_CTG1	LN:306913
+@SQ	SN:NT_187596.1 Homo sapiens chromosome 13 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR13_1_CTG5	LN:37287
+@SQ	SN:NT_187598.1 Homo sapiens chromosome 14 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR14_1_CTG1	LN:322166
+@SQ	SN:NT_187601.1 Homo sapiens chromosome 14 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR14_7_CTG1	LN:1511111
+@SQ	SN:NT_187599.1 Homo sapiens chromosome 14 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR14_2_CTG1	LN:180703
+@SQ	SN:NT_187600.1 Homo sapiens chromosome 14 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR14_3_CTG1	LN:1351393
+@SQ	SN:NT_187602.1 Homo sapiens chromosome 15 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR15_1_CTG1	LN:478999
+@SQ	SN:NT_187604.1 Homo sapiens chromosome 15 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR15_3_CTG3	LN:263054
+@SQ	SN:NT_187603.1 Homo sapiens chromosome 15 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR15_1_CTG3	LN:327382
+@SQ	SN:NW_003315943.1 Homo sapiens chromosome 15 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR15_1_CTG8	LN:296527
+@SQ	SN:NT_187605.1 Homo sapiens chromosome 15 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR15_3_CTG8	LN:244917
+@SQ	SN:NW_003315944.2 Homo sapiens chromosome 15 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR15_2_CTG8	LN:388773
+@SQ	SN:NT_187606.1 Homo sapiens chromosome 15 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR15_5_CTG8	LN:430880
+@SQ	SN:NT_187610.1 Homo sapiens chromosome 16 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR16_CTG2	LN:134193
+@SQ	SN:NT_187609.1 Homo sapiens chromosome 16 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR16_4_CTG1	LN:63982
+@SQ	SN:NT_187608.1 Homo sapiens chromosome 16 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR16_3_CTG1	LN:232857
+@SQ	SN:NT_187607.1 Homo sapiens chromosome 16 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR16_1_CTG1	LN:2659700
+@SQ	SN:NW_003315945.1 Homo sapiens chromosome 16 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR16_1_CTG3_1	LN:192462
+@SQ	SN:NW_003315946.1 Homo sapiens chromosome 16 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR16_2_CTG3_1	LN:89672
+@SQ	SN:NW_003315952.3 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_1_CTG1	LN:375691
+@SQ	SN:NT_187613.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_2_CTG2	LN:391357
+@SQ	SN:NT_187611.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_1_CTG2	LN:196688
+@SQ	SN:NT_187614.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_7_CTG4	LN:2877074
+@SQ	SN:NW_003871091.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_4_CTG4	LN:278131
+@SQ	SN:NW_003871092.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_5_CTG4	LN:70345
+@SQ	SN:NW_003315953.2 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_1_CTG4	LN:133151
+@SQ	SN:NT_167251.2 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_1_CTG5	LN:1821992
+@SQ	SN:NW_003315954.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_2_CTG4	LN:223995
+@SQ	SN:NT_187615.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_8_CTG4	LN:235827
+@SQ	SN:NT_187616.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_9_CTG4	LN:108763
+@SQ	SN:NW_003315955.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_3_CTG4	LN:90219
+@SQ	SN:NT_187612.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR17_1_CTG9	LN:178921
+@SQ	SN:NT_187618.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR18_4_CTG1_1	LN:111737
+@SQ	SN:NW_003315956.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR18_1_CTG1_1	LN:289831
+@SQ	SN:NW_003315959.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR18_2_CTG1_1	LN:164789
+@SQ	SN:NW_003315960.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR18_2_CTG2	LN:198278
+@SQ	SN:NW_003315957.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR18_1_CTG2	LN:104552
+@SQ	SN:NW_003315958.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR18_1_CTG2_1	LN:167950
+@SQ	SN:NW_003315961.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR18_2_CTG2_1	LN:159547
+@SQ	SN:NT_187617.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR18_3_CTG2_1	LN:167999
+@SQ	SN:NT_187622.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR19_5_CTG2	LN:61734
+@SQ	SN:NT_187621.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR19_4_CTG2	LN:52969
+@SQ	SN:NW_003315962.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR19_1_CTG2	LN:385657
+@SQ	SN:NW_003315964.2 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR19_2_CTG2	LN:170222
+@SQ	SN:NW_003315965.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR19_3_CTG2	LN:188024
+@SQ	SN:NW_003315963.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR19_1_CTG3_1	LN:155864
+@SQ	SN:NT_187619.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR19_2_CTG3_1	LN:43156
+@SQ	SN:NT_187620.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR19_3_CTG3_1	LN:233762
+@SQ	SN:NW_003571054.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR19LRC_COX1_CTG3_1	LN:987716
+@SQ	SN:NW_003315966.2 Homo sapiens chromosome 20 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR20_1_CTG1	LN:128386
+@SQ	SN:NT_187623.1 Homo sapiens chromosome 20 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR20_1_CTG2	LN:118774
+@SQ	SN:NT_187625.1 Homo sapiens chromosome 20 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR20_1_CTG4	LN:58661
+@SQ	SN:NT_187624.1 Homo sapiens chromosome 20 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR20_1_CTG3	LN:183433
+@SQ	SN:NW_003315967.2 Homo sapiens chromosome 21 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR21_1_CTG1_1	LN:63917
+@SQ	SN:NT_187628.1 Homo sapiens chromosome 21 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR21_8_CTG1_1	LN:166743
+@SQ	SN:NT_187627.1 Homo sapiens chromosome 21 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR21_6_CTG1_1	LN:143900
+@SQ	SN:NW_003315968.2 Homo sapiens chromosome 21 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR21_2_CTG1_1	LN:201197
+@SQ	SN:NW_003315969.2 Homo sapiens chromosome 21 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR21_3_CTG1_1	LN:74653
+@SQ	SN:NW_003315970.2 Homo sapiens chromosome 21 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR21_4_CTG1_1	LN:116689
+@SQ	SN:NT_187626.1 Homo sapiens chromosome 21 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR21_5_CTG2	LN:82692
+@SQ	SN:NT_187629.1 Homo sapiens chromosome 22 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR22_1_CTG3	LN:259914
+@SQ	SN:NT_187632.1 Homo sapiens chromosome 22 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR22_1_CTG6	LN:186262
+@SQ	SN:NT_187633.1 Homo sapiens chromosome 22 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR22_1_CTG7	LN:304135
+@SQ	SN:NT_187630.1 Homo sapiens chromosome 22 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR22_1_CTG4	LN:263666
+@SQ	SN:NT_187631.1 Homo sapiens chromosome 22 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR22_1_CTG5	LN:101331
+@SQ	SN:NW_003315972.2 Homo sapiens chromosome 22 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR22_1_CTG2	LN:96924
+@SQ	SN:NW_003315971.2 Homo sapiens chromosome 22 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHR22_1_CTG1	LN:162811
+@SQ	SN:NT_187634.1 Homo sapiens chromosome X genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHRX_1_CTG3	LN:284869
+@SQ	SN:NT_187635.1 Homo sapiens chromosome X genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_1 HSCHRX_2_CTG12	LN:144206
+@SQ	SN:NT_187646.1 Homo sapiens chromosome 1 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR1_ALT2_1_CTG32_1	LN:162212
+@SQ	SN:NT_187648.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR2_2_CTG7	LN:214158
+@SQ	SN:NT_187647.1 Homo sapiens chromosome 2 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR2_2_CTG15	LN:161218
+@SQ	SN:NT_187649.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR3_3_CTG3	LN:162896
+@SQ	SN:NT_187650.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR4_6_CTG12	LN:378547
+@SQ	SN:NT_187651.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR5_1_CTG1_1	LN:1144418
+@SQ	SN:NT_187652.1 Homo sapiens chromosome 5 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR5_3_CTG5	LN:130957
+@SQ	SN:NT_113891.3 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR6_MHC_COX_CTG1	LN:4795265
+@SQ	SN:NT_187653.1 Homo sapiens chromosome 7 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR7_2_CTG1	LN:190869
+@SQ	SN:NT_187655.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR8_6_CTG1	LN:136959
+@SQ	SN:NT_187654.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR8_5_CTG1	LN:318687
+@SQ	SN:NT_187656.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR11_2_CTG1	LN:106711
+@SQ	SN:NT_187657.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR11_2_CTG1_1	LN:214625
+@SQ	SN:NT_187658.1 Homo sapiens chromosome 12 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR12_3_CTG2	LN:572349
+@SQ	SN:NT_187659.1 Homo sapiens chromosome 15 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR15_2_CTG3	LN:196384
+@SQ	SN:NT_187660.1 Homo sapiens chromosome 15 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR15_4_CTG8	LN:5161414
+@SQ	SN:NT_187662.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR17_2_CTG1	LN:137721
+@SQ	SN:NT_187664.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR17_3_CTG2	LN:157099
+@SQ	SN:NT_187661.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR17_10_CTG4	LN:325800
+@SQ	SN:NW_003871093.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR17_6_CTG4	LN:88070
+@SQ	SN:NT_187663.1 Homo sapiens chromosome 17 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR17_2_CTG5	LN:1423190
+@SQ	SN:NT_187665.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR18_ALT21_CTG2_1	LN:174061
+@SQ	SN:NT_187666.1 Homo sapiens chromosome 18 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR18_ALT2_CTG2_1	LN:157710
+@SQ	SN:NW_003571055.2 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR19LRC_COX2_CTG3_1	LN:729520
+@SQ	SN:NW_004504305.1 Homo sapiens chromosome 22 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHR22_2_CTG1	LN:74013
+@SQ	SN:NT_187667.1 Homo sapiens chromosome X genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_2 HSCHRX_2_CTG3	LN:274009
+@SQ	SN:NT_187678.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_3 HSCHR3_4_CTG3	LN:166540
+@SQ	SN:NT_187679.1 Homo sapiens chromosome 4 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_3 HSCHR4_7_CTG12	LN:555799
+@SQ	SN:NT_167245.2 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_3 HSCHR6_MHC_DBB_CTG1	LN:4604811
+@SQ	SN:NT_187680.1 Homo sapiens chromosome 8 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_3 HSCHR8_7_CTG1	LN:229282
+@SQ	SN:NT_187681.1 Homo sapiens chromosome 11 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_3 HSCHR11_3_CTG1	LN:218612
+@SQ	SN:NW_003571056.2 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_3 HSCHR19LRC_LRC_I_CTG3_1	LN:1064304
+@SQ	SN:NT_187682.1 Homo sapiens chromosome 22 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_3 HSCHR22_3_CTG1	LN:176103
+@SQ	SN:NT_187688.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_4 HSCHR3_5_CTG3	LN:163458
+@SQ	SN:NT_167246.2 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_4 HSCHR6_MHC_MANN_CTG1	LN:4677643
+@SQ	SN:NW_003571057.2 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_4 HSCHR19LRC_LRC_J_CTG3_1	LN:1091841
+@SQ	SN:NT_187689.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_5 HSCHR3_6_CTG3	LN:197351
+@SQ	SN:NT_167247.2 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_5 HSCHR6_MHC_MCF_CTG1	LN:4827813
+@SQ	SN:NW_003571058.2 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_5 HSCHR19LRC_LRC_S_CTG3_1	LN:1066390
+@SQ	SN:NT_187690.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_6 HSCHR3_7_CTG3	LN:164170
+@SQ	SN:NT_167248.2 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_6 HSCHR6_MHC_QBL_CTG1	LN:4606388
+@SQ	SN:NW_003571059.2 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_6 HSCHR19LRC_LRC_T_CTG3_1	LN:1002683
+@SQ	SN:NT_187691.1 Homo sapiens chromosome 3 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_7 HSCHR3_8_CTG3	LN:165607
+@SQ	SN:NT_167249.2 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_7 HSCHR6_MHC_SSTO_CTG1	LN:4929269
+@SQ	SN:NW_003571060.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_7 HSCHR19LRC_PGF1_CTG3_1	LN:987100
+@SQ	SN:NT_187692.1 Homo sapiens chromosome 6 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_8 HSCHR6_8_CTG1	LN:76752
+@SQ	SN:NW_003571061.2 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_8 HSCHR19LRC_PGF2_CTG3_1	LN:796479
+@SQ	SN:NT_187693.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_9 HSCHR19_4_CTG3_1	LN:1066800
+@SQ	SN:NT_187636.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_10 HSCHR19KIR_FH15_B_HAP_CTG3_1	LN:248807
+@SQ	SN:NT_187637.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_11 HSCHR19KIR_G085_A_HAP_CTG3_1	LN:170399
+@SQ	SN:NT_187638.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_12 HSCHR19KIR_G085_BA1_HAP_CTG3_1	LN:157053
+@SQ	SN:NT_187639.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_13 HSCHR19KIR_G248_A_HAP_CTG3_1	LN:171027
+@SQ	SN:NT_187640.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_14 HSCHR19KIR_G248_BA2_HAP_CTG3_1	LN:204239
+@SQ	SN:NT_187641.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_15 HSCHR19KIR_GRC212_AB_HAP_CTG3_1	LN:209512
+@SQ	SN:NT_187642.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_16 HSCHR19KIR_GRC212_BA1_HAP_CTG3_1	LN:155532
+@SQ	SN:NT_187643.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_17 HSCHR19KIR_LUCE_A_HAP_CTG3_1	LN:170698
+@SQ	SN:NT_187644.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_18 HSCHR19KIR_LUCE_BDEL_HAP_CTG3_1	LN:184499
+@SQ	SN:NT_187645.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_19 HSCHR19KIR_RSH_A_HAP_CTG3_1	LN:170680
+@SQ	SN:NT_187668.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_20 HSCHR19KIR_RSH_BA2_HAP_CTG3_1	LN:205194
+@SQ	SN:NT_187669.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_21 HSCHR19KIR_T7526_A_HAP_CTG3_1	LN:170665
+@SQ	SN:NT_187670.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_22 HSCHR19KIR_T7526_BDEL_HAP_CTG3_1	LN:184516
+@SQ	SN:NT_187671.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_23 HSCHR19KIR_ABC08_A1_HAP_CTG3_1	LN:190932
+@SQ	SN:NT_187672.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_24 HSCHR19KIR_ABC08_AB_HAP_C_P_CTG3_1	LN:123111
+@SQ	SN:NT_187673.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_25 HSCHR19KIR_ABC08_AB_HAP_T_P_CTG3_1	LN:170701
+@SQ	SN:NT_187674.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_26 HSCHR19KIR_FH05_A_HAP_CTG3_1	LN:198005
+@SQ	SN:NT_187675.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_27 HSCHR19KIR_FH05_B_HAP_CTG3_1	LN:282224
+@SQ	SN:NT_187676.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_28 HSCHR19KIR_FH06_A_HAP_CTG3_1	LN:187935
+@SQ	SN:NT_187677.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_29 HSCHR19KIR_FH06_BA1_HAP_CTG3_1	LN:189352
+@SQ	SN:NT_187683.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_30 HSCHR19KIR_FH08_A_HAP_CTG3_1	LN:186203
+@SQ	SN:NT_187684.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_31 HSCHR19KIR_FH08_BAX_HAP_CTG3_1	LN:200773
+@SQ	SN:NT_187685.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_32 HSCHR19KIR_FH13_A_HAP_CTG3_1	LN:170148
+@SQ	SN:NT_187686.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_33 HSCHR19KIR_FH13_BA2_HAP_CTG3_1	LN:215732
+@SQ	SN:NT_187687.1 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_34 HSCHR19KIR_FH15_A_HAP_CTG3_1	LN:170537
+@SQ	SN:NT_113949.2 Homo sapiens chromosome 19 genomic scaffold, GRCh38.p12 alternate locus group ALT_REF_LOCI_35 HSCHR19KIR_RP5_B_HAP_CTG3_1	LN:177381
+@SQ	SN:NC_012920.1 Homo sapiens mitochondrion, complete genome	LN:16569
+@PG	ID:BBMap	PN:BBMap	VN:38.22	CL:java -Djava.library.path=/Users/milessmith/miniconda3/envs/mc/opt/bbmap-38.22-0/jni/ -ea -Xmx12g align2.BBMap build=1 overwrite=true fastareadlen=500 in=test.fa out=test.bam -Xmx12g
+ PML ENSE00003563058 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003563058 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00002582133 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00002582133 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74028443	43	100=	*	0	0	AAAAAAAAAAAAAAAATGTTTAATTTTGGTAAAATACACATAATATAAAATACATCATCTTAACCATTTCAAAATGTTCAGTTCAGTGTACACTAAGTGT	*	NM:i:0	AM:i:43
+ PML ENSE00002600781 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022806	44	100=	*	0	0	GGCCAACCTTGTGTGTCCACAGCATCTACTGCCGAGGATGTTCCAAGCCGCTGTGCTGCTCGTGCGCGCTCCTTGACAGCAGCCACAGTGAGCTCAAGTG	*	NM:i:0	AM:i:44
+ PML ENSE00002600781 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023366	44	100=	*	0	0	GTGCGCCTGCAGGACCTCAGCTCTTGCATCACCCAGGGGAAAGGTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAG	*	NM:i:0	AM:i:44
+ PML ENSE00003464826 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003464826 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00002603640 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00002603640 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032715	44	100=	*	0	0	GGTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATC	*	NM:i:0	AM:i:44
+ PML ENSE00002577720 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022813	44	100=	*	0	0	CTTGTGTGTCCACAGCATCTACTGCCGAGGATGTTCCAAGCCGCTGTGCTGCTCGTGCGCGCTCCTTGACAGCAGCCACAGTGAGCTCAAGTGCGACATC	*	NM:i:0	AM:i:44
+ PML ENSE00002577720 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00002600458 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00002600458 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032699	44	100=	*	0	0	GCCCTTCCTATGGAGAGGTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCC	*	NM:i:0	AM:i:44
+ PML ENSE00002626932 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035936	44	100=	*	0	0	TCAAGCAGGCCTCTGAGAGTGCTACCCTTCTCTTGTAACCTTGCAGCCAACACCCCTGCCCGGCCCCTGAGCTGCCTCCTCCAGCCCATGCTCTTACAGG	*	NM:i:0	AM:i:44
+ PML ENSE00002626932 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74036123	44	100=	*	0	0	CTGGGTCTTCTCTGGCTGAGAGGGGAAGGCTAAGGCATGGCTGAGATTCAAGCCACCATTCCAGGCCTCTTTGCCCAAGAAAGAAACTTCTGTCACCCTT	*	NM:i:0	AM:i:44
+ PML ENSE00002613921 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022882	44	100=	*	0	0	CAGCAGCCACAGTGAGCTCAAGTGCGACATCAGCGCAGAGATCCAGCAGCGACAGGAGGAGCTGGACGCCATGACGCAGGCGCTGCAGGAGCAGGATAGT	*	NM:i:0	AM:i:44
+ PML ENSE00002613921 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00001520690 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001520690 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033423	44	100=	*	0	0	GTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAACAGGAGTC	*	NM:i:0	AM:i:44
+ PML ENSE00003473568 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003473568 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00003597879 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035073	44	100=	*	0	0	CTGTCCAGGGGAAAAGGGGATCTGAATAGAGTGAAAGGTTGGACTGGGTGGCCCCTGAGGTCTCTTCCAGCCCTCAGTCTGAGGTTCTGTATTGGAAAGT	*	NM:i:0	AM:i:44
+ PML ENSE00003597879 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74036395	44	100=	*	0	0	CCCTTGCGAACCCTTATTCCACGACCATCGCGTTCTCCGATGGATCCAGCTCCTCCCTGCAGGCTGTTCTCTCTTCCCTATGCTGGAACTCAGTTCTCCT	*	NM:i:0	AM:i:44
+ PML ENSE00002610964 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023196	44	100=	*	0	0	AGCGCATCCGCACGGGCAGCGCGCTGGTGCAGAGGATGAAGTGCTACGCCTCGGACCAGGAGGTGCTGGACATGCACGGTTTCCTGCGCCAGGCGCTCTG	*	NM:i:0	AM:i:44
+ PML ENSE00002610964 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032716	44	100=	*	0	0	GTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATCA	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033415	44	100=	*	0	0	GTAGGGAGGTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00002624384 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035044	44	100=	*	0	0	AGGTTTATTACTAGAGGCTGGACTATCACCTGTCCAGGGGAAAAGGGGATCTGAATAGAGTGAAAGGTTGGACTGGGTGGCCCCTGAGGTCTCTTCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00002624384 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035336	44	100=	*	0	0	CCAGCCCGCTGAGCAGGCTGCCACCCCCGATGCTGAGCCTCACAGCGAGCCTCCTGATCACCAGGAGCGCCCTGCCGTCCACCGTGGGATCCGCTACCTG	*	NM:i:0	AM:i:44
+ PML ENSE00002619398 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024781	44	100=	*	0	0	CTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGATGCAGCTGTATCCAAGAAAGCCA	*	NM:i:0	AM:i:44
+ PML ENSE00002619398 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00001520690 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001520690 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033423	44	100=	*	0	0	GTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAACAGGAGTC	*	NM:i:0	AM:i:44
+ PML ENSE00003621502 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003621502 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74036395	44	100=	*	0	0	CCCTTGCGAACCCTTATTCCACGACCATCGCGTTCTCCGATGGATCCAGCTCCTCCCTGCAGGCTGTTCTCTCTTCCCTATGCTGGAACTCAGTTCTCCT	*	NM:i:0	AM:i:44
+ PML ENSE00002620182 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032296	44	100=	*	0	0	CTGAAACAGGAGAATTGCTCAAGCCCAGGAGTTCAAGACCAGCGTGGGCAACATAGTGAGACCCTGTCTCTACAAAAAAATTTTTTTAAAAAAAGGAGGT	*	NM:i:0	AM:i:44
+ PML ENSE00002620182 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032716	44	100=	*	0	0	GTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATCA	*	NM:i:0	AM:i:44
+ PML ENSE00002595195 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00002595195 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033206	44	100=	*	0	0	GTGCCCCAGGAAGGTCATCAAGATGGAGTCTGAGGAGGGGAAGGAGGCAAGGTTGGCTCGGAGCTCCCCGGAGCAGCCCAGGCCCAGCACCTCCAAGGCA	*	NM:i:0	AM:i:44
+ PML ENSE00002627463 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74041230	44	100=	*	0	0	CCCAGAAGGGGAGCCCAGCCCCTCCACCAGCTTGTGGGAGAGCGCTGCTGCCCAGTGAAGCCTGGAGAGAGGAAACAACTGGATTCTCCCAAAGCGGGAG	*	NM:i:0	AM:i:44
+ PML ENSE00002627463 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74041571	44	100=	*	0	0	GTGAGTGTCTGCTTCTGACAATAACTGGCAGAAAGCTGATGAGCCTGGAGCAGGGCTGTGAAATGCAAATCCAGTGAAATCCAGCCACTCCTACAAAAAC	*	NM:i:0	AM:i:44
+ PML ENSE00002622948 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74042890	44	100=	*	0	0	GCACGCAGATGCTCCCAGCTATACCAGCTTGCTAGTGTTCTGCACAGGTGCTTGCCTTGGCCCTCTGAATCCCTGACGCTTGGTTTTTCTGTGTTGCAGT	*	NM:i:0	AM:i:44
+ PML ENSE00002622948 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74043343	44	100=	*	0	0	GTGCCTGAGTGTGCGAGAGAGGCAGATGCCTCCACAAGTGCACCTCTGACCAGTTCTTCTCTCAGACAGAGAGCCTGGGGAACACACTCCTAGACAGAAA	*	NM:i:0	AM:i:44
+ PML ENSE00001363480 upstream	4	*	0	0	*	*	0	0	GCTCTCCGCCTCTACCTCCTCCCCGCTCTGGGCGTGTCTTTAAAACCCACAGTCGGCCTCTCTGCCCCCTAGAACCGCCCCCAGCTTCTGTCTCACTTCC	*
+ PML ENSE00001363480 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032716	44	100=	*	0	0	GTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATCA	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033415	44	100=	*	0	0	GTAGGGAGGTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00002629077 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74042890	44	100=	*	0	0	GCACGCAGATGCTCCCAGCTATACCAGCTTGCTAGTGTTCTGCACAGGTGCTTGCCTTGGCCCTCTGAATCCCTGACGCTTGGTTTTTCTGTGTTGCAGT	*	NM:i:0	AM:i:44
+ PML ENSE00002629077 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74043338	44	100=	*	0	0	ATCCAGTGCCTGAGTGTGCGAGAGAGGCAGATGCCTCCACAAGTGCACCTCTGACCAGTTCTTCTCTCAGACAGAGAGCCTGGGGAACACACTCCTAGAC	*	NM:i:0	AM:i:44
+ PML ENSE00001859951 upstream	4	*	0	0	*	*	0	0	ACCCACAGTCGGCCTCTCTGCCCCCTAGAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAG	*
+ PML ENSE00001859951 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00001424496 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035908	43	100=	*	0	0	CCCCCATCAGCCCAGTCCCAGGCGCCCGTCAAGCAGGCCTCTGAGAGTGCTACCCTTCTCTTGTAACCTTGCAGCCAACACCCCTGCCCGGCCCCTGAGC	*	NM:i:0	AM:i:43
+ PML ENSE00001424496 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74036395	44	100=	*	0	0	CCCTTGCGAACCCTTATTCCACGACCATCGCGTTCTCCGATGGATCCAGCTCCTCCCTGCAGGCTGTTCTCTCTTCCCTATGCTGGAACTCAGTTCTCCT	*	NM:i:0	AM:i:44
+ PML ENSE00001859951 upstream	4	*	0	0	*	*	0	0	ACCCACAGTCGGCCTCTCTGCCCCCTAGAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAG	*
+ PML ENSE00001859951 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032716	44	100=	*	0	0	GTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATCA	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033415	44	100=	*	0	0	GTAGGGAGGTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00003521581 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035073	44	100=	*	0	0	CTGTCCAGGGGAAAAGGGGATCTGAATAGAGTGAAAGGTTGGACTGGGTGGCCCCTGAGGTCTCTTCCAGCCCTCAGTCTGAGGTTCTGTATTGGAAAGT	*	NM:i:0	AM:i:44
+ PML ENSE00003521581 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74036395	44	100=	*	0	0	CCCTTGCGAACCCTTATTCCACGACCATCGCGTTCTCCGATGGATCCAGCTCCTCCCTGCAGGCTGTTCTCTCTTCCCTATGCTGGAACTCAGTTCTCCT	*	NM:i:0	AM:i:44
+ PML ENSE00001859951 upstream	4	*	0	0	*	*	0	0	ACCCACAGTCGGCCTCTCTGCCCCCTAGAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAG	*
+ PML ENSE00001859951 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033415	44	100=	*	0	0	GTAGGGAGGTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00003521581 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035073	44	100=	*	0	0	CTGTCCAGGGGAAAAGGGGATCTGAATAGAGTGAAAGGTTGGACTGGGTGGCCCCTGAGGTCTCTTCCAGCCCTCAGTCTGAGGTTCTGTATTGGAAAGT	*	NM:i:0	AM:i:44
+ PML ENSE00003521581 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74036395	44	100=	*	0	0	CCCTTGCGAACCCTTATTCCACGACCATCGCGTTCTCCGATGGATCCAGCTCCTCCCTGCAGGCTGTTCTCTCTTCCCTATGCTGGAACTCAGTTCTCCT	*	NM:i:0	AM:i:44
+ PML ENSE00001859951 upstream	4	*	0	0	*	*	0	0	ACCCACAGTCGGCCTCTCTGCCCCCTAGAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAG	*
+ PML ENSE00001859951 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032716	44	100=	*	0	0	GTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATCA	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033415	44	100=	*	0	0	GTAGGGAGGTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00001616142 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74042890	44	100=	*	0	0	GCACGCAGATGCTCCCAGCTATACCAGCTTGCTAGTGTTCTGCACAGGTGCTTGCCTTGGCCCTCTGAATCCCTGACGCTTGGTTTTTCTGTGTTGCAGT	*	NM:i:0	AM:i:44
+ PML ENSE00001616142 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74043140	44	100=	*	0	0	GTGGGTTCTCCTGGGGCTACCCCCACCCCTTTCTAATTTAGTCTCTGAGTCCCAAAAAGAAGTGCAGGCAGAGCCATCTGCCAGGCCCAGGAGAGCTCTG	*	NM:i:0	AM:i:44
+ PML ENSE00001837919 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74044122	44	100=	*	0	0	TCTCTAGATGGTGAGTCAGCAGCCCTAGAGGACCCCCTGCTCCCACCCCAGAGCTCTCTGTGACCCTGGGTCCTCACCCTGCCCTTCTCTCCTGCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00001837919 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74046772	44	100=	*	0	0	GCCTGATGCTCCAATCACAGACTCTGCTCAGCATCCCCAGAGGAACCACTGAGAAGCCTTTTGCCTGGATAGGAGGGGGCTCTCCCAGGCATAGGCTTGT	*	NM:i:0	AM:i:44
+ PML ENSE00002595886 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994630	44	100=	*	0	0	CCTCTCTGCCCCCTAGAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAGCTCAAGGGACTC	*	NM:i:0	AM:i:44
+ PML ENSE00002595886 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033415	44	100=	*	0	0	GTAGGGAGGTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00001616142 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74042890	44	100=	*	0	0	GCACGCAGATGCTCCCAGCTATACCAGCTTGCTAGTGTTCTGCACAGGTGCTTGCCTTGGCCCTCTGAATCCCTGACGCTTGGTTTTTCTGTGTTGCAGT	*	NM:i:0	AM:i:44
+ PML ENSE00001616142 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74043140	44	100=	*	0	0	GTGGGTTCTCCTGGGGCTACCCCCACCCCTTTCTAATTTAGTCTCTGAGTCCCAAAAAGAAGTGCAGGCAGAGCCATCTGCCAGGCCCAGGAGAGCTCTG	*	NM:i:0	AM:i:44
+ PML ENSE00002591339 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74044122	44	100=	*	0	0	TCTCTAGATGGTGAGTCAGCAGCCCTAGAGGACCCCCTGCTCCCACCCCAGAGCTCTCTGTGACCCTGGGTCCTCACCCTGCCCTTCTCTCCTGCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00002591339 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74047813	43	100=	*	0	0	AAAAAAACAAAAAAACATGGGCTTGTCTTCAGGGTAGTAAAGAACAAGATCTGGGATGAACAAACAATTGTGGGGGTCCTGGGGTCTGAAGGAGCCAAGA	*	NM:i:0	AM:i:43
+ PML ENSE00002622965 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994632	44	100=	*	0	0	TCTCTGCCCCCTAGAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAGCTCAAGGGACTCAG	*	NM:i:0	AM:i:44
+ PML ENSE00002622965 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032716	44	100=	*	0	0	GTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATCA	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033415	44	100=	*	0	0	GTAGGGAGGTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00002597434 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035033	44	100=	*	0	0	TCTGTCCCTAGAGGTTTATTACTAGAGGCTGGACTATCACCTGTCCAGGGGAAAAGGGGATCTGAATAGAGTGAAAGGTTGGACTGGGTGGCCCCTGAGG	*	NM:i:0	AM:i:44
+ PML ENSE00002597434 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035591	44	100=	*	0	0	ACATCCTGCCCAGCTGCAAAGGGGCATCAGCCCACCCCACCGGATACGAGGGGCTGTGCGATCCCGCAGCCGCTCCCTCCGGGGCTCCTCCCATTTATCC	*	NM:i:0	AM:i:44
+ PML ENSE00002586269 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994634	44	100=	*	0	0	TCTGCCCCCTAGAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAGCTCAAGGGACTCAGCC	*	NM:i:0	AM:i:44
+ PML ENSE00002586269 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032716	44	100=	*	0	0	GTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATCA	*	NM:i:0	AM:i:44
+ PML ENSE00001520690 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001520690 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033423	44	100=	*	0	0	GTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAACAGGAGTC	*	NM:i:0	AM:i:44
+ PML ENSE00003473568 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003473568 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00003608185 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74042890	44	100=	*	0	0	GCACGCAGATGCTCCCAGCTATACCAGCTTGCTAGTGTTCTGCACAGGTGCTTGCCTTGGCCCTCTGAATCCCTGACGCTTGGTTTTTCTGTGTTGCAGT	*	NM:i:0	AM:i:44
+ PML ENSE00003608185 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74043339	44	100=	*	0	0	TCCAGTGCCTGAGTGTGCGAGAGAGGCAGATGCCTCCACAAGTGCACCTCTGACCAGTTCTTCTCTCAGACAGAGAGCCTGGGGAACACACTCCTAGACA	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994645	44	100=	*	0	0	GAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAGCTCAAGGGACTCAGCCAACTGGCTCAC	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00003473568 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003473568 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00003608185 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74042890	44	100=	*	0	0	GCACGCAGATGCTCCCAGCTATACCAGCTTGCTAGTGTTCTGCACAGGTGCTTGCCTTGGCCCTCTGAATCCCTGACGCTTGGTTTTTCTGTGTTGCAGT	*	NM:i:0	AM:i:44
+ PML ENSE00003608185 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74043339	44	100=	*	0	0	TCCAGTGCCTGAGTGTGCGAGAGAGGCAGATGCCTCCACAAGTGCACCTCTGACCAGTTCTTCTCTCAGACAGAGAGCCTGGGGAACACACTCCTAGACA	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994645	44	100=	*	0	0	GAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAGCTCAAGGGACTCAGCCAACTGGCTCAC	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032716	44	100=	*	0	0	GTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATCA	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033415	44	100=	*	0	0	GTAGGGAGGTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAA	*	NM:i:0	AM:i:44
+ PML ENSE00003621588 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003621588 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74036395	44	100=	*	0	0	CCCTTGCGAACCCTTATTCCACGACCATCGCGTTCTCCGATGGATCCAGCTCCTCCCTGCAGGCTGTTCTCTCTTCCCTATGCTGGAACTCAGTTCTCCT	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994645	44	100=	*	0	0	GAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAGCTCAAGGGACTCAGCCAACTGGCTCAC	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001390455 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033415	44	100=	*	0	0	GTAGGGAGGTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003629382 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00003586870 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74042890	44	100=	*	0	0	GCACGCAGATGCTCCCAGCTATACCAGCTTGCTAGTGTTCTGCACAGGTGCTTGCCTTGGCCCTCTGAATCCCTGACGCTTGGTTTTTCTGTGTTGCAGT	*	NM:i:0	AM:i:44
+ PML ENSE00003586870 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74043339	44	100=	*	0	0	TCCAGTGCCTGAGTGTGCGAGAGAGGCAGATGCCTCCACAAGTGCACCTCTGACCAGTTCTTCTCTCAGACAGAGAGCCTGGGGAACACACTCCTAGACA	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994645	44	100=	*	0	0	GAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAGCTCAAGGGACTCAGCCAACTGGCTCAC	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00002625664 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00002625664 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034559	44	100=	*	0	0	CTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCCTGGGGAATTTTCCAGTGAGGCATTGAGT	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994645	44	100=	*	0	0	GAACCGCCCCCAGCTTCTGTCTCACTTCCTCTCCAGAGGCGGGCCCTGAGCCGGCACCTCCCCTTTCGGACAGCTCAAGGGACTCAGCCAACTGGCTCAC	*	NM:i:0	AM:i:44
+ PML ENSE00002582237 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032473	44	100=	*	0	0	TTGGTGAGGCCCCAGGGATTAGGCCAACCACAGGTCTGGGGTACCTGGCCCTGGGGCTGCTGCCTAGTCATTTCTGACTCAATTTTCCCAACTTTGCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943230 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74032716	44	100=	*	0	0	GTAAGGTTCTCCCCAGCCCCAGCCTTCCCTCCTGAAGGCCTGAGTTCCACCAGGAAAGTGAGCTGGCACTGGGGTGGGAATCCAGGCCTTCATCAGATCA	*	NM:i:0	AM:i:44
+ PML ENSE00001520690 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00001520690 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033423	44	100=	*	0	0	GTGGGTAGGGCAGTGGCCTGGGTGCTGCCCGCCAGGGTCTGGGCGGTGCCCCTCTTCTGTATTTTGGCCCCATCCAGAAAGCCCAAAGCCAACAGGAGTC	*	NM:i:0	AM:i:44
+ PML ENSE00003473568 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034379	44	100=	*	0	0	AGCCGACTGGCCTGCAAGGATTCCCATAGGTGCACACCCACACCCCTCCCAGCATGCATCCTAGGCAGTTCATAATGCATCTCCCCTTCCCCGTTTCAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003473568 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74034531	44	100=	*	0	0	GTGAGTGGCCCAGAAGTTCAGCCCAGGACTCCTGCCTCCCCCCATTTCAGGTCCCAGGGGGCACAGCCACAGCAGGTGACTCTCAGACTTGCCTTGCGCC	*	NM:i:0	AM:i:44
+ PML ENSE00003597879 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74035073	44	100=	*	0	0	CTGTCCAGGGGAAAAGGGGATCTGAATAGAGTGAAAGGTTGGACTGGGTGGCCCCTGAGGTCTCTTCCAGCCCTCAGTCTGAGGTTCTGTATTGGAAAGT	*	NM:i:0	AM:i:44
+ PML ENSE00003597879 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74036395	44	100=	*	0	0	CCCTTGCGAACCCTTATTCCACGACCATCGCGTTCTCCGATGGATCCAGCTCCTCCCTGCAGGCTGTTCTCTCTTCCCTATGCTGGAACTCAGTTCTCCT	*	NM:i:0	AM:i:44
+ PML ENSE00002209084 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994704	44	100=	*	0	0	CCCCTTTCGGACAGCTCAAGGGACTCAGCCAACTGGCTCACGCCTCCCCTTCAGCTTCTCTTCACGCACTCCAAGATCTAAACCGAGAATCGAAACTAAG	*	NM:i:0	AM:i:44
+ PML ENSE00002209084 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73994942	44	100=	*	0	0	GTACTATTGGGTTAGGGGATGATGGGGTTAAGCTTTGTTGGTTTGCTGTGGTGGGGAGAGGCGGGAAGAGAGGGTCTAACGGAGGATTTGGTCAAGTACC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997905	44	100=	*	0	0	ATGAGGTCCTACTCCAGGGTCCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGC	*	NM:i:0	AM:i:44
+ PML ENSE00000943227 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74022729	44	100=	*	0	0	TCAAAGTCTGGTATTTTTGGAAGAGGAATTTAATAACGAACGTTTTAAGAGGAAAAAGTCAGGAGAGTCCTAACCCAGGCCAACCTTGTGTGTCCACAGC	*	NM:i:0	AM:i:44
+ PML ENSE00003589552 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74023409	44	100=	*	0	0	GTAAGCACGCACGCCACCTTCCTGGGCGGCCTGTGCCTCTGCTGCACCCTAGGGAAGGCGAGTCAGAAGAGATCATCTCCATTTGACAGAAAAGAAAACT	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024758	44	100=	*	0	0	GAAAAGCAACAGGGACCTCCTCTCTATCACTGTCCCAGGTCAGGATGTCCCTTACCAGCATGTCCTTGACCTGCCTGTGACCTTCTTTGTGTTCTACAGA	*	NM:i:0	AM:i:44
+ PML ENSE00003598656 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74024928	44	100=	*	0	0	GTGAGATGGGTTTGAGGTCTGAAGGGGTGGTGGTGGGGCCCAGCAGGTCAGGCAGGTTGTGAGTCCTGCTGTCCCTGTGTGTGCAGGGAGAGCGTCTGAG	*	NM:i:0	AM:i:44
+ PML ENSE00002603657 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74033057	44	100=	*	0	0	GGAGCAAAAGGGTGGCCACAAGTCCCTGGCAGTCAGGGCAGGCTCTGCCCACTCACCCCTGCAGGCACCTGACCTGGCTCTGTGACTCCCTCTATGCAGG	*	NM:i:0	AM:i:44
+ PML ENSE00002603657 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	74036394	44	100=	*	0	0	ACCCTTGCGAACCCTTATTCCACGACCATCGCGTTCTCCGATGGATCCAGCTCCTCCCTGCAGGCTGTTCTCTCTTCCCTATGCTGGAACTCAGTTCTCC	*	NM:i:0	AM:i:44
+ PML ENSE00002580865 upstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73997925	44	100=	*	0	0	CCAGCTGTAAGGGTGGTTGGCCGGTAGGTGGGGGCTTTTGGGACTTCTCCAGGCCTCACCTGCCTCTCTGGTCCCCCAGCGAGCCCCCGCTTCGGAGGAG	*	NM:i:0	AM:i:44
+ PML ENSE00002580865 downstream	0	NC_000015.10 Homo sapiens chromosome 15, GRCh38.p12 Primary Assembly	73998477	44	100=	*	0	0	GTGAGTAGGCCGGCACAGGGTGGGGTGGTGCATCCAAGTACCAGGTAGAGGGCGAGAGGAGCAAAGATCCAAAGAGTCACACAGCTGAGGACAAGGAGCT	*	NM:i:0	AM:i:44

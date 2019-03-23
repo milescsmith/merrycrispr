@@ -1,0 +1,6 @@
+.sonarlint
+.vscode
+.idea
+.DS_Store
+**/.git
+**/ref
