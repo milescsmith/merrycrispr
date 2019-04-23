@@ -289,12 +289,6 @@ def score_entry(scoring_entry: dict,
         return scoring_entry
 
 
-
-
-
-
-
-
 def assemble_guide_list(gene_name: str,
                         spacer_list: list,
                         paired: bool,
