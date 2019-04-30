@@ -100,8 +100,6 @@ def build_library(input_sequences: str=None,
                                  number_downstream_spacers=number_downstream_spacers,
                                  return_limit=return_limit)
 
-
-
             toplist.append(guides['toplist'])
             not_found_list.append(guides['not_found'])
 
@@ -268,7 +266,7 @@ def assemble_guide_list(gene_name: str,
                         paired: bool=False,
                         number_upstream_spacers: int=3,
                         number_downstream_spacers: int=3,
-                        return_limit: str = 9) -> dict:
+                        return_limit: int=9) -> pd.DataFrame:
 
     # constants for use when making paired guides
     bsmbi_arm_5 = 'aaaAgcaCGAGACG'
@@ -277,7 +275,7 @@ def assemble_guide_list(gene_name: str,
     left_extra_spacer = 'GATAGTTGCC'
     bsmbi_arm_3 = 'CGTCTCGTTTTaaaa'
 
-    all_spacers_for_gene = spacer_df[spacer_df['gene_name']== gene_name]
+    all_spacers_for_gene = spacer_df[spacer_df['gene_name'] == gene_name]
     toplist = []
     not_found_list =[]
 
