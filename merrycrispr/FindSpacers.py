@@ -1,5 +1,7 @@
 # TODO: add ability to limit guides to the template strand
-# TODO: add ability to cut with Cas13a, including limiting guides to those that would bind mRNA and exonic only regions, maybe even exon-exon boundaries
+# TODO: add ability to cut with Cas13a, including limiting guides to those that would bind
+# mRNA and exonic only regions, maybe even exon-exon boundaries
+from merrycrispr.OffTargetScoring import off_target_scoring, off_target_discovery
 
 __author__ = 'milescsmith'
 __email__ = 'mileschristiansmith@gmail.com'
@@ -11,6 +13,7 @@ import pandas as pd
 import numpy as np
 from Bio import SeqIO
 from multiprocessing import cpu_count, Manager, Pool
+from typing import Union
 
 import progressbar
 from Bio.Alphabet import IUPAC, single_letter_alphabet
@@ -29,109 +32,80 @@ from on_target_score_calculator import calc_score
 
 
 def main():
-
+    pass
 
 def build_library(input_sequences: str=None,
                   outfile: str=None,
                   refgenome: str=None,
                   restriction_sites: list=None,
                   largeindex: bool=False,
-                  cutoff: int=0,
-                  offtargetcutoff: int=0,
+                  ontarget_score_threshold: int=0,
+                  offtarget_score_threshold: Union[int, NoneType]=None,
+                  offtarget_count_threshold: Union[int, NoneType]=None,
                   nuclease: str='Cas9',
                   return_limit: str=9,
                   reject: bool=False,
                   paired: bool=False,
-                  rules: int=2,
+                  rules: str="Azimuth",
                   numcores: int=0,
                   number_upstream_spacers: int=0,
                   number_downstream_spacers: int=0):
 
     targets = pyfaidx.Fasta(input_sequences)
-    nucleases = pd.read_csv('data/nuclease_list.csv')
+    nucleases = pd.read_csv('data/nuclease_list.csv',
+                            dtype={'nuclease': str,
+                                   'pam': str,
+                                   'spacer_regex': str,
+                                   'start': np.int8,
+                                   'end': np.int8},
+                            skip_blank_lines=True)
     ni = nucleases[nucleases['nuclease'] == nuclease]
 
-    # Setup the regular expression for the pam site and spacer
-    # if nuclease == 'Cas9':
-    #     # Matches a 20N-NGG target sequence plus the -4->-3 and +1->+3 nucleotides needed for scoring
-    #     pam = r'(?i)[ACGT]{25}[G]{2}[ACGT]{3}'
-    # elif nuclease == 'Cpf1':
-    #     # Matches a 30N-NGG-NNN target
-    #     pam = r'(?i)[T]{2,}[A-Z]{25}'
-    # elif (nuclease is 'Cas13a') or (nuclease is 'Csc2'):
-    #     pam = r'[ATGC]{21}[ATC]{3}' # Setting this at 21 for the moment as the Abudayyeh et al. Science 550 (2018) paper
-    #                                 # showed efficient cutting down to 20 nt.
-    #                                 # TODO: add option to make this longer?
-
-    ###--- Find potential guides block      ---###
-
-    spacerlist = find_guides(itemlist=targets,
+    spacers_df = find_guides(itemlist=targets,
                              nuclease_info=ni,
                              restriction_sites=restriction_sites)
 
-    ###--- End potential guide search block ---###
-    ###--- On-target scoring block          ---###
+    initialnumber = spacers_df.shape[0]
 
-    spacerlist = on_target_scoring(ruleset=rules, spacers=spacerlist, cutoff=cutoff)
+    spacers_df = on_target_scoring(ruleset=rules,
+                                   spacers=spacers_df,
+                                   ontarget_score_threshold=ontarget_score_threshold)
 
-    ###--- End scoring block ---###
-
-    if len(spacerlist) == 0:
+    if spacers_df.shape[0] == 0:
         print("Sorry, no spacers matching that criteria were found")
         return 0
     else:
-        print(f"Finished scoring spacers. {len(spacerlist)} of {initialnumber} spacers have an on-target score above the cutoff threshold of {cutoff}.\nBeginning Bowtie alignment...")
+        print(f"Finished scoring spacers. {spacers_df.shape[0]} of {initialnumber} "
+              f"spacers have an on-target score above the cutoff threshold of {ontarget_score_threshold}."
+              f"\nBeginning Bowtie alignment...")
 
-    ###--- Off-target discovery ---###
-
-    offtarget_results_file = off_target_discovery(spacerlist=spacerlist,
+    offtarget_results_file = off_target_discovery(spacers_df=spacers_df,
                                                   cpus = numcores,
                                                   refgenome=refgenome,
                                                   large_index_size=largeindex,
                                                   reject=reject)
 
-    ###--- End off-target discovery ---###
-    ###--- Off-target scoring       ---###
+    spacers_df = off_target_scoring(otrf=offtarget_results_file,
+                                    spacers_df=spacers_df,
+                                    nuclease_info=ni,
+                                    offtarget_score_threshold=offtarget_score_threshold,
+                                    offtarget_count_threshold=offtarget_count_threshold)
 
-    prunedlist = off_target_scoring(otrf=offtarget_results_file,
-                                    nuclease=nuclease,
-                                    offtargetcutoff=offtargetcutoff,
-                                    spacerlist=spacerlist,
-                                    reject=reject)
-
-    ###--- End off-target scoring   ---###
     ###--- Library assembly         ---###
-    try:
-        not_found_list = []
-        if len(prunedlist[0]['description'].split('|')) == 4:  # need to make sure the header format is correct
-            formatted_spacers = [FormattedResult(entry) for entry in prunedlist]
-            # Create a set of all the GeneIDs in our list
-            geneset = {y.GeneName for y in formatted_spacers}
-            toplist = []
 
-            for z in geneset:
-                guides = assemble_guide_list(gene_name=z,
-                                             spacer_list=formatted_spacers,
-                                             paired=paired,
-                                             number_upstream_spacers=number_upstream_spacers,
-                                             number_downstream_spacers=number_downstream_spacers,
-                                             return_limit=return_limit)
+    guides = assemble_guide_list(gene_name=z,
+                                 spacer_list=formatted_spacers,
+                                 paired=paired,
+                                 number_upstream_spacers=number_upstream_spacers,
+                                 number_downstream_spacers=number_downstream_spacers,
+                                 return_limit=return_limit)
+
+
 
             toplist.append(guides['toplist'])
             not_found_list.append(guides['not_found'])
 
 
-            # print('toplist is {} long'.format(len(toplist)))
-            olist = [[entry.GeneID, entry.GeneName, entry.seq, entry.GC, entry.position,
-                      entry.score, entry.offtargetscore] for entry in toplist]
-            headerlist = ['GeneID', 'GeneName', 'seq', '%GC', 'position', 'score', 'off-target score']
-            print("There were {} spacers that matched your parameters.".format(len(olist)))
-        else:  # if the header format it isn't in the correct format (though I don't know how that would happen),
-            # just dump all the spacers we found into a file
-            finallist = spacerlist
-            olist = [[entry.id.split(' ')[0], entry.seq, GC(entry.seq), entry.position.split(' ')[1],
-                      entry.score.split(' ')[2]] for entry in finallist]
-            headerlist = ['ID', 'seq', '%GC', 'position', 'score']
             print("There were {} spacers that matched your parameters.".format(len(olist)))
 
         print("Writing file.")
@@ -191,7 +165,7 @@ def find_guides(itemlist: pyfaidx.Fasta,
 
     # For each entry in the file (i.e. exonic sequence), find all of the potential protospacer sequences.
     # Return a list
-    spacer_df = pd.DataFrame(columns=['gene_name','feature_id','start','stop','strand','spacer'])
+    spacers_df = pd.DataFrame(columns=['gene_name','feature_id','start','stop','strand','spacer'])
     for item in itemlist.keys():
         # have to use the alternative Regex module instead of Re so that findall can detect overlapping
         # sequences
@@ -242,7 +216,7 @@ def find_guides(itemlist: pyfaidx.Fasta,
 
 def on_target_scoring(ruleset: str,
                       spacers: pd.DataFrame,
-                      cutoff: float) -> pd.DataFrame:
+                      ontarget_score_threshold: float) -> pd.DataFrame:
 
     if ruleset == 1:
         spacerlist = spacers['spacer'].tolist()
@@ -251,7 +225,7 @@ def on_target_scoring(ruleset: str,
         sublist = []
         queue = Manager().Queue()
         pool = Pool()
-        func = partial(score_entry, method=calc_score, place=queue, cutoff=cutoff)
+        func = partial(score_entry, method=calc_score, place=queue, cutoff=ontarget_score_threshold)
         mapObj = pool.map_async(func, spacerlist, callback=sublist.append)
         scoring_widgets = ['Scoring sequence: ', progressbar.Counter(), ' ', progressbar.Percentage(), ' ',
                            progressbar.Bar(), progressbar.Timer()]
@@ -272,7 +246,7 @@ def on_target_scoring(ruleset: str,
         scoring_progress.finish()
     elif ruleset == "Azimuth":
         spacers['score'] = model_comparison.predict(spacers['spacer'].values)
-    spacers = spacers[spacer_df['score'] > cutoff]
+    spacers = spacers[spacers_df['score'] >  ontarget_score_threshold]
     return spacers
 
 
@@ -290,10 +264,10 @@ def score_entry(scoring_entry: dict,
 
 
 def assemble_guide_list(gene_name: str,
-                        spacer_list: list,
-                        paired: bool,
-                        number_upstream_spacers: int = 3,
-                        number_downstream_spacers: int = 3,
+                        spacer_df: pd.DataFrame,
+                        paired: bool=False,
+                        number_upstream_spacers: int=3,
+                        number_downstream_spacers: int=3,
                         return_limit: str = 9) -> dict:
 
     # constants for use when making paired guides
@@ -303,7 +277,7 @@ def assemble_guide_list(gene_name: str,
     left_extra_spacer = 'GATAGTTGCC'
     bsmbi_arm_3 = 'CGTCTCGTTTTaaaa'
 
-    all_spacers_for_gene = [_ for _ in spacer_list if _.GeneName == gene_name]
+    all_spacers_for_gene = spacer_df[spacer_df['gene_name']== gene_name]
     toplist = []
     not_found_list =[]
 
@@ -378,8 +352,3 @@ def assemble_guide_list(gene_name: str,
     guide_dict = {'toplist': toplist, 'not_found': not_found_list}
 
     return guide_dict
-
-
-def parse_item_info(item: str) -> dict:
-
-    item = dict(zip(['gene_name','feature_id','strand'_'start','end'], item.split("_")))

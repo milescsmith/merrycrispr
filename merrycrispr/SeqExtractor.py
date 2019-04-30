@@ -1,6 +1,8 @@
 import progressbar
 import pyfaidx
 from gtfparse import read_gtf
+import click
+from sys import argv, exit
 
 
 @click.command()
@@ -41,12 +43,12 @@ from gtfparse import read_gtf
 def main(gtf, fasta, output, feature_type, gene_name, bound, show_features, show_genes, show_geneids) -> None:
     """A utility for extracting sequences from a FASTA file for a given GFF annotation"""
 
-    if len(sys.argv) == 1:
+    if len(argv) == 1:
         click.help_option()
         # print(f"SeqExtractor: A utility for extracting sequences "
         #       f"from a FASTA file for a given annotation GFF file.\n"
         #       "For more information, run 'python SeqExtractor --help")
-        sys.exit(1)
+        exit(1)
 
     elif show_features:
         if gtf:
@@ -83,7 +85,7 @@ def extract(gtffile: str,
             feature_type: str,
             outfile: str,
             gene_name: str,
-            boundary: int) -> None:
+            boundary: int = 0) -> None:
 
     print("Parsing GTF/GFF file.")
     records = read_gtf(gtffile)
@@ -120,7 +122,8 @@ def extract(gtffile: str,
                 # for a normal, say, exonic sequence
                 if boundary == 0:
                     try:
-                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{getattr(rec, f'{feature_type}_id')}_{rec.strand}_{rec.start}_{rec.end}",
+                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{getattr(rec, f'{feature_type}_id')}"
+                                                    f"_{rec.strand}_{rec.start}_{rec.end}",
                                                seq=sequences[rec.seqname][rec.start:rec.end].seq)
                         final_list.append(seq)
                     except ValueError:
@@ -128,11 +131,13 @@ def extract(gtffile: str,
                 # for excising sequences
                 else:
                     try:
-                        upstream = pyfaidx.Sequence(name=f"{rec.gene_name} {getattr(rec, f'{feature_type}_id')} upstream",
+                        upstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
+                                                         f"{getattr(rec, f'{feature_type}_id')} upstream",
                                                     seq=sequences[rec.seqname][(rec.start - boundary):rec.start].seq)
                         final_list.append(upstream)
-                        downstream = pyfaidx.Sequence(name=f"{rec.gene_name} {getattr(rec,f'{feature_type}_id')} downstream",
-                                                      seq=sequences[rec.seqname][(rec.end):rec.end + boundary].seq)
+                        downstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
+                                                           f"{getattr(rec,f'{feature_type}_id')} downstream",
+                                                      seq=sequences[rec.seqname][rec.end:(rec.end + boundary)].seq)
                         final_list.append(downstream)
                     except ValueError:
                         print(f"problem with {rec.gene_name} {rec.start} {rec.end} {rec.seqname} {rec.strand}")
@@ -140,7 +145,8 @@ def extract(gtffile: str,
                 # for a normal, say, exonic sequence
                 if boundary == 0:
                     try:
-                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{getattr(rec, f'{feature_type}_id')}_{rec.strand}_{rec.start}_{rec.end}",
+                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{getattr(rec, f'{feature_type}_id')}_"
+                                                    f"{rec.strand}_{rec.start}_{rec.end}",
                                                seq=sequences[rec.seqname][rec.start:rec.end].reverse.complement.seq)
                         final_list.append(seq)
                     except ValueError:
@@ -148,17 +154,20 @@ def extract(gtffile: str,
                 # for excising sequences
                 else:
                     try:
-                        downstream = pyfaidx.Sequence(name=f"{rec.gene_name} {getattr(rec, f'{feature_type}_id')} downstream",
-                                                      seq=sequences[rec.seqname][(rec.start - boundary):rec.start].reverse.complement.seq)
+                        downstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
+                                                           f"{getattr(rec, f'{feature_type}_id')} downstream",
+                                                      seq=sequences[rec.seqname][(rec.start - boundary):
+                                                                                 rec.start].reverse.complement.seq)
                         final_list.append(downstream)
-                        upstream = pyfaidx.Sequence(name=f"{rec.gene_name} {getattr(rec, f'{feature_type}_id')} upstream",
-                                                    seq=sequences[rec.seqname][(rec.end):rec.end + boundary].reverse.complement.seq)
+                        upstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
+                                                         f"{getattr(rec, f'{feature_type}_id')} upstream",
+                                                    seq=sequences[rec.seqname][rec.end:
+                                                                               (rec.end + boundary)].reverse.complement.seq)
                         final_list.append(upstream)
                     except ValueError:
                         print(f"problem with {rec.gene_name} {rec.start} {rec.end} {rec.seqname} {rec.strand}")
 
     seq_progress.finish()
-
 
     with open(outfile, 'w') as o_file:
         for entry in final_list:

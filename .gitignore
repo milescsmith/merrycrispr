@@ -2,5 +2,6 @@
 .vscode
 .idea
 .DS_Store
+*.fasta
 **/.git
 **/ref
