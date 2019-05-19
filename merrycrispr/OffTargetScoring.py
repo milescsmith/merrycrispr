@@ -1,12 +1,12 @@
-import pandas as pd
-import numpy as np
-from regex import compile
 from distutils.spawn import find_executable
-from subprocess import check_call
 from multiprocessing import cpu_count
-from typing import Union
+from subprocess import check_call
 from sys import stderr, exit
+from typing import Union
 
+import numpy as np
+import pandas as pd
+from regex import compile
 from serializable.primitive_types import NoneType
 
 
