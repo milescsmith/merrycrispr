@@ -1,11 +1,17 @@
+from sys import argv, exit
+
+import click
 import progressbar
 import pyfaidx
 from gtfparse import read_gtf
-import click
-from sys import argv, exit
 
 
 @click.command()
+@click.option("--library_type", "-l",
+              help="target library type.  Accepted values are 'knockout', 'repressor/activator', 'excision', or 'Cas13'",
+              default=None,
+              required=False,
+              type=str)
 @click.option("--gtf", "-g",
               help="input GTF/GFF file",
               default=None,
@@ -40,7 +46,7 @@ from sys import argv, exit
               default=False,
               is_flag=True)
 @click.help_option()
-def main(gtf, fasta, output, feature_type, gene_name, bound, show_features, show_genes, show_geneids) -> None:
+def main(gtf, library_type, fasta, output, feature_type, gene_name, bound, show_features, show_genes, show_geneids) -> None:
     """A utility for extracting sequences from a FASTA file for a given GFF annotation"""
 
     if len(argv) == 1:
@@ -49,6 +55,27 @@ def main(gtf, fasta, output, feature_type, gene_name, bound, show_features, show
         #       f"from a FASTA file for a given annotation GFF file.\n"
         #       "For more information, run 'python SeqExtractor --help")
         exit(1)
+
+    elif library_type:
+        if library_type is "knockout":
+            feature_type = "exon"
+            extract(gtffile=gtf,
+                    fastafile=fasta,
+                    feature_type=feature_type,
+                    outfile=output,
+                    gene_name=gene_name.split())
+        elif library_type is "repressor/activator":
+            feature_type = "exon"
+            if bound is None:
+                bound = 100
+            extract_for_tss_adjacent(gtffile=gtf,
+                    fastafile=fasta,
+                    feature_type=feature_type,
+                    outfile=output,
+                    gene_name=gene_name.split(),
+                    boundary=bound)
+        elif library_type is "excision":
+        elif library_type is "Cas13":
 
     elif show_features:
         if gtf:
@@ -85,7 +112,8 @@ def extract(gtffile: str,
             feature_type: str,
             outfile: str,
             gene_name: str,
-            boundary: int = 0) -> None:
+            boundary: int = 0,
+            **kwargs) -> None:
 
     print("Parsing GTF/GFF file.")
     records = read_gtf(gtffile)
@@ -97,9 +125,12 @@ def extract(gtffile: str,
     else:
         records = records[['seqname', 'feature', 'start', 'end', 'strand', 'frame', 'gene_name']].drop_duplicates()
 
+    if kwargs['exon_number']:
+        records = records[records['exon_number'] == kwargs['exon_number']]
+
     print(f"{len(records)} total records found.")
 
-    print(f"Loading the sequences in {fastafile}.  "
+    print(f"Loading the sequences in {fastafile}."
           f"Note: if this is the first time opening this file, "
           "it may take a few moments as an index is built.")
     sequences = pyfaidx.Fasta(fastafile)
@@ -206,6 +237,79 @@ def display_gtf_geneids(gtffile: str,
 
     print(f"{len(gene_set)} genes found.  These include:")
     [print(_) for _ in gene_set]
+
+
+def extract_for_tss_adjacent(gtffile: str,
+            fastafile: str,
+            outfile: str,
+            gene_name: str,
+            boundary: int = 100,
+            **kwargs) -> None:
+
+    # read and parse in GTF
+    print("Parsing GTF/GFF file.")
+    records = read_gtf(gtffile)
+    if gene_name:
+        records = records[records['gene_name'].isin(gene_name)]
+
+    # break up the genome into forward and reverse strands
+    # for forward strand genes, we want the lowest coordinate for exon 1 of each gene
+    # fore reverse strand genes, we want the highest
+    forward_starts = records[records['strand'] == "+"]. \
+        groupby('gene_name'). \
+        apply(lambda x: x[pd.to_numeric(x['exon_number']) == 1]). \
+        reset_index(drop=True). \
+        groupby('gene_name'). \
+        apply(lambda y: y.nsmallest(1, "start")). \
+        reset_index(drop=True)
+
+    reverse_starts = records[records['strand'] == "-"]. \
+        groupby('gene_name'). \
+        apply(lambda x: x[pd.to_numeric(x['exon_number']) == 1]). \
+        reset_index(drop=True). \
+        groupby('gene_name'). \
+        apply(lambda y: y.nlargest(1, "start")). \
+        reset_index(drop=True)
+
+    predicted_tss = pd.concat([forward_starts, reverse_starts])
+    predicted_tss = predicted_tss[
+        ['seqname', 'feature', 'start', 'end', 'strand', 'frame', 'gene_name']].drop_duplicates()
+
+
+    print(f"{len(predicted_tss)} total records found.")
+
+    print(f"Loading the sequences in {fastafile}."
+          f"Note: if this is the first time opening this file, "
+          "it may take a few moments as an index is built.")
+    sequences = pyfaidx.Fasta(fastafile)
+    print(f"Finished loading {fastafile}")
+
+    seq_count = 1
+    seq_widgets = ['Matching features to sequences: ', progressbar.Counter(),
+                   f'/{records.index}', progressbar.Percentage(),
+                   ' ', progressbar.Bar(), progressbar.Timer(), ' ', progressbar.ETA()]
+    seq_progress = progressbar.ProgressBar(widgets=seq_widgets,
+                                           maxval=len(records.index)).start()
+
+    # for our list of predicted start sites, extract +/- an interval surrounding the TSS
+    final_list = []
+    for rec in predicted_tss.itertuples():
+        seq_progress.update(seq_count)
+        seq_count += 1
+        if rec.start != rec.end:  # you'd be surprised
+            if boundary != 0:
+                try:
+                    seq = pyfaidx.Sequence(name=f"{rec.gene_name}_TSS"
+                    f"_{rec.strand}_{rec.start}_{rec.end}",
+                                           seq=sequences[rec.seqname][rec.start - boundary:rec.start + boundary].seq)
+                    final_list.append(seq)
+                except ValueError:
+                    print(f"problem with {rec.gene_name} {rec.start} {rec.end} {rec.seqname} {rec.strand}")
+    seq_progress.finish()
+
+    with open(outfile, 'w') as o_file:
+        for entry in final_list:
+            o_file.writelines(f"> {entry.fancy_name}\n{entry.seq}\n")
 
 
 if __name__ == "__main__":
