@@ -24,7 +24,7 @@ def assemble_paired_library(spacers: pd.DataFrame,
     spacers = spacers[spacers['offtarget_score'] > off_target_threshold]
     grouped = spacers.groupby('gene_name').apply(lambda x: x.nlargest(spacers_per_feature, 'score')).reset_index(
         drop=True)
-    pass
+    return grouped
 
 def assemble_guide_list(gene_name: str,
                         spacer_df: pd.DataFrame,

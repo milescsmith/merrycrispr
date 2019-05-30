@@ -28,11 +28,19 @@ from regex import compile
 
 
 # from subprocess import check_output
+nucleases = pd.read_csv("data/nuclease_list.csv",
+                        dtype={"nuclease": str,
+                               "pam": str,
+                               "spacer_regex": str,
+                               "start": np.int8,
+                               "end": np.int8},
+                        skip_blank_lines=True)
 
+available_nucleases = lambda x: ", ".join(x)
 
 @click.command()
 @click.option("--input", "-i",
-              help="Input FASTA file containing sequences to target.",
+              help=f"Input FASTA file containing sequences to target.",
               default=None,
               required=True,
               type=str)
@@ -42,7 +50,7 @@ from regex import compile
               required=True,
               type=str)
 @click.option("--nuclease", "-n",
-              help="Cas nuclease to design for.  Current options include 'SpCas9', 'SaCas9', 'Cpf1', and 'Cas13'",
+              help=f"Cas nuclease to design for.  Current options include {available_nucleases(nucleases['nuclease'])}",
               default="SpCas9",
               required=False,
               type=str)
@@ -161,8 +169,8 @@ def build_library(input_sequences: str = None,
 
     if paired:
         guide_library = assemble_paired_library(spacers=spacers_df,
-                                                on_target_threshold=on_target_score_threshold,
-                                                off_target_threshold=off_target_score_threshold,
+                                                on_target_score_threshold=on_target_score_threshold,
+                                                off_target_score_threshold=off_target_score_threshold,
                                                 number_upstream_spacers=number_upstream_spacers,
                                                 number_downstream_spacers=number_downstream_spacers)
     else:
