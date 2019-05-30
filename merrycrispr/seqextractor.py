@@ -137,9 +137,15 @@ def extract(gtffile: str,
     print(f"Finished loading {fastafile}")
 
     seq_count = 1
-    seq_widgets = ['Matching features to sequences: ', progressbar.Counter(),
-                   f'/{records.index}', progressbar.Percentage(),
-                   ' ', progressbar.Bar(), progressbar.Timer(), ' ', progressbar.ETA()]
+    seq_widgets = ['Matching features to sequences: ',
+                   progressbar.Counter(),
+                   f'/{records.index}',
+                   progressbar.Percentage(),
+                   ' ',
+                   progressbar.Bar(),
+                   progressbar.Timer(),
+                   ' ',
+                   progressbar.ETA()]
     seq_progress = progressbar.ProgressBar(widgets=seq_widgets,
                                            maxval=len(records.index)).start()
 
@@ -154,7 +160,7 @@ def extract(gtffile: str,
                 if boundary == 0:
                     try:
                         seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{getattr(rec, f'{feature_type}_id')}"
-                                                    f"_{rec.strand}_{rec.start}_{rec.end}",
+                                                    f"_{rec.strand}_{rec.start}_{rec.end}_",
                                                seq=sequences[rec.seqname][rec.start:rec.end].seq)
                         final_list.append(seq)
                     except ValueError:
@@ -163,11 +169,11 @@ def extract(gtffile: str,
                 else:
                     try:
                         upstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                         f"{getattr(rec, f'{feature_type}_id')} upstream",
+                                                         f"{getattr(rec, f'{feature_type}_id')}_upstream",
                                                     seq=sequences[rec.seqname][(rec.start - boundary):rec.start].seq)
                         final_list.append(upstream)
                         downstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                           f"{getattr(rec,f'{feature_type}_id')} downstream",
+                                                           f"{getattr(rec,f'{feature_type}_id')}_downstream",
                                                       seq=sequences[rec.seqname][rec.end:(rec.end + boundary)].seq)
                         final_list.append(downstream)
                     except ValueError:
@@ -177,7 +183,7 @@ def extract(gtffile: str,
                 if boundary == 0:
                     try:
                         seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{getattr(rec, f'{feature_type}_id')}_"
-                                                    f"{rec.strand}_{rec.start}_{rec.end}",
+                                                    f"{rec.strand}_{rec.start}_{rec.end}_",
                                                seq=sequences[rec.seqname][rec.start:rec.end].reverse.complement.seq)
                         final_list.append(seq)
                     except ValueError:
@@ -186,12 +192,12 @@ def extract(gtffile: str,
                 else:
                     try:
                         downstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                           f"{getattr(rec, f'{feature_type}_id')} downstream",
+                                                           f"{getattr(rec, f'{feature_type}_id')}_downstream",
                                                       seq=sequences[rec.seqname][(rec.start - boundary):
                                                                                  rec.start].reverse.complement.seq)
                         final_list.append(downstream)
                         upstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                         f"{getattr(rec, f'{feature_type}_id')} upstream",
+                                                         f"{getattr(rec, f'{feature_type}_id')}_upstream",
                                                     seq=sequences[rec.seqname][rec.end:
                                                                                (rec.end + boundary)].reverse.complement.seq)
                         final_list.append(upstream)
@@ -275,7 +281,6 @@ def extract_for_tss_adjacent(gtffile: str,
     predicted_tss = predicted_tss[
         ['seqname', 'feature', 'start', 'end', 'strand', 'frame', 'gene_name']].drop_duplicates()
 
-
     print(f"{len(predicted_tss)} total records found.")
 
     print(f"Loading the sequences in {fastafile}."
@@ -285,9 +290,15 @@ def extract_for_tss_adjacent(gtffile: str,
     print(f"Finished loading {fastafile}")
 
     seq_count = 1
-    seq_widgets = ['Matching features to sequences: ', progressbar.Counter(),
-                   f'/{records.index}', progressbar.Percentage(),
-                   ' ', progressbar.Bar(), progressbar.Timer(), ' ', progressbar.ETA()]
+    seq_widgets = ['Matching features to sequences: ',
+                   progressbar.Counter(),
+                   f'/{records.index}',
+                   progressbar.Percentage(),
+                   ' ',
+                   progressbar.Bar(),
+                   progressbar.Timer(),
+                   ' ',
+                   progressbar.ETA()]
     seq_progress = progressbar.ProgressBar(widgets=seq_widgets,
                                            maxval=len(records.index)).start()
 

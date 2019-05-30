@@ -69,10 +69,10 @@ def sumofftargets(offtargets: list,
 
 
 def off_target_discovery(spacers_df: pd.DataFrame,
-                         cpus: int = 0,
-                         refgenome: str = "",
-                         large_index_size: bool = False,
-                         reject: Union[bool, int] = False) -> str:
+                         cpus: int=0,
+                         refgenome: str="",
+                         large_index_size: bool=False,
+                         reject: Union[bool, int]=False) -> str:
 
     spacers_df = spacers_df[spacers_df["spacer"].isin(spacers_df["spacer"].unique())]
     spacers_df['hash'] = spacers_df.apply(lambda x: hash(tuple(x)), axis=1)
