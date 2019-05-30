@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from distutils.spawn import find_executable
 from multiprocessing import cpu_count
 from subprocess import check_call
@@ -110,16 +112,16 @@ def off_target_discovery(spacers_df: pd.DataFrame,
 def off_target_scoring(otrf: str,
                        spacers_df: pd.DataFrame,
                        nuclease_info: pd.Series,
-                       offtarget_score_threshold: int,
-                       offtarget_count_threshold: Union[int, NoneType]) -> object:
+                       off_target_score_threshold: int,
+                       off_target_count_threshold: Union[int, NoneType]) -> object:
     """
 
-    :param offtarget_score_threshold:
+    :param off_target_score_threshold:
     :param otrf: path to the results from Bowtie
     :param spacers_df: Pandas dataframe containing spacers.  Format should be
         {'gene_name','feature_id','start','stop','strand','spacer'}
     :param nuclease_info: Pandas series with nuclease characteristics from nuclease_list.csv
-    :param offtarget_count_threshold: Integer value of the number of potential mismatches that should be tolerated.
+    :param off_target_count_threshold: Integer value of the number of potential mismatches that should be tolerated.
     :return: A Pandas dataframe matching the one passed to spacers_df containing off-target scores
     """
 
@@ -150,7 +152,7 @@ def off_target_scoring(otrf: str,
 
         # if the number of mismatches is above a threshold, remove the spacer
         # if there are more than one perfect matches
-        if offtarget_count_threshold & matching_locations.shape[0] > offtarget_count_threshold or \
+        if off_target_count_threshold & matching_locations.shape[0] > off_target_count_threshold or \
                 len(matching_locations[matching_locations["mismatches"] == 0].index) > 1:
             score = 0
         # if there is only one entry - no offtargets, assign a score of 0
@@ -169,5 +171,5 @@ def off_target_scoring(otrf: str,
         spacers_df.loc[spacers_df["hash"] == i, "offtarget_score"] = score
         spacers_df.loc[spacers_df["hash"] == i, "number_matching"] = matching_locations.shape[0]
 
-    if offtarget_score_threshold
-    return spacer_df
+    spacers_df = spacers_df[spacers_df['offtarget_score'] > off_target_score_threshold]
+    return spacers_df

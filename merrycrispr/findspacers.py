@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # TODO: add ability to limit guides to the template strand
 # TODO: add ability to cut with Cas13a, including limiting guides to those that would bind
 # mRNA and exonic only regions, maybe even exon-exon boundaries
@@ -19,11 +21,10 @@ from Bio.Restriction import RestrictionBatch
 from Bio.Seq import Seq
 from Bio.SeqUtils import GC
 from azimuth import model_comparison
-from regex import compile
-
+from libraryassembly import assemble_paired_library, assemble_library
+from offtargetscoring import off_target_discovery, off_target_scoring
 from on_target_score_calculator import calc_score
-from .libraryassembly import assemble_paired_library, assemble_library
-from .offtargetscoring import off_target_discovery, off_target_scoring
+from regex import compile
 
 
 # from subprocess import check_output
@@ -107,8 +108,8 @@ def build_library(input_sequences: str = None,
                   restriction_sites: list = None,
                   largeindex: bool = False,
                   on_target_score_threshold: int = 0,
-                  off_target_score_threshold: Union[int, NoneType] = None,
-                  off_target_count_threshold: Union[int, NoneType] = None,
+                  off_target_score_threshold: Union[int, None] = None,
+                  off_target_count_threshold: Union[int, None] = None,
                   nuclease: str = "SpCas9",
                   spacers_per_feature: int = 9,
                   reject: bool = False,
@@ -116,7 +117,7 @@ def build_library(input_sequences: str = None,
                   rules: str = "Azimuth",
                   number_upstream_spacers: int=0,
                   number_downstream_spacers: int=0,
-                  numcores: int=0):
+                  numcores: int=0) -> None:
 
     targets = pyfaidx.Fasta(input_sequences)
     nucleases = pd.read_csv("data/nuclease_list.csv",
@@ -293,11 +294,4 @@ def score_entry(scoring_entry: dict,
         return scoring_entry
 
 if __name__ == "__main__":
-    nucleases = pd.read_csv("data/nuclease_list.csv",
-                            dtype={"nuclease": str,
-                                   "pam": str,
-                                   "spacer_regex": str,
-                                   "start": np.int8,
-                                   "end": np.int8},
-                            skip_blank_lines=True)
     main()
