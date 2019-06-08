@@ -1,37 +1,39 @@
 #!/usr/bin/env python3
 import pandas as pd
+from operator import attrgetter
 
 
 def assemble_library(spacers: pd.DataFrame,
-                     on_target_threshold: int=100,
-                     off_target_threshold: int=100,
-                     spacers_per_feature: int=6) -> pd.DataFrame:
+                     on_target_score_threshold: int = 100,
+                     off_target_score_threshold: int = 100,
+                     spacers_per_feature: int = 6) -> pd.DataFrame:
 
-    spacers = spacers[spacers['score'] > on_target_threshold]
-    spacers = spacers[spacers['offtarget_score'] > off_target_threshold]
+    spacers = spacers[spacers['score'] > on_target_score_threshold]
+    spacers = spacers[spacers['offtarget_score'] > off_target_score_threshold]
     grouped = spacers.groupby('gene_name').apply(lambda x: x.nlargest(spacers_per_feature, 'score')).reset_index(drop=True)
 
     return grouped
 
 
 def assemble_paired_library(spacers: pd.DataFrame,
-                            on_target_threshold: int=100,
-                            off_target_threshold: int=100,
-                            number_upstream_spacers: int=6,
-                            number_downstream_spacers: int=6) -> pd.DataFrame:
+                            on_target_score_threshold: int = 100,
+                            off_target_score_threshold: int = 100,
+                            number_upstream_spacers: int = 6,
+                            number_downstream_spacers: int = 6) -> pd.DataFrame:
 
-    spacers = spacers[spacers['score'] > on_target_threshold]
-    spacers = spacers[spacers['offtarget_score'] > off_target_threshold]
+    spacers = spacers[spacers['score'] > on_target_score_threshold]
+    spacers = spacers[spacers['offtarget_score'] > off_target_score_threshold]
     grouped = spacers.groupby('gene_name').apply(lambda x: x.nlargest(spacers_per_feature, 'score')).reset_index(
         drop=True)
     return grouped
 
+
 def assemble_guide_list(gene_name: str,
                         spacer_df: pd.DataFrame,
                         paired: bool=False,
-                        number_upstream_spacers: int=3,
-                        number_downstream_spacers: int=3,
-                        return_limit: int=9) -> pd.DataFrame:
+                        number_upstream_spacers: int = 3,
+                        number_downstream_spacers: int = 3,
+                        return_limit: int = 9) -> pd.DataFrame:
 
     # constants for use when making paired guides
     bsmbi_arm_5 = "aaaAgcaCGAGACG"
@@ -46,6 +48,8 @@ def assemble_guide_list(gene_name: str,
 
     ###--- Paired guide assembly block ---###
 
+    # TODO: this needs to be rewritten still.
+    
     if paired:  # if we are making the paired list
         # divide list into the upstream list and the downstream list
         upstream_list = [b for b in all_spacers_for_gene if "upstream" in b.GeneName]

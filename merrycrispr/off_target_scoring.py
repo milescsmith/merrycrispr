@@ -146,7 +146,7 @@ def off_target_scoring(otrf: str,
     spacers_df['number_matching'] = np.repeat(0, spacers_df.shape[0])
 
     # for each spacer
-    for i in spacer_df["hash"].unique():
+    for i in spacers_df["hash"].unique():
         # get everything for that ["hash"]
         matching_locations = bowtie_results[bowtie_results["hash"] == i]
 

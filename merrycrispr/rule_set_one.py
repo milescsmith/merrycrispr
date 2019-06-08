@@ -7,7 +7,6 @@ Run as: python on_target_score_calculator.py <30mer>
 '''
 import math
 
-
 def calc_score(s):
     s_list = list(s)
     s_20mer = s[4:24]
@@ -47,3 +46,4 @@ def calc_score(s):
     partial_score = math.e**-score
     final_score = 1/(1+partial_score)
     return final_score
+

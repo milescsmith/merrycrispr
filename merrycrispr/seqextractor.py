@@ -16,7 +16,7 @@ from gtfparse import read_gtf
 @click.option("--gtf", "-g",
               help="input GTF/GFF file",
               default=None,
-              required=True,
+              required=False,
               type=str)
 @click.option("--fasta", "-f",
               help="FASTA sequence file",
@@ -50,22 +50,24 @@ from gtfparse import read_gtf
 def main(gtf, library_type, fasta, output, feature_type, gene_name, bound, show_features, show_genes, show_geneids) -> None:
     """A utility for extracting sequences from a FASTA file for a given GFF annotation"""
 
-    if len(argv) == 1:
-        click.help_option()
-        # print(f"SeqExtractor: A utility for extracting sequences "
-        #       f"from a FASTA file for a given annotation GFF file.\n"
-        #       "For more information, run 'python SeqExtractor --help")
-        exit(1)
+    # if len(argv) == 1:
+    #     click.help_option()
+    #     # print(f"SeqExtractor: A utility for extracting sequences "
+    #     #       f"from a FASTA file for a given annotation GFF file.\n"
+    #     #       "For more information, run 'python SeqExtractor --help")
+    #     exit(1)
 
-    elif library_type:
-        if library_type is "knockout":
+    if gene_name:
+        gene_name = gene_name.split()
+    if library_type:
+        if library_type == "knockout":
             feature_type = "exon"
             extract(gtffile=gtf,
                     fastafile=fasta,
                     feature_type=feature_type,
                     outfile=output,
-                    gene_name=gene_name.split())
-        elif library_type is "repressor/activator":
+                    gene_name=gene_name)
+        elif library_type == "repressor/activator":
             feature_type = "exon"
             if bound is None:
                 bound = 100
@@ -73,10 +75,23 @@ def main(gtf, library_type, fasta, output, feature_type, gene_name, bound, show_
                     fastafile=fasta,
                     feature_type=feature_type,
                     outfile=output,
-                    gene_name=gene_name.split(),
+                    gene_name=gene_name,
                     boundary=bound)
-        elif library_type is "excision":
-        elif library_type is "Cas13":
+        elif library_type == "excision":
+            if bound is None:
+                bound = 100
+            extract(gtffile=gtf,
+                    fastafile=fasta,
+                    feature_type=feature_type,
+                    outfile=output,
+                    gene_name=gene_name,
+                    boundary=bound)
+        elif library_type == "Cas13":
+            extract(gtffile=gtf,
+                    fastafile=fasta,
+                    feature_type="CDS",
+                    outfile=output,
+                    gene_name=gene_name)
 
     elif show_features:
         if gtf:
@@ -117,7 +132,8 @@ def extract(gtffile: str,
             **kwargs) -> None:
 
     print("Parsing GTF/GFF file.")
-    records = read_gtf(gtffile)
+    records = read_gtf(filepath_or_buffer=gtffile, 
+                       chunksize=8192 * 1024)
     if gene_name:
         records = records[records['gene_name'].isin(gene_name)]
     if feature_type:
@@ -126,7 +142,7 @@ def extract(gtffile: str,
     else:
         records = records[['seqname', 'feature', 'start', 'end', 'strand', 'frame', 'gene_name']].drop_duplicates()
 
-    if kwargs['exon_number']:
+    if "exon_number" in kwargs.keys():
         records = records[records['exon_number'] == kwargs['exon_number']]
 
     print(f"{len(records)} total records found.")
@@ -140,7 +156,7 @@ def extract(gtffile: str,
     seq_count = 1
     seq_widgets = ['Matching features to sequences: ',
                    progressbar.Counter(),
-                   f'/{records.index}',
+                   f'/{seq_count}',
                    progressbar.Percentage(),
                    ' ',
                    progressbar.Bar(),
@@ -151,7 +167,9 @@ def extract(gtffile: str,
                                            maxval=len(records.index)).start()
 
     final_list = []
+    print(type(records))
     for rec in records.itertuples():
+        print(type(rec))
         seq_progress.update(seq_count)
         seq_count += 1
 
@@ -160,7 +178,7 @@ def extract(gtffile: str,
                 # for a normal, say, exonic sequence
                 if boundary == 0:
                     try:
-                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{getattr(rec, f'{feature_type}_id')}"
+                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{rec.feature}_id"
                                                     f"_{rec.strand}_{rec.start}_{rec.end}_",
                                                seq=sequences[rec.seqname][rec.start:rec.end].seq)
                         final_list.append(seq)
@@ -170,11 +188,11 @@ def extract(gtffile: str,
                 else:
                     try:
                         upstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                         f"{getattr(rec, f'{feature_type}_id')}_upstream",
+                                                         f"{rec.feature}_id_upstream",
                                                     seq=sequences[rec.seqname][(rec.start - boundary):rec.start].seq)
                         final_list.append(upstream)
                         downstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                           f"{getattr(rec,f'{feature_type}_id')}_downstream",
+                                                           f"{rec.feature}_id_downstream",
                                                       seq=sequences[rec.seqname][rec.end:(rec.end + boundary)].seq)
                         final_list.append(downstream)
                     except ValueError:
@@ -183,7 +201,7 @@ def extract(gtffile: str,
                 # for a normal, say, exonic sequence
                 if boundary == 0:
                     try:
-                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{getattr(rec, f'{feature_type}_id')}_"
+                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{rec.feature}_id_"
                                                     f"{rec.strand}_{rec.start}_{rec.end}_",
                                                seq=sequences[rec.seqname][rec.start:rec.end].reverse.complement.seq)
                         final_list.append(seq)
@@ -193,12 +211,12 @@ def extract(gtffile: str,
                 else:
                     try:
                         downstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                           f"{getattr(rec, f'{feature_type}_id')}_downstream",
+                                                           f"{rec.feature}_id_downstream",
                                                       seq=sequences[rec.seqname][(rec.start - boundary):
                                                                                  rec.start].reverse.complement.seq)
                         final_list.append(downstream)
                         upstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                         f"{getattr(rec, f'{feature_type}_id')}_upstream",
+                                                         f"{rec.feature}_id_upstream",
                                                     seq=sequences[rec.seqname][rec.end:
                                                                                (rec.end + boundary)].reverse.complement.seq)
                         final_list.append(upstream)
@@ -322,6 +340,47 @@ def extract_for_tss_adjacent(gtffile: str,
     with open(outfile, 'w') as o_file:
         for entry in final_list:
             o_file.writelines(f"> {entry.fancy_name}\n{entry.seq}\n")
+
+
+def match_seq(rec: pd.Series, 
+              sequences: pyfaidx.Fasta) -> pyfaidx.Sequence:
+    try:
+        if rec.strand == "-":
+            rc = True
+        else:
+            rc = False
+        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{rec.feature}_"
+                                    f"{rec.strand}_{rec.start}_{rec.end}",
+                               seq=sequences.get_seq(name=rec.seqname, 
+                                                     start=rec.start, 
+                                                     end=rec.end, 
+                                                     rc=rc).seq)
+    except ValueError:
+        print(f"problem with {rec.gene_name} {rec.start} "
+              f"{rec.end} {rec.seqname} {rec.strand}")
+    return seq
+
+
+def split_record(rec: pd.Series, 
+                 padding: int,
+                 rev: bool=False) -> Tuple[pd.Series, pd.Series]:
+    rec1 = deepcopy(rec)
+    rec2 = deepcopy(rec)
+    if rev == False:
+        rec1.end = rec1.start
+        rec1.start -= padding
+        rec1.gene_name += "_upstream"
+        rec2.start = rec2.end
+        rec2.end += padding
+        rec2.gene_name += "_downstream"
+    elif rev == True:
+        rec1.end = rec1.start
+        rec1.start -= padding
+        rec1.gene_name += "_downstream"
+        rec2.start = rec2.end
+        rec2.end += padding
+        rec2.gene_name += "_upstream"
+    return rec1, rec2
 
 
 if __name__ == "__main__":
