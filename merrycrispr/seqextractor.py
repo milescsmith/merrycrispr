@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-from sys import argv, exit
 
 import click
-import progressbar
 import pyfaidx
+import pandas as pd
+
 from gtfparse import read_gtf
+from typing import List
+from copy import deepcopy
 
 
 @click.command()
@@ -35,7 +37,7 @@ from gtfparse import read_gtf
               type=str)
 @click.option("--bound", help="Retrieve a given number of bases on either side of the feature "
                               "instead of the sequence corresponding to a feature",
-              default=0,
+              default=None,
               type=int)
 @click.option("--show_features", help="Scan a GFF file to identify the features present",
               is_flag=True)
@@ -49,13 +51,6 @@ from gtfparse import read_gtf
 @click.help_option()
 def main(gtf, library_type, fasta, output, feature_type, gene_name, bound, show_features, show_genes, show_geneids) -> None:
     """A utility for extracting sequences from a FASTA file for a given GFF annotation"""
-
-    # if len(argv) == 1:
-    #     click.help_option()
-    #     # print(f"SeqExtractor: A utility for extracting sequences "
-    #     #       f"from a FASTA file for a given annotation GFF file.\n"
-    #     #       "For more information, run 'python SeqExtractor --help")
-    #     exit(1)
 
     if gene_name:
         gene_name = gene_name.split()
@@ -127,7 +122,7 @@ def extract(gtffile: str,
             fastafile: str,
             feature_type: str,
             outfile: str,
-            gene_name: str,
+            gene_name: List[str],
             boundary: int = 0,
             **kwargs) -> None:
 
@@ -153,77 +148,9 @@ def extract(gtffile: str,
     sequences = pyfaidx.Fasta(fastafile)
     print(f"Finished loading {fastafile}")
 
-    seq_count = 1
-    seq_widgets = ['Matching features to sequences: ',
-                   progressbar.Counter(),
-                   f'/{seq_count}',
-                   progressbar.Percentage(),
-                   ' ',
-                   progressbar.Bar(),
-                   progressbar.Timer(),
-                   ' ',
-                   progressbar.ETA()]
-    seq_progress = progressbar.ProgressBar(widgets=seq_widgets,
-                                           maxval=len(records.index)).start()
-
-    final_list = []
-    print(type(records))
-    for rec in records.itertuples():
-        print(type(rec))
-        seq_progress.update(seq_count)
-        seq_count += 1
-
-        if rec.start != rec.end: # you'd be surprised
-            if rec.strand == "+":
-                # for a normal, say, exonic sequence
-                if boundary == 0:
-                    try:
-                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{rec.feature}_id"
-                                                    f"_{rec.strand}_{rec.start}_{rec.end}_",
-                                               seq=sequences[rec.seqname][rec.start:rec.end].seq)
-                        final_list.append(seq)
-                    except ValueError:
-                        print(f"problem with {rec.gene_name} {rec.start} {rec.end} {rec.seqname} {rec.strand}")
-                # for excising sequences
-                else:
-                    try:
-                        upstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                         f"{rec.feature}_id_upstream",
-                                                    seq=sequences[rec.seqname][(rec.start - boundary):rec.start].seq)
-                        final_list.append(upstream)
-                        downstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                           f"{rec.feature}_id_downstream",
-                                                      seq=sequences[rec.seqname][rec.end:(rec.end + boundary)].seq)
-                        final_list.append(downstream)
-                    except ValueError:
-                        print(f"problem with {rec.gene_name} {rec.start} {rec.end} {rec.seqname} {rec.strand}")
-            if rec.strand == "-":
-                # for a normal, say, exonic sequence
-                if boundary == 0:
-                    try:
-                        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{rec.feature}_id_"
-                                                    f"{rec.strand}_{rec.start}_{rec.end}_",
-                                               seq=sequences[rec.seqname][rec.start:rec.end].reverse.complement.seq)
-                        final_list.append(seq)
-                    except ValueError:
-                        print(f"problem with {rec.gene_name} {rec.start} {rec.end} {rec.seqname} {rec.strand}")
-                # for excising sequences
-                else:
-                    try:
-                        downstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                           f"{rec.feature}_id_downstream",
-                                                      seq=sequences[rec.seqname][(rec.start - boundary):
-                                                                                 rec.start].reverse.complement.seq)
-                        final_list.append(downstream)
-                        upstream = pyfaidx.Sequence(name=f"{rec.gene_name} "
-                                                         f"{rec.feature}_id_upstream",
-                                                    seq=sequences[rec.seqname][rec.end:
-                                                                               (rec.end + boundary)].reverse.complement.seq)
-                        final_list.append(upstream)
-                    except ValueError:
-                        print(f"problem with {rec.gene_name} {rec.start} {rec.end} {rec.seqname} {rec.strand}")
-
-    seq_progress.finish()
+    if boundary > 0:
+        records = split_record(records, boundary)
+    final_list = [match_seq(_, sequences) for _ in records.itertuples()]
 
     with open(outfile, 'w') as o_file:
         for entry in final_list:
@@ -279,7 +206,7 @@ def extract_for_tss_adjacent(gtffile: str,
 
     # break up the genome into forward and reverse strands
     # for forward strand genes, we want the lowest coordinate for exon 1 of each gene
-    # fore reverse strand genes, we want the highest
+    # for reverse strand genes, we want the highest
     forward_starts = records[records['strand'] == "+"]. \
         groupby('gene_name'). \
         apply(lambda x: x[pd.to_numeric(x['exon_number']) == 1]). \
@@ -308,34 +235,15 @@ def extract_for_tss_adjacent(gtffile: str,
     sequences = pyfaidx.Fasta(fastafile)
     print(f"Finished loading {fastafile}")
 
-    seq_count = 1
-    seq_widgets = ['Matching features to sequences: ',
-                   progressbar.Counter(),
-                   f'/{records.index}',
-                   progressbar.Percentage(),
-                   ' ',
-                   progressbar.Bar(),
-                   progressbar.Timer(),
-                   ' ',
-                   progressbar.ETA()]
-    seq_progress = progressbar.ProgressBar(widgets=seq_widgets,
-                                           maxval=len(records.index)).start()
-
     # for our list of predicted start sites, extract +/- an interval surrounding the TSS
-    final_list = []
-    for rec in predicted_tss.itertuples():
-        seq_progress.update(seq_count)
-        seq_count += 1
-        if rec.start != rec.end:  # you'd be surprised
-            if boundary != 0:
-                try:
-                    seq = pyfaidx.Sequence(name=f"{rec.gene_name}_TSS"
-                    f"_{rec.strand}_{rec.start}_{rec.end}",
-                                           seq=sequences[rec.seqname][rec.start - boundary:rec.start + boundary].seq)
-                    final_list.append(seq)
-                except ValueError:
-                    print(f"problem with {rec.gene_name} {rec.start} {rec.end} {rec.seqname} {rec.strand}")
-    seq_progress.finish()
+    # what we want is: 
+    #  -boundary --- start --- +boundary
+    # easiest way to do this is to make our end coordinate the start coordinate plus the boundary
+    # value and make the new start the original start - boundary 
+    predicted_tss["gene_name"] += "_TSS"
+    predicted_tss['end'] = predicted_tss['start'] + boundary
+    predicted_tss['start'] = predicted_tss['start'] - boundary
+    final_list = [match_seq(_, sequences) for _ in predicted_tss.itertuples()]
 
     with open(outfile, 'w') as o_file:
         for entry in final_list:
@@ -345,42 +253,43 @@ def extract_for_tss_adjacent(gtffile: str,
 def match_seq(rec: pd.Series, 
               sequences: pyfaidx.Fasta) -> pyfaidx.Sequence:
     try:
-        if rec.strand == "-":
-            rc = True
+        if rec['strand'] == "-":
+            rev = True
         else:
-            rc = False
-        seq = pyfaidx.Sequence(name=f"{rec.gene_name}_{rec.feature}_"
-                                    f"{rec.strand}_{rec.start}_{rec.end}",
-                               seq=sequences.get_seq(name=rec.seqname, 
-                                                     start=rec.start, 
-                                                     end=rec.end, 
-                                                     rc=rc).seq)
+            rev = False
+        seq = pyfaidx.Sequence(name=f"{rec['gene_name']}_{rec['feature']}_"
+                                    f"{rec['strand']}_{rec['start']}_{rec['end']}",
+                               seq=sequences.get_seq(name=rec['seqname'],
+                                                     start=rec['start'],
+                                                     end=rec['end'],
+                                                     rc=rev).seq)
     except ValueError:
-        print(f"problem with {rec.gene_name} {rec.start} "
-              f"{rec.end} {rec.seqname} {rec.strand}")
+        print(f"problem with {rec['gene_name']} {rec['start']} "
+              f"{rec['end']} {rec['seqname']} {rec['strand']}")
     return seq
 
 
-def split_record(rec: pd.Series, 
+def split_record(rec: pd.DataFrame, 
                  padding: int,
-                 rev: bool=False) -> Tuple[pd.Series, pd.Series]:
+                 rev: bool=False) -> pd.DataFrame:
     rec1 = deepcopy(rec)
     rec2 = deepcopy(rec)
     if rev == False:
-        rec1.end = rec1.start
-        rec1.start -= padding
-        rec1.gene_name += "_upstream"
-        rec2.start = rec2.end
-        rec2.end += padding
-        rec2.gene_name += "_downstream"
+        rec1["end"] = rec1["start"]
+        rec1["start"] -= padding
+        rec1["gene_name"] += "_upstream"
+        rec2["start"] = rec2["end"]
+        rec2["end"] += padding
+        rec2["gene_name"] += "_downstream"
     elif rev == True:
-        rec1.end = rec1.start
-        rec1.start -= padding
-        rec1.gene_name += "_downstream"
-        rec2.start = rec2.end
-        rec2.end += padding
-        rec2.gene_name += "_upstream"
-    return rec1, rec2
+        rec1["end"] = rec1["start"]
+        rec1["start"] -= padding
+        rec1["gene_name"] += "_downstream"
+        rec2["start"] = rec2["end"]
+        rec2["end"] += padding
+        rec2["gene_name"] += "_upstream"
+    new_rec = pd.concat([rec1, rec2])
+    return new_rec
 
 
 if __name__ == "__main__":
