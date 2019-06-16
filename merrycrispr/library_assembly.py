@@ -3,7 +3,7 @@ from itertools import product
 
 import pandas as pd
 
-# the capitals below are to make it easier to visually discern the arm/extra spacer boundaries are.
+# the capitals below are to make it easier to visually discern the arm/extra spacer boundaries
 BSMBI_ARM_5 = "aaaagcacgagacG"
 RIGHT_EXTRA_SPACER = "ggttctatgc"
 DIRECT_REPEAT = "gttttagagctatgctgttttgaatggtcccaaaac"
