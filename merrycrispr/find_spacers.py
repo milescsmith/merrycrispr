@@ -58,7 +58,11 @@ def find_spacers(
             "seq_hash",
         ]
     )
-    for item in itemlist.keys():
+    for (
+        item
+    ) in (
+        itemlist.keys()
+    ):  # have to use `keys` here - remember it isn't a dict, it is a Fasta
         # have to use the alternative Regex module instead of Re so that findall
         # can detect overlapping sequences
         # Since Cas13/Csc2 recognizes mRNA, we need to keep strandedness in mind
