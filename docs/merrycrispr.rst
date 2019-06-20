@@ -1,0 +1,4 @@
+merrycrispr
+___________
+
+.. automodule:: merrycrispr

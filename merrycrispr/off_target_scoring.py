@@ -5,14 +5,14 @@ from multiprocessing import cpu_count
 from subprocess import check_call
 from sys import stderr, exit
 from tempfile import mkstemp
-from typing import Union, Optional
+from typing import Union, Optional, List, Dict, Any
 
 import numpy as np
 import pandas as pd
 from regex import compile
 
 
-def scoreCas9offtarget(mismatched_positions: list, start: int, end: int) -> float:
+def scoreCas9offtarget(mismatched_positions: List[int], start: int, end: int) -> float:
     """ Calculate the likelihood a Cas9 protospacer will cut at a particular off-target site
     Equation from http://crispr.mit.edu/about
 
@@ -23,6 +23,16 @@ def scoreCas9offtarget(mismatched_positions: list, start: int, end: int) -> floa
     Score is from 0 to 1, with higher scores indicating a higher likelihood the off-target will be cut.
     e.g. the score for mismatches at [15,16,17,18,19] is infinitesimally small, indicating that those
     mismatches are highly destablizing
+
+    Parameters
+    ----------
+    mismatched_positions : list
+    start : int
+    end : int
+
+    Return
+    ------
+    `float`
     """
     search_region = range(start, end + 1)
     mismatched_positions = [
@@ -78,14 +88,19 @@ def scoreCas9offtarget(mismatched_positions: list, start: int, end: int) -> floa
     return score
 
 
-def sumofftargets(offtargets: list, start: int, end: int) -> float:
-    """
-    Add all of the potential off-target scores together so that the higher the offtarget score, the
+def sumofftargets(offtargets: List[List[int]], start: int, end: int) -> float:
+    """Add all of the potential off-target scores together so that the higher the offtarget score, the
     more desirable the spacer
-    :param offtargets:
-    :param start:
-    :param end:
-    :return:
+
+    Parameters
+    ----------
+    offtargets : :class:`~typing.List[List[int]]`
+    start : int
+    end : int
+
+    Return
+    ------
+    float
     """
     sum_score = sum(scoreCas9offtarget(x, start, end) for x in offtargets)
     if sum_score == 0:
@@ -101,7 +116,21 @@ def off_target_discovery(
     large_index_size: bool = False,
     reject: Union[bool, int] = False,
 ) -> str:
+    """
 
+    Parameters
+    ----------
+    spacers_df : :class:`~pandas.DataFrame`
+    cpus : int
+    refgenome : str
+    large_index_size : bool
+    reject : Union[bool, int]
+
+    Return
+    str
+    ------
+    
+    """
     spacers_df = spacers_df[spacers_df["spacer"].isin(spacers_df["spacer"].unique())]
     if cpus is 0:
         cpus = cpu_count()
@@ -138,19 +167,27 @@ def off_target_discovery(
 def off_target_scoring(
     otrf: str,
     spacers_df: pd.DataFrame,
-    nuclease_info: dict,
+    nuclease_info: Dict[str, Any],
     off_target_score_threshold: int,
     off_target_count_threshold: Optional[int],
 ) -> object:
     """
 
-    :param off_target_score_threshold:
-    :param otrf: path to the results from Bowtie
-    :param spacers_df: Pandas dataframe containing spacers.  Format should be
-        {'gene_name','feature_id','start','stop','strand','spacer'}
-    :param nuclease_info: Pandas series with nuclease characteristics from nuclease_list.csv
-    :param off_target_count_threshold: Integer value of the number of potential mismatches that should be tolerated.
-    :return: A Pandas dataframe matching the one passed to spacers_df containing off-target scores
+    Parameters
+    ----------
+    otrf : str
+        Path to the results from Bowtie
+    spacers_df : :class:`~pandas.DataFrame`
+        Dataframe containing spacers.  Format should be `{'gene_name','feature_id','start','stop','strand','spacer'}`
+    nuclease_info : str
+        dictionary series with nuclease characteristics from nuclease_list.csv
+    off_target_score_threshold : int
+    off_target_count_threshold : int
+        Number of potential mismatches that should be tolerated.
+    
+    Return
+    ------
+    :class:`~pandas.DataFrame` matching the one passed to spacers_df containing off-target scores
     """
 
     mmpos_re = compile("[0-9]{1,}")

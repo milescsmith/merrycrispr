@@ -272,82 +272,6 @@ def extract(
         return final_list
 
 
-def display_gtf_features(gtffile: str) -> None:
-    """Display the features present in a GTF/GFF
-
-    Parameters
-    ----------
-    gtffile : `str`
-        GTF/GFF file that matches the input FASTA file.  Preferably one from Ensembl/GENCODE.
-        Gzipped GTF/GFF files are acceptable, though their use may impose a performance penality.
-
-    Returns
-    -------
-    `None`
-    """
-
-    gtf = read_gtf(gtffile)
-    feature_set = set(gtf["feature"])
-
-    print(f"{len(feature_set)} features found.  These include:")
-    for _ in feature_set:
-        print(_)
-
-
-def display_gtf_genes(gtffile: str, feature_type: Optional[List[str]] = None):
-    """Display the genes present in a GTF/GFF
-
-    Parameters
-    ----------
-    gtffile : `str`
-        GTF/GFF file that matches the input FASTA file.  Preferably one from Ensembl/GENCODE.
-        Gzipped GTF/GFF files are acceptable, though their use may impose a performance penality.
-    feature_type :
-
-    Returns
-    -------
-    `None`
-    """
-
-    gtf = read_gtf(gtffile)
-
-    if feature_type is not None:
-        gtf = gtf[gtf["feature"] == feature_type]
-
-    gene_set = set(gtf["gene_name"])
-
-    print(f"{len(gene_set)} genes found.  These include:")
-    for _ in gene_set:
-        print(_)
-
-
-def display_gtf_geneids(gtffile: str, feature_type: Optional[List[str]] = None):
-    """Display the geneids present in a GTF/GFF
-
-    Parameters
-    ----------
-    gtffile : `str`
-        GTF/GFF file that matches the input FASTA file.  Preferably one from Ensembl/GENCODE.
-        Gzipped GTF/GFF files are acceptable, though their use may impose a performance penality.
-    feature_type :
-
-    Returns
-    -------
-    `None`
-    """
-
-    gtf = read_gtf(gtffile)
-
-    if feature_type is not None:
-        gtf = gtf[gtf.feature == feature_type]
-
-    gene_set = set(gtf["gene_id"])
-
-    print(f"{len(gene_set)} genes found.  These include:")
-    for _ in gene_set:
-        print(_)
-
-
 def extract_for_tss_adjacent(
     gtffile: str, fastafile: str, outfile: str, gene_name: str, boundary: int = 100
 ) -> Optional[List[pyfaidx.Sequence]]:
@@ -526,6 +450,82 @@ def split_records(rec: pd.DataFrame, padding: int) -> pd.DataFrame:
     return pd.concat(
         [rec_pos_upstream, rec_pos_downstream, rec_neg_upstream, rec_neg_downstream]
     ).reset_index()
+
+
+def display_gtf_features(gtffile: str) -> None:
+    """Display the features present in a GTF/GFF
+
+    Parameters
+    ----------
+    gtffile : `str`
+        GTF/GFF file that matches the input FASTA file.  Preferably one from Ensembl/GENCODE.
+        Gzipped GTF/GFF files are acceptable, though their use may impose a performance penality.
+
+    Returns
+    -------
+    `None`
+    """
+
+    gtf = read_gtf(gtffile)
+    feature_set = set(gtf["feature"])
+
+    print(f"{len(feature_set)} features found.  These include:")
+    for _ in feature_set:
+        print(_)
+
+
+def display_gtf_genes(gtffile: str, feature_type: Optional[List[str]] = None):
+    """Display the genes present in a GTF/GFF
+
+    Parameters
+    ----------
+    gtffile : `str`
+        GTF/GFF file that matches the input FASTA file.  Preferably one from Ensembl/GENCODE.
+        Gzipped GTF/GFF files are acceptable, though their use may impose a performance penality.
+    feature_type :
+
+    Returns
+    -------
+    `None`
+    """
+
+    gtf = read_gtf(gtffile)
+
+    if feature_type is not None:
+        gtf = gtf[gtf["feature"] == feature_type]
+
+    gene_set = set(gtf["gene_name"])
+
+    print(f"{len(gene_set)} genes found.  These include:")
+    for _ in gene_set:
+        print(_)
+
+
+def display_gtf_geneids(gtffile: str, feature_type: Optional[List[str]] = None):
+    """Display the geneids present in a GTF/GFF
+
+    Parameters
+    ----------
+    gtffile : `str`
+        GTF/GFF file that matches the input FASTA file.  Preferably one from Ensembl/GENCODE.
+        Gzipped GTF/GFF files are acceptable, though their use may impose a performance penality.
+    feature_type :
+
+    Returns
+    -------
+    `None`
+    """
+
+    gtf = read_gtf(gtffile)
+
+    if feature_type is not None:
+        gtf = gtf[gtf.feature == feature_type]
+
+    gene_set = set(gtf["gene_id"])
+
+    print(f"{len(gene_set)} genes found.  These include:")
+    for _ in gene_set:
+        print(_)
 
 
 if __name__ == "__main__":

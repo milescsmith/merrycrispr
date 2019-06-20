@@ -1,13 +1,7 @@
 #!/usr/bin/env python3
 
-# TODO: add ability to limit guides to the template strand
-# TODO: add ability to cut with Cas13a, including limiting guides to those that would bind
-# mRNA and exonic only regions, maybe even exon-exon boundaries
-
-__author__ = "milescsmith"
-__email__ = "mileschristiansmith@gmail.com"
-
 from typing import Optional, List
+from os import path
 
 import click
 import numpy as np
@@ -19,8 +13,9 @@ from .library_assembly import assemble_paired_library, assemble_library
 from .off_target_scoring import off_target_discovery, off_target_scoring
 from .on_target_scoring import on_target_scoring
 
+mod_dir, *_ = path.split(__file__)
 NUCLEASES = pd.read_csv(
-    "data/nuclease_list.csv",
+    f"{mod_dir}/data/nuclease_list.csv",
     dtype={
         "nuclease": str,
         "pam": str,
@@ -153,7 +148,30 @@ def main(
     number_downstream_spacers: int = 0,
     numcores: int = 0,
 ) -> None:
+    """
 
+    Parameters
+    ----------
+    input_sequences :
+    outfile :
+    refgenome :
+    restriction_sites :
+    largeindex :
+    on_target_score_threshold :
+    off_target_score_threshold :
+    off_target_count_threshold :
+    nuclease :
+    spacers_per_feature :
+    reject :
+    paired :
+    rules :
+    number_upstream_spacers :
+    number_downstream_spacers :
+    numcores :
+    
+    Return
+    ------
+    """
     targets = pyfaidx.Fasta(input_sequences)
 
     global NUCLEASES
@@ -173,7 +191,7 @@ def main(
 
     if spacers_df.shape[0] == 0:
         print("Sorry, no spacers matching that criteria were found")
-        return 0
+        exit()
     else:
         print(
             f"Finished scoring spacers. {spacers_df.shape[0]} of {initialnumber} "

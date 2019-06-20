@@ -1,16 +1,29 @@
 from functools import partial
 from multiprocessing import Manager, Pool
+from typing import Dict
 
 import numpy as np
 import pandas as pd
 from azimuth import model_comparison
-from rule_set_one import calc_score
+from .rule_set_one import calc_score
 
 
 def on_target_scoring(
     ruleset: str, spacers: pd.DataFrame, on_target_score_threshold: float
 ) -> pd.DataFrame:
 
+    """
+
+    Parameters
+    ----------
+    ruleset : str
+    spacers : :class:`~pandas.DataFrame`
+    on_target_score_threshold : float
+
+    Return
+    ------
+    
+    """
     if ruleset == 1:
         spacerlist = spacers["spacer"].tolist()
         initialnumber = len(spacers)
@@ -41,7 +54,18 @@ def on_target_scoring(
     return spacers
 
 
-def score_entry(scoring_entry: dict, **kwargs) -> dict:
+def score_entry(scoring_entry: dict, **kwargs) -> Dict[str, float]:
+    """
+
+    Parameters
+    ----------
+    scoring_entry:
+    kwargs:
+    
+    Return
+    ------
+    :class:`typing.Dict[str, float]`
+    """
     calc_method = kwargs["method"]
     place = kwargs["place"]
     cutoff = float(kwargs["cutoff"])
