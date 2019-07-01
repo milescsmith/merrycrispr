@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from typing import Optional, List
 
 import pandas as pd
@@ -20,7 +22,7 @@ def find_spacers(
     a motif matching given restriction nuclease sequence.
 
     Parameters
-    __________
+    ----------
     itemlist : :class:`~pyfaidx.Fasta`
         Parsed FASTA with sequences to examine for spacers
     nuclease_info : dict
@@ -32,7 +34,7 @@ def find_spacers(
 
 
     Return
-    ______
+    ------
     :class:`~pandas.DataFrame`
 
     """

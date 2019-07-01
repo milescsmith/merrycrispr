@@ -24,7 +24,8 @@ setup(
       install_requires=[
         l.strip() for l in
         Path('requirements.txt').read_text('utf-8').splitlines()
-    ],
+    ].extend(['theanets @ git+https://github.com/lmjohns3/theanets',
+              'azimuth @ git+https://github.com/milescsmith/Azimuth']),
     classifiers=[
         "Development Status :: 3 - Production",
         'Environment :: Console',
@@ -41,12 +42,12 @@ setup(
     ),
     packages=find_packages(),
     include_package_data=True,
-
+    entry_points={
+        'console_scripts': [
+            'merrycrispr = merrycrispr.__main__:main'
+        ]
+    },
     keywords="CRISPR",
     package_dir={"merrycrispr": "merrycrispr"},
-    package_data={"merrycrispr": ["data/*.*"]},
-    dependency_links=[
-        "https://github.com/lmjohns3/theanets/tarball/master#egg=theanets-0.8.0rc0",
-        "https://github.com/milescsmith/Azimuth/tarball/master#egg=azimuth-3.0",
-    ],
+    package_data={"merrycrispr": ["data/*.*"]}
 )

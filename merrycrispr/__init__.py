@@ -1,9 +1,29 @@
-from .merrycrispr import main
-from .find_spacers import find_spacers
-from .on_target_scoring import on_target_scoring, score_entry
-from .off_target_scoring import scoreCas9offtarget, sumofftargets, off_target_discovery, off_target_scoring
-from .library_assembly import assemble_library, assemble_paired_library
-from .seqextractor import extract, extract_for_tss_adjacent, match_seq, split_records, display_gtf_features, display_gtf_genes, display_gtf_geneids
+from merrycrispr.__main__ import main
+from merrycrispr.find_spacers import find_spacers
+from merrycrispr.on_target_scoring import on_target_scoring, score_entry
+from merrycrispr.off_target_scoring import (
+    scoreCas9offtarget,
+    sumofftargets,
+    off_target_discovery,
+    off_target_scoring,
+)
+from merrycrispr.library_assembly import assemble_library, assemble_paired_library
+from merrycrispr.seqextractor import (
+    extract,
+    extract_for_tss_adjacent,
+    match_seq,
+    split_records,
+    display_gtf_features,
+    display_gtf_genes,
+    display_gtf_geneids,
+)
+from merrycrispr.rule_set_one import calc_score
+from merrycrispr._version import get_versions
+
+__author__ = ("Miles Smith",)
+__email__ = "mileschristiansmith@gmail.com"
+
+__version__ = get_versions()["version"]
 
 __doc__ = """\
 merrycrispr
@@ -91,9 +111,4 @@ Description
    assemble_paired_library
 """
 
-__author__ = 'Miles Smith',
-__email__ = "mileschristiansmith@gmail.com"
-
-from ._version import get_versions
-__version__ = get_versions()['version']
 del get_versions

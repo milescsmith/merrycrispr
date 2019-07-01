@@ -1,10 +1,11 @@
 # freezing in place
 # I don't want to mess with tracking down requirement-based bugs
 biopython==1.73
-scikit-learn==0.20.0 #for azimuth
 regex==2016.06.24
 pyfaidx==0.5.5.2
 click==7.0
 gtfparse==1.2.0
-pandas==0.24.0
-numpy==1.15.4
+pandas==0.24.2
+# numpy==1.15.4
+theanets @ git+https://github.com/lmjohns3/theanets
+azimuth @ git+https://github.com/milescsmith/Azimuth

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from functools import partial
 from multiprocessing import Manager, Pool
 from typing import Dict
@@ -22,7 +24,7 @@ def on_target_scoring(
 
     Return
     ------
-    
+
     """
     if ruleset == 1:
         spacerlist = spacers["spacer"].tolist()
@@ -61,7 +63,7 @@ def score_entry(scoring_entry: dict, **kwargs) -> Dict[str, float]:
     ----------
     scoring_entry:
     kwargs:
-    
+
     Return
     ------
     :class:`typing.Dict[str, float]`

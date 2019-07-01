@@ -3,7 +3,7 @@
 Calculates the on-target score for an sgRNA
 Input: 30mer
 Output: On-target score
-Run as: python on_target_score_calculator.py <30mer> 
+Run as: python on_target_score_calculator.py <30mer>
 """
 import math
 

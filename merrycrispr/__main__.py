@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from typing import Optional, List
-from os import path
 from pkg_resources import resource_filename
 
 import click
@@ -9,12 +8,17 @@ import numpy as np
 import pandas as pd
 import pyfaidx
 
-from .find_spacers import find_spacers
-from .library_assembly import assemble_paired_library, assemble_library
-from .off_target_scoring import off_target_discovery, off_target_scoring
-from .on_target_scoring import on_target_scoring
-from .seqextractor import extract, extract_for_tss_adjacent
-
+from merrycrispr.find_spacers import find_spacers
+from merrycrispr.library_assembly import assemble_paired_library, assemble_library
+from merrycrispr.off_target_scoring import off_target_discovery, off_target_scoring
+from merrycrispr.on_target_scoring import on_target_scoring
+from merrycrispr.seqextractor import (
+    extract,
+    extract_for_tss_adjacent,
+    display_gtf_features,
+    display_gtf_genes,
+    display_gtf_geneids,
+)
 
 @click.group()
 def main():
@@ -42,7 +46,7 @@ def main():
     "--bound",
     help="Retrieve a given number of bases on either side of the feature "
     "instead of the sequence corresponding to a feature",
-    default=None,
+    default=0,
     type=int,
 )
 @click.option(
@@ -114,7 +118,7 @@ def prep_sequences(
 
     """
 
-    if gene_name:
+    if isinstance(gene_name, str):
         gene_name = gene_name.split()
     if library_type:
         if library_type == "knockout":
@@ -191,8 +195,8 @@ def prep_sequences(
             fastafile=fasta,
             feature_type=feature_type,
             outfile=output,
-            gene_name=gene_name.split(),
-            boundary=int(bound),
+            gene_name=gene_name,
+            boundary=bound,
         )
 
 
@@ -289,19 +293,22 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
 )
 @click.option(
     "--number_upstream_spacers",
-    help="If designing paired spacers, number of spacers to design that target upstream of the feature.",
+    help=f"If designing paired spacers, number of spacers to design that target upstream of the "
+    f"feature.",
     default=3,
     type=int,
 )
 @click.option(
     "--number_downstream_spacers",
-    help="If designing paired spacers, number of spacers to design that target downstream of the feature.",
+    help=f"If designing paired spacers, number of spacers to "
+         f"design that target downstream of the feature.",
     default=3,
     type=int,
 )
 @click.option(
     "--min_paired_distance",
-    help="If designing paired spacers, minimum space required between the up- and downstream spacers.",
+    help="If designing paired spacers, minimum space required between the up- and downstream "
+         "spacers.",
     default=0,
     type=int,
 )
@@ -336,25 +343,26 @@ def create_library(
 
     Parameters
     ----------
-    input_sequences :
-    outfile :
-    refgenome :
-    restriction_sites :
-    largeindex :
-    on_target_score_threshold :
-    off_target_score_threshold :
-    off_target_count_threshold :
-    nuclease :
-    spacers_per_feature :
-    reject :
-    paired :
-    rules :
-    number_upstream_spacers :
-    number_downstream_spacers :
-    numcores :
-    
+    :param input_sequences :
+    :param outfile :
+    :param refgenome :
+    :param restriction_sites :
+    :param largeindex :
+    :param on_target_score_threshold :
+    :param off_target_score_threshold :
+    :param off_target_count_threshold :
+    :param nuclease :
+    :param spacers_per_feature :
+    :param reject :
+    :param paired :
+    :param rules :
+    :param number_upstream_spacers :
+    :param number_downstream_spacers :
+    :param numcores :
+
     Return
     ------
+    :type refgenome: object
     """
     targets = pyfaidx.Fasta(input_sequences)
 
@@ -379,7 +387,8 @@ def create_library(
     else:
         print(
             f"Finished scoring spacers. {spacers_df.shape[0]} of {initialnumber} "
-            f"spacers have an on-target score above the cutoff threshold of {on_target_score_threshold}."
+            f"spacers have an on-target score above the cutoff threshold of "
+            f"{on_target_score_threshold}."
             f"\nBeginning Bowtie alignment..."
         )
 

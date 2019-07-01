@@ -1,12 +1,5 @@
-.. MerryCRISPR documentation master file, created by
-   sphinx-quickstart on Sun Jun 16 21:13:17 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-MerryCRISPR
--------------
-
-A software package enabling the creation of custom CRISPR libraries.
+.. include:: ../README.rst
+   :end-line: 10
 
 .. include:: release_notes.rst
 
@@ -14,6 +7,6 @@ A software package enabling the creation of custom CRISPR libraries.
    :maxdepth: 1
    :hidden:
 
+   installation
+   usage
    merrycrispr
-..    installation
-..    quickstart
