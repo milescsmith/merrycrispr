@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>merrycrispr.find_spacers &mdash; MerryCRISPR 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="merrycrispr.on_target_scoring" href="merrycrispr.on_target_scoring.html" />
+    <link rel="prev" title="merrycrispr.split_records" href="merrycrispr.split_records.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MerryCRISPR
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="merrycrispr.html">merrycrispr</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#id1">merrycrispr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#seqextractor">seqextractor</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="merrycrispr.html#find-spacers">find_spacers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#on-target-scoring">on_target_scoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#off-target-scoring">off_target_scoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#library-assembly">library_assembly</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MerryCRISPR</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="merrycrispr.html">merrycrispr</a> &raquo;</li>
+        
+      <li>merrycrispr.find_spacers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/merrycrispr.find_spacers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="merrycrispr-find-spacers">
+<h1>merrycrispr.find_spacers<a class="headerlink" href="#merrycrispr-find-spacers" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="merrycrispr.find_spacers">
+<code class="sig-prename descclassname">merrycrispr.</code><code class="sig-name descname">find_spacers</code><span class="sig-paren">(</span><em class="sig-param">itemlist</em>, <em class="sig-param">nuclease_info</em>, <em class="sig-param">restriction_sites=None</em><span class="sig-paren">)</span><a class="headerlink" href="#merrycrispr.find_spacers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find protospacers in a sequence for a given nuclease.  The search region can be more
+expansive than just the PAM (for scoring purposes) and strand can be taken into account.
+<code class="docutils literal notranslate"><span class="pre">find_spacers()</span></code> will ignore sequences that have a poly(T) sequence, high GC content, or
+a motif matching given restriction nuclease sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>itemlist</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Fasta</span></code>) – Parsed FASTA with sequences to examine for spacers</p></li>
+<li><p><strong>nuclease_info</strong> (<em>dict</em>) – Information for the nuclease to use.  Required keys include <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">end</span></code>, <code class="docutils literal notranslate"><span class="pre">strand</span></code>,
+<code class="docutils literal notranslate"><span class="pre">pam</span></code>, <code class="docutils literal notranslate"><span class="pre">spacer_regex</span></code></p></li>
+<li><p><strong>restriction_sites</strong> (<code class="docutils literal notranslate"><span class="pre">List[str]</span></code>, optional (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)) – For a found spacer, ignore it if it contains the sequence for recognition by these
+restriction endonucleases.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="merrycrispr.on_target_scoring.html" class="btn btn-neutral float-right" title="merrycrispr.on_target_scoring" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="merrycrispr.split_records.html" class="btn btn-neutral float-left" title="merrycrispr.split_records" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Miles Smith.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -18,9 +18,9 @@ def on_target_scoring(
 
     Parameters
     ----------
-    ruleset : str
+    ruleset : `str`
     spacers : :class:`~pandas.DataFrame`
-    on_target_score_threshold : float
+    on_target_score_threshold : `float`
 
     Return
     ------
@@ -58,15 +58,20 @@ def on_target_scoring(
 
 def score_entry(scoring_entry: dict, **kwargs) -> Dict[str, float]:
     """
+    General function for assigning assigning an on-target score to a protospacer
 
     Parameters
     ----------
-    scoring_entry:
-    kwargs:
+    scoring_entry : `dict`
+        Dictionary for a protospacer containing, at a minimum a "sequence" element.
+    kwargs : 
+        Additional arguments corresponding to the scoring "method" and "cutoff" score
+        and queue "place"
 
     Return
     ------
     :class:`typing.Dict[str, float]`
+    
     """
     calc_method = kwargs["method"]
     place = kwargs["place"]
