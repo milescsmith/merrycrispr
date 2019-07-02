@@ -18,21 +18,6 @@ You can check that the container has been successfully installed and is working 
 
     docker run merrycrispr merrycrispr --help
 
-    ├── Dockerfile
-    ├── LICENSE
-    ├── README.md
-    ├── README.rst
-    ├── docker_excision_test.fa
-    ├── docs
-    ├── ensembl
-    ├── environment.yml
-    ├── merrycrispr
-    ├── output
-    ├── requirements.txt
-    ├── setup.cfg
-    ├── setup.py
-    └── versioneer.py
-
 
 Miniconda
 ~~~~~~~~~~~~~

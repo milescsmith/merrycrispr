@@ -1,3 +1,11 @@
+|Codacy Badge| |Code style: black| |License|
+
+.. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/ef645c14b4ec4a6492fcda42c288a2dd    
+   :target: https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=milescsmith/merrycrispr&amp;utm_campaign=Badge_Grade
+.. |Code style: black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/python/black
+.. |License| image:: https://img.shields.io/badge/license-proprietary-red.svg
+
 MerryCRISPR – CRISPR library generation
 ========================================
 

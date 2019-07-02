@@ -163,14 +163,15 @@
 <dl class="function">
 <dt id="merrycrispr.off_target_scoring">
 <code class="sig-prename descclassname">merrycrispr.</code><code class="sig-name descname">off_target_scoring</code><span class="sig-paren">(</span><em class="sig-param">otrf</em>, <em class="sig-param">spacers_df</em>, <em class="sig-param">nuclease_info</em>, <em class="sig-param">off_target_score_threshold</em>, <em class="sig-param">off_target_count_threshold</em><span class="sig-paren">)</span><a class="headerlink" href="#merrycrispr.off_target_scoring" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Calculate a cumulative off-target score for a protospacer</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>otrf</strong> (<em>str</em>) – Path to the results from Bowtie</p></li>
+<li><p><strong>otrf</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – Path to the results from Bowtie</p></li>
 <li><p><strong>spacers_df</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – Dataframe containing spacers.  Format should be <code class="docutils literal notranslate"><span class="pre">{'gene_name','feature_id','start','stop','strand','spacer'}</span></code></p></li>
-<li><p><strong>nuclease_info</strong> (<em>str</em>) – dictionary series with nuclease characteristics from nuclease_list.csv</p></li>
-<li><p><strong>off_target_score_threshold</strong> (<em>int</em>) – </p></li>
-<li><p><strong>off_target_count_threshold</strong> (<em>int</em>) – Number of potential mismatches that should be tolerated.</p></li>
+<li><p><strong>nuclease_info</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – dictionary series with nuclease characteristics from nuclease_list.csv</p></li>
+<li><p><strong>off_target_score_threshold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Total off-target score threshold beyond which a spacer is rejected.  Ranges from 0 to 100.</p></li>
+<li><p><strong>off_target_count_threshold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Number of potential mismatches that should be tolerated.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

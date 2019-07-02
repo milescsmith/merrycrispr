@@ -71,7 +71,7 @@ def score_entry(scoring_entry: dict, **kwargs) -> Dict[str, float]:
     Return
     ------
     :class:`typing.Dict[str, float]`
-    
+
     """
     calc_method = kwargs["method"]
     place = kwargs["place"]
