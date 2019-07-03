@@ -6,3 +6,5 @@
 *.fa
 **/.git
 **/ref
+.pyre
+*.pyc
