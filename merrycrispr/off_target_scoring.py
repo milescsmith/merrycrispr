@@ -127,7 +127,7 @@ def off_target_discovery(
 
     Return
     ------
-    `str`  
+    `str`
     """
     if refgenome is None:
         raise ValueError("No reference Bowtie index provided")
