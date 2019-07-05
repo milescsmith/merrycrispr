@@ -1,7 +1,11 @@
 Usage
 ------
 
-MerryCRISPR has two main subfunctions: `prep-sequences` and `create-library`.
+MerryCRISPR has three subfunctions: `new-species`, `prep-sequences`, and `create-library`.
+
+new-species
+~~~~~~~~~~~
+
 
 Docker
 ~~~~~~~

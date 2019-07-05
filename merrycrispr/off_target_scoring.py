@@ -88,7 +88,7 @@ def scoreCas9offtarget(mismatched_positions: List[int], start: int, end: int) ->
 
 
 def sumofftargets(offtargets: List[List[int]], start: int, end: int) -> float:
-    """Add all of the potential off-target scores together so that the higher 
+    """Add all of the potential off-target scores together so that the higher
     the offtarget score, the more desirable the spacer
     \f
     Parameters
@@ -182,7 +182,7 @@ def off_target_scoring(
     nuclease_info : `str`
         dictionary series with nuclease characteristics from nuclease_list.csv
     off_target_score_threshold : `int`
-        Total off-target score threshold beyond which a spacer is rejected.  
+        Total off-target score threshold beyond which a spacer is rejected.
         Ranges from 0 to 100.
     off_target_count_threshold : `int`
         Number of potential mismatches that should be tolerated.

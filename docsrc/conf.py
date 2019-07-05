@@ -10,14 +10,12 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
 import sys
 from datetime import datetime
 from pathlib import Path
 
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE.parent))
-import merrycrispr
 
 
 # -- Project information -----------------------------------------------------
@@ -27,7 +25,7 @@ author = "Miles Smith"
 copyright = f"{datetime.now():%Y}, {author}."
 
 # The full version, including alpha/beta/rc tags
-release = "2.0"
+release = "2.1"
 
 
 # -- General configuration ---------------------------------------------------

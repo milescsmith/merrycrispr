@@ -64,7 +64,7 @@ def score_entry(scoring_entry: dict, **kwargs) -> Dict[str, float]:
     ----------
     scoring_entry : `dict`
         Dictionary for a protospacer containing, at a minimum a "sequence" element.
-    kwargs : 
+    kwargs : `dict`
         Additional arguments corresponding to the scoring "method" and "cutoff" score
         and queue "place"
 

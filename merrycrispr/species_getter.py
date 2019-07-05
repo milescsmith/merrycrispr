@@ -20,8 +20,6 @@ import tqdm
 Heavily based on the example given at
 `https://github.com/Ensembl/ensembl-rest/wiki/Example-Python-Client`
 """
-
-
 class EnsemblRestClient:
     def __init__(self, server: str = "http://rest.ensembl.org", reqs_per_sec: int = 15):
         self.server = server
@@ -306,8 +304,9 @@ def get_resources(
     if not os.path.exists(resource_folder):
         try:
             os.makedirs("resource_folder")
-        except:
-            ValueError(f"problem making {resource_folder}")
+        except OSError as error:
+            if error.errno != errno.EEXIST :
+                raise(f"problem making {resource_folder}")
 
     gtf = client.get_annotation(
         species_value=species_value,
