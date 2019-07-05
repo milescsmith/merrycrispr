@@ -15,6 +15,7 @@ except ImportError:  # Deps not yet installed
 setup(
     name="MerryCRISPR",
     version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     description="Machine Learning-Based Predictive Modelling of CRISPR/Cas9 guide efficiency",
     long_description=Path("README.rst").read_text("utf-8"),
     url="https://github.com/milescsmith/merrycrispr",
