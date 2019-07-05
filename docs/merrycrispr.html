@@ -85,6 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">merrycrispr</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">merrycrispr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#species-getter">species_getter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#seqextractor">seqextractor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#find-spacers">find_spacers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#on-target-scoring">on_target_scoring</a></li>
@@ -169,6 +170,54 @@
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="merrycrispr.main.html#merrycrispr.main" title="merrycrispr.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a></p></td>
 <td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="species-getter">
+<h2>species_getter<a class="headerlink" href="#species-getter" title="Permalink to this headline">¶</a></h2>
+<p>Retrieve annotation and sequence files from Ensembl</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnsemblRestClient</span></code>([server, reqs_per_sec])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">available_species</span></code>()</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">rtype</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_resources</span></code>(species[, resource_folder])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">rtype</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
+<p>Prepare a new species for use in MerryCRISPR</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_bowtie_index</span></code>(fasta[, dest, cpus])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">rtype</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</p></td>
 </tr>
 </tbody>
 </table>
@@ -264,7 +313,7 @@
 </div>
 <div class="section" id="off-target-scoring">
 <h2>off_target_scoring<a class="headerlink" href="#off-target-scoring" title="Permalink to this headline">¶</a></h2>
-<p>Description</p>
+<p>Find and score potential off-targets</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />

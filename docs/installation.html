@@ -84,7 +84,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#docker">Docker</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#miniconda">Miniconda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pypi">PyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pip">Pip</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
@@ -156,7 +156,7 @@
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>There are three potential methods one can use to install MerryCRISPR, in order
-of easiest to most difficult: <a class="reference external" href="https://www.docker.com/">Docker</a>, <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>, and <a class="reference internal" href="#pypi">PyPI</a>.</p>
+of easiest to most difficult: <a class="reference external" href="https://www.docker.com/">Docker</a>, <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>, and <a class="reference external" href="https://pypi.org/project/pip/">Pip</a>.</p>
 <div class="section" id="docker">
 <h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://www.docker.com/">Docker</a> is a tool for running software as
@@ -169,16 +169,16 @@ Docker <em>is</em> available for Win7, but it is more difficult to setup and use
 to some necessary features that were not introduced until Win10).</p>
 <p><a class="reference external" href="https://docs.docker.com/install/">Installation</a> of Docker is beyond the
 scope of this guide, but should be relatively straightforward.  Once Docker is
-installed and working, the MerryCRISPR container can either be <a class="reference external" href="https://gitlab.com/milothepsychic/merrycrispr/container_registry">pulled</a> from the
+installed and working, the MerryCRISPR container can be <a class="reference external" href="https://gitlab.com/milothepsychic/merrycrispr/container_registry">pulled</a> from the
 project’s GitLab repository:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">login</span> <span class="n">registry</span><span class="o">.</span><span class="n">gitlab</span><span class="o">.</span><span class="n">com</span>
 <span class="n">docker</span> <span class="n">pull</span> <span class="n">registry</span><span class="o">.</span><span class="n">gitlab</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">milothepsychic</span><span class="o">/</span><span class="n">merrycrispr</span>
 </pre></div>
 </div>
 <p>(note that currently, you will need both a GitLab account and permissions to
-the project in order to pull the image). Alternatively, the docker image can
-be built locally and installed by runnning the following command from within
-the base merrycrispr directory:</p>
+the project in order to pull the image).</p>
+<p>Alternatively, the docker image can be built locally and installed by runnning
+the following command from within the base merrycrispr directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">build</span> <span class="o">.</span> <span class="o">-</span><span class="n">t</span> <span class="n">merrycrispr</span><span class="p">:</span><span class="n">latest</span>
 </pre></div>
 </div>
@@ -199,11 +199,59 @@ its dependencies, where only compatible versions of software and libraries are
 installed, and everthing is kept seperate from outside packages or those in
 other environments.  If Python is not already installed on your, Conda is the
 best option to use.
-After downloading and installing Conda, create an en</p>
+After downloading and installing Conda, run the following command within the
+base MerryCRISPR directory to create an environment and install the
+dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
 </div>
-<div class="section" id="pypi">
-<h2>PyPI<a class="headerlink" href="#pypi" title="Permalink to this headline">¶</a></h2>
-<p>More things.</p>
+<p>Once that is complete, activate the environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">merrycrispr</span>
+</pre></div>
+</div>
+<p>And install the merrycrispr package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>Test to see that everything install correctly by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merrycrispr</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pip">
+<h2>Pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://pypi.org/project/pip/">Pip</a> is the standard Python package installer.
+While it <strong>should</strong> install all of the required <em>Python</em> dependencies, external
+programs such as <a class="reference external" href="http://bowtie-bio.sourceforge.net">Bowtie</a> will need to be
+installed on their own.  By default, pip will install packages into the main
+system Python package library (which if you are going to do anything else
+with Python, <em>could</em> cause problems) so creating a virtual environment is
+recommended.  However, unlike the <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> version above, this environment
+requires you to specify where to install it and to remember where it is
+installed. What follows will be a rough guide to installing using pip.</p>
+<p>First, change directory to a location where you want the environment installed.
+For instance, if you are on a Linux or MacOS system, change to your home
+folder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">~/</span>
+</pre></div>
+</div>
+<p>Then, create the environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">env</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">env</span></code> is the name you wish to use for the environment.  To activate it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>Change directory to the base MerryCRISPR directory and install:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>Test to see that everything install correctly by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merrycrispr</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<p><strong>REMEMBER</strong> You will still need to install Bowtie for MerryCRISPR to work.</p>
 </div>
 </div>
 

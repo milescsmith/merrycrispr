@@ -118,7 +118,7 @@ def assemble_paired_library(
                 "downstream_off_target_score",
                 "seq_hash",
                 "upstream_hash",
-                "downstream_hash"
+                "downstream_hash",
             ]
         )
 

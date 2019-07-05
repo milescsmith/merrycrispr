@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
+import os
 from typing import Optional, List
-from pkg_resources import resource_filename
 
 import click
 import numpy as np
 import pandas as pd
 import pyfaidx
+from pkg_resources import resource_filename
 
 from merrycrispr.find_spacers import find_spacers
 from merrycrispr.library_assembly import assemble_paired_library, assemble_library
@@ -19,6 +20,12 @@ from merrycrispr.seqextractor import (
     display_gtf_genes,
     display_gtf_geneids,
 )
+from merrycrispr.species_getter import (
+    get_resources,
+    build_bowtie_index,
+    available_species,
+)
+
 
 @click.group()
 def main():
@@ -301,14 +308,14 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
 @click.option(
     "--number_downstream_spacers",
     help=f"If designing paired spacers, number of spacers to "
-         f"design that target downstream of the feature.",
+    f"design that target downstream of the feature.",
     default=3,
     type=int,
 )
 @click.option(
     "--min_paired_distance",
     help="If designing paired spacers, minimum space required between the up- and downstream "
-         "spacers.",
+    "spacers.",
     default=0,
     type=int,
 )
@@ -426,6 +433,98 @@ def create_library(
         )
     guide_library.to_csv(outfile)
     print("Finished.")
+
+
+@main.command()
+@click.option(
+    "--species_value",
+    "-s",
+    help="Species value to retrieve sequences for.  Must be a value for the attribute chosen, "
+    "i.e. 'canis_familiaris' if using the 'name' attribute",
+    default=None,
+    required=False,
+    type=str,
+)
+@click.option(
+    "--species_attribute",
+    "-a",
+    help="Species attribute to search when retrieving sequences. Acceptable values include "
+    "'taxon_id', 'accession', 'aliases', 'division', 'groups', 'release', 'name', 'strain', "
+    "'strain_collection', 'display_name', 'assembly', and 'common_name'",
+    default=None,
+    required=False,
+    type=str,
+)
+@click.option(
+    "--dest",
+    "-d",
+    help="Location in which to place downloaded files and, if selected, new "
+    "Bowtie index.",
+    default=None,
+    required=False,
+    type=str,
+)
+@click.option(
+    "--build_bowtie",
+    "-b",
+    help="Build a bowtie index for the retrieved species",
+    is_flag=True
+)
+@click.option(
+    "--show_available_species",
+    "-w",
+    help="Display a list of the species available from Ensembl",
+    is_flag=True,
+)
+@click.help_option()
+def new_species(
+    species_value: str,
+    species_attribute: str,
+    dest: Optional[str] = None,
+    build_bowtie: bool = False,
+    show_available_species: bool = False,
+):
+    """Import a new species from Ensembl.  Optionally, build a Bowtie index for
+    the files.
+    \f
+    Parameters
+    -----------
+    species_value : `str`
+        Species value to retrieve sequences for.  Must be a value for the attribute chosen, i.e.
+         'canis_familiaris' if using the 'name' attribute
+    species_attribute : `str`
+        Species attribute to search when retrieving sequences. Acceptable values include
+        'taxon_id', 'accession', 'aliases', 'division', 'groups', 'release', 'name', 'strain',
+        'strain_collection', 'display_name', 'assembly', and 'common_name'
+    dest : `dest`, optional
+        Directory in which to store files.  If not provided, files will be placed in a new
+        subdirectory called `mc_resources`.
+    build_bowtie : `bool`
+        Should a Bowtie index be built?
+    show_available_species : `bool`
+        Show the species currently available from Ensembl
+
+    Return
+    -------
+    """
+    message = ""
+    if show_available_species:
+        available_species()
+
+    else:
+        if not dest:
+            dest = os.path.expandvars("$PWD") + "/mc_resources"
+        if not os.path.exists(dest):
+            os.mkdir(dest)
+        gtf, fasta = get_resources(
+            species_value=species_value,
+            species_attribute=species_attribute,
+            resource_folder=dest,
+        )
+        message += f"GTF located at {gtf}, FASTA located at {fasta}"
+        if build_bowtie:
+            bowtie_location = build_bowtie_index(fasta=fasta, dest=dest)
+            message += f" Bowtie index located at {bowtie_location}"
 
 
 if __name__ == "__main__":

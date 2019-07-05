@@ -88,8 +88,8 @@ def scoreCas9offtarget(mismatched_positions: List[int], start: int, end: int) ->
 
 
 def sumofftargets(offtargets: List[List[int]], start: int, end: int) -> float:
-    """Add all of the potential off-target scores together so that the higher the offtarget score, the
-    more desirable the spacer
+    """Add all of the potential off-target scores together so that the higher 
+    the offtarget score, the more desirable the spacer
     \f
     Parameters
     ----------
@@ -144,14 +144,14 @@ def off_target_discovery(
 
     command = f"{program} -a -p {cpus}"
     if reject:
-        command = command + f" -m {reject}"
+        command += f" -m {reject}"
 
     if large_index_size:
-        command = command + f" --large-index {refgenome}"
+        command += f" --large-index {refgenome}"
     else:
-        command = command + f" {refgenome}"
+        command += f" {refgenome}"
 
-    command = command + f" -f {spacers_to_score} {off_target_results}"
+    command += f" -f {spacers_to_score} {off_target_results}"
 
     try:
         check_call(command.split())
@@ -177,18 +177,20 @@ def off_target_scoring(
     otrf : `str`
         Path to the results from Bowtie
     spacers_df : :class:`~pandas.DataFrame`
-        Dataframe containing spacers.  Format should be `{'gene_name','feature_id',
-        'start','stop','strand','spacer'}`
+        Dataframe containing spacers.  Format should be `{'gene_name',
+        'feature_id', 'start','stop','strand','spacer'}`
     nuclease_info : `str`
         dictionary series with nuclease characteristics from nuclease_list.csv
     off_target_score_threshold : `int`
-        Total off-target score threshold beyond which a spacer is rejected.  Ranges from 0 to 100.
+        Total off-target score threshold beyond which a spacer is rejected.  
+        Ranges from 0 to 100.
     off_target_count_threshold : `int`
         Number of potential mismatches that should be tolerated.
 
     Return
     -------
-    :class:`~pandas.DataFrame` matching the one passed to spacers_df containing off-target scores
+    :class:`~pandas.DataFrame` matching the one passed to spacers_df containing
+    off-target scores
     """
 
     mmpos_re = regex.compile("[0-9]{1,}")
@@ -255,3 +257,4 @@ def off_target_scoring(
 
     spacers_df = spacers_df[spacers_df["off_target_score"] > off_target_score_threshold]
     return spacers_df
+

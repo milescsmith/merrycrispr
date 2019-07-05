@@ -20,6 +20,13 @@ from merrycrispr.seqextractor import (
 from merrycrispr.rule_set_one import calc_score
 from merrycrispr._version import get_versions
 
+from merrycrispr.species_getter import (
+    EnsemblRestClient,
+    available_species,
+    build_bowtie_index,
+    get_resources
+)
+
 __author__ = ("Miles Smith",)
 __email__ = "mileschristiansmith@gmail.com"
 
@@ -35,6 +42,26 @@ Main function used to create library:
    :toctree: .
 
    main
+
+species_getter
+---------------
+
+Retrieve annotation and sequence files from Ensembl
+
+.. autosummary::
+   :toctree: .
+
+   EnsemblRestClient
+   available_species
+   get_resources
+
+Prepare a new species for use in MerryCRISPR
+
+.. autosummary::
+   :toctree: .
+
+   build_bowtie_index
+
 
 seqextractor
 -------------
@@ -89,7 +116,7 @@ Description
 off_target_scoring
 ------------------
 
-Description
+Find and score potential off-targets
 
 .. autosummary::
    :toctree: .
@@ -98,6 +125,7 @@ Description
    sumofftargets
    off_target_discovery
    off_target_scoring
+
 
 library_assembly
 ----------------

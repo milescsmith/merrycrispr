@@ -85,6 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="merrycrispr.html">merrycrispr</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#id1">merrycrispr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#species-getter">species_getter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#seqextractor">seqextractor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#find-spacers">find_spacers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="merrycrispr.html#on-target-scoring">on_target_scoring</a></li>
@@ -168,18 +169,23 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>otrf</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – Path to the results from Bowtie</p></li>
-<li><p><strong>spacers_df</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – Dataframe containing spacers.  Format should be <code class="docutils literal notranslate"><span class="pre">{'gene_name','feature_id',</span>
-<span class="pre">'start','stop','strand','spacer'}</span></code></p></li>
+<li><p><strong>spacers_df</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – Dataframe containing spacers.  Format should be <code class="docutils literal notranslate"><span class="pre">{'gene_name',</span>
+<span class="pre">'feature_id',</span> <span class="pre">'start','stop','strand','spacer'}</span></code></p></li>
 <li><p><strong>nuclease_info</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – dictionary series with nuclease characteristics from nuclease_list.csv</p></li>
-<li><p><strong>off_target_score_threshold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Total off-target score threshold beyond which a spacer is rejected.  Ranges from 0 to 100.</p></li>
+<li><p><strong>off_target_score_threshold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Total off-target score threshold beyond which a spacer is rejected.
+Ranges from 0 to 100.</p></li>
 <li><p><strong>off_target_count_threshold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – Number of potential mismatches that should be tolerated.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code> matching the one passed to spacers_df containing off-target scores</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code> matching the one passed to spacers_df containing</p></li>
+<li><p><em>off-target scores</em></p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
