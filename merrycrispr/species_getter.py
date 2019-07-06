@@ -1,9 +1,9 @@
+import gzip
 import json
+import os
+import shutil
 import sys
 import time
-import os
-import gzip
-import shutil
 from distutils.spawn import find_executable
 from multiprocessing import cpu_count
 from subprocess import check_call
@@ -13,6 +13,7 @@ from urllib.error import HTTPError
 from urllib.parse import urlencode
 from urllib.request import urlopen, Request
 
+import pandas as pd
 import requests
 import tqdm
 
@@ -277,10 +278,22 @@ def available_species() -> None:
     client = EnsemblRestClient()
     species = client.perform_rest_action(endpoint="/info/species")
     if species:
-        for _ in species["species"]:
-            print(
-                f"{_['common_name']}: {_['name']} - {_['assembly']}, {_['accession']}"
+        print(
+            pd.DataFrame.from_dict(species["species"])
+            .sort_values(by=["display_name", "strain"])
+            .to_string(
+                columns=[
+                    "common_name",
+                    "display_name",
+                    "name",
+                    "accession",
+                    "assembly",
+                    "strain",
+                    "taxon_id",
+                ],
+                index=False,
             )
+        )
 
 
 """Retrieve the latest GTF for a given species

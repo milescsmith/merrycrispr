@@ -1,7 +1,7 @@
 Usage
 ------
 
-MerryCRISPR has three subfunctions: `new-species`, `prep-sequences`, and `create-library`.::
+MerryCRISPR has three subfunctions: `new-species`_, `prep-sequences`_, and `create-library`_::
 
     Usage: merrycrispr [OPTIONS] COMMAND [ARGS]...
 

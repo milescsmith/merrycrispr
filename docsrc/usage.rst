@@ -1,7 +1,7 @@
 Usage
 ------
 
-MerryCRISPR has three subfunctions: `new-species`, `prep-sequences`, and `create-library`.::
+MerryCRISPR has three subfunctions: `new-species`_, `prep-sequences`_, and `create-library`_::
 
     Usage: merrycrispr [OPTIONS] COMMAND [ARGS]...
 
@@ -45,7 +45,8 @@ retrieve the most current release ofa genome build (version 97 as this is writte
 know the value for one of the attributes for that genome's release.  In plain English, it is probably best if you use
 `accession` or `assembly` for the `--species_attribute` argument, look up the value on
 `Ensembl <https://uswest.ensembl.org/info/about/species.html>`_, and use that for the `--species_value`
-argument.  Alternatively, you can run `new-species` with just the `--show_available While you can use the `common_name` (i.e "dog") or species `name` (i.e. "Canis familiaris`), those are
+argument.  Alternatively, you can run `new-species` with just the `--show_available` argument to see possible values.
+While you can use the `common_name` (i.e "dog") or species `name` (i.e. "Canis familiaris`), those are
 non-unique for some values; if that is the case, `new-species` will exit and as you to make a more precise request.
 
 The `--dest` argument is optional.  If you do not provide it, the files will be placed in a subdirectory of the current
