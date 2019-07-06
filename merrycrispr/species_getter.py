@@ -20,6 +20,8 @@ import tqdm
 Heavily based on the example given at
 `https://github.com/Ensembl/ensembl-rest/wiki/Example-Python-Client`
 """
+
+
 class EnsemblRestClient:
     def __init__(self, server: str = "http://rest.ensembl.org", reqs_per_sec: int = 15):
         self.server = server
@@ -276,7 +278,9 @@ def available_species() -> None:
     species = client.perform_rest_action(endpoint="/info/species")
     if species:
         for _ in species["species"]:
-            print(f"{_['common_name']}: {_['name']}")
+            print(
+                f"{_['common_name']}: {_['name']} - {_['assembly']}, {_['accession']}"
+            )
 
 
 """Retrieve the latest GTF for a given species
@@ -305,8 +309,8 @@ def get_resources(
         try:
             os.makedirs("resource_folder")
         except OSError as error:
-            if error.errno != errno.EEXIST :
-                raise(f"problem making {resource_folder}")
+            if error.errno != errno.EEXIST:
+                raise (f"problem making {resource_folder}")
 
     gtf = client.get_annotation(
         species_value=species_value,
@@ -346,14 +350,14 @@ def build_bowtie_index(fasta: str, dest: Optional[str] = None, cpus: int = 0) ->
 
     # Bowtie cannot index a gzipped fasta, which is how they come from Ensembl
     if fasta[-3:] == ".gz":
-        with gzip.open(fasta, 'rb') as fgz:
+        with gzip.open(fasta, "rb") as fgz:
             with open(fasta[:-3], "wb") as fa:
                 shutil.copyfileobj(fgz, fa)
-        fasta = fasta[:-3] # set the name to the uncompressed item
+        fasta = fasta[:-3]  # set the name to the uncompressed item
 
     if not dest:
         dest = mkdtemp()
-    command = f"{program} -f --threads {cpus} {fasta} {dest}"
+    command = f"{program} -f --threads {cpus} {fasta} {dest}/{fasta.split('.')[0]}"
 
     try:
         check_call(command.split())

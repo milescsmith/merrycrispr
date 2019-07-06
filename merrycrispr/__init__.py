@@ -24,7 +24,7 @@ from merrycrispr.species_getter import (
     EnsemblRestClient,
     available_species,
     build_bowtie_index,
-    get_resources
+    get_resources,
 )
 
 __author__ = ("Miles Smith",)
@@ -142,5 +142,6 @@ Description
 del get_versions
 
 from ._version import get_versions
-__version__ = get_versions()['version']
+
+__version__ = get_versions()["version"]
 del get_versions

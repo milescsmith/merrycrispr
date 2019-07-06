@@ -257,4 +257,3 @@ def off_target_scoring(
 
     spacers_df = spacers_df[spacers_df["off_target_score"] > off_target_score_threshold]
     return spacers_df
-

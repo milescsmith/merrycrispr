@@ -58,18 +58,18 @@ def main():
 )
 @click.option(
     "--show_features",
-    help="Scan a GFF file to identify the features present",
+    help="Scan an annotation file to identify the features present",
     is_flag=True,
 )
 @click.option(
     "--show_genes",
-    help="Scan a GFF file to identify the genes present",
+    help="Scan an annotation file to identify the genes present",
     default=False,
     is_flag=True,
 )
 @click.option(
     "--show_geneids",
-    help="Scan a GFF file to identify the geneIDs present",
+    help="Scan an annotation file to identify the geneIDs present",
     default=False,
     is_flag=True,
 )
@@ -79,15 +79,15 @@ def prep_sequences(
     library_type: str,
     fasta: str,
     output: str,
-    feature_type: str,
-    gene_name: str,
-    bound: int,
-    show_features: bool,
-    show_genes: bool,
-    show_geneids: bool,
+    feature_type: Optional[str] = None,
+    gene_name: Optional[str] = None,
+    bound: int = 0,
+    show_features: Optional[bool] = False,
+    show_genes: Optional[bool] = False,
+    show_geneids: Optional[bool] = False,
 ) -> None:
     """Generate target sequences to search for spacers
-
+    \f
     Generally, a utility for extracting sequences from a FASTA file for a given GTF annotation.
     \f
     Parameters
@@ -124,7 +124,6 @@ def prep_sequences(
     `None`
 
     """
-
     if isinstance(gene_name, str):
         gene_name = gene_name.split()
     if library_type:
@@ -468,10 +467,10 @@ def create_library(
     "--build_bowtie",
     "-b",
     help="Build a bowtie index for the retrieved species",
-    is_flag=True
+    is_flag=True,
 )
 @click.option(
-    "--show_available_species",
+    "--show_available_builds",
     "-w",
     help="Display a list of the species available from Ensembl",
     is_flag=True,
@@ -482,10 +481,9 @@ def new_species(
     species_attribute: str,
     dest: Optional[str] = None,
     build_bowtie: bool = False,
-    show_available_species: bool = False,
+    show_available_builds: bool = False,
 ):
-    """Import a new species from Ensembl.  Optionally, build a Bowtie index for
-    the files.
+    """Import a new species from Ensembl.  Optionally, build a Bowtie index for the files.
     \f
     Parameters
     -----------
@@ -501,14 +499,14 @@ def new_species(
         subdirectory called `mc_resources`.
     build_bowtie : `bool`
         Should a Bowtie index be built?
-    show_available_species : `bool`
+    show_available_builds : `bool`
         Show the species currently available from Ensembl
 
     Return
     -------
     """
     message = ""
-    if show_available_species:
+    if show_available_builds:
         available_species()
 
     else:
