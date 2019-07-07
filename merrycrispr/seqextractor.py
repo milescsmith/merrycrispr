@@ -302,7 +302,7 @@ def display_gtf_features(gtffile: str) -> None:
     """
 
     gtf = read_gtf(gtffile)
-    feature_set = set(gtf["feature"])
+    feature_set = gtf["feature"].unique()
 
     print(f"{len(feature_set)} features found.  These include:")
     for _ in feature_set:
@@ -329,7 +329,7 @@ def display_gtf_genes(gtffile: str, feature_type: Optional[List[str]] = None):
     if feature_type is not None:
         gtf = gtf[gtf["feature"] == feature_type]
 
-    gene_set = set(gtf["gene_name"])
+    gene_set = gtf["gene_name"].unique()
 
     print(f"{len(gene_set)} genes found.  These include:")
     for _ in gene_set:
@@ -356,7 +356,7 @@ def display_gtf_geneids(gtffile: str, feature_type: Optional[List[str]] = None):
     if feature_type is not None:
         gtf = gtf[gtf.feature == feature_type]
 
-    gene_set = set(gtf["gene_id"])
+    gene_set = gtf["gene_id"].unique()
 
     print(f"{len(gene_set)} genes found.  These include:")
     for _ in gene_set:
