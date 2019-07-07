@@ -5,6 +5,7 @@ from typing import List, Optional
 import pandas as pd
 import pyfaidx
 from gtfparse import read_gtf
+from tqdm import tqdm
 
 
 def extract(
@@ -47,7 +48,7 @@ def extract(
     """
 
     print("Parsing GTF/GFF file.")
-    records = read_gtf(filepath_or_buffer=gtffile)
+    records = read_gtf(filepath_or_buffer=gtffile, chunksize=1024)
     if gene_name:
         records = records[records["gene_name"].isin(gene_name)]
     if feature_type:
@@ -82,12 +83,17 @@ def extract(
     sequences = pyfaidx.Fasta(fastafile)
     print(f"Finished loading {fastafile}")
 
-    records["seq_hash"] = records.apply(lambda x: hash(tuple(x)), axis=1)
+    tqdm.pandas(desc="Adding hash")
+    records["seq_hash"] = records.progress_apply(lambda x: hash(tuple(x)), axis=1)
     if boundary > 0:
         records = split_records(records, boundary)
     final_list = [
         match_seq(_, sequences)
-        for _ in [pd.Series(records.loc[_, :]) for _ in records.index]
+        for _ in tqdm(
+            [pd.Series(records.loc[_, :]) for _ in records.index],
+            total=len(records),
+            unit="items",
+        )
     ]
 
     if outfile:
@@ -182,7 +188,10 @@ def extract_for_tss_adjacent(
     predicted_tss["start"] = predicted_tss["start"] - boundary
     final_list = [
         match_seq(_, sequences)
-        for _ in [pd.Series(predicted_tss.loc[_, :]) for _ in predicted_tss.index]
+        for _ in tqdm(
+            [pd.Series(predicted_tss.loc[_, :]) for _ in predicted_tss.index],
+            total=len(predicted_tss),
+        )
     ]
 
     if outfile:
