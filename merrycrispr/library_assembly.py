@@ -65,7 +65,7 @@ def assemble_paired_library(
     # min_paired_distance: int = 30, #reenable once I figure it out
     mix_and_match: bool = True,
 ) -> pd.DataFrame:
-    """Creates a final list of protospacers for synthesis.  Used to create 
+    """Creates a final list of protospacers for synthesis.  Used to create
     excision libraries, where two spacers are necessary to cause cuts at either
     side of a feature. `assemble_paired_library()` will take a set of upstream
     and set of downstream spacers, generate all permutations for those

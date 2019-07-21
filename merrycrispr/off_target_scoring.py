@@ -205,7 +205,7 @@ def off_target_scoring(
         Total off-target score threshold beyond which a spacer is rejected.
         Ranges from 0 to 100.
     off_target_count_threshold : `int`, default: 100
-        Number of potential mismatches that should be tolerated.  Spacers 
+        Number of potential mismatches that should be tolerated.  Spacers
         exceeding the threshold will be discarded
 
     Return
@@ -255,9 +255,8 @@ def off_target_scoring(
 
     mmpos = regex.compile("[0-9]{1,}")
     tqdm.pandas(desc="converting mismatches", unit="spacers")
-    filtered_results["locations"] = filtered_results["mismatches"].progress_apply(
-        lambda x: mmpos.findall(x)
-    )
+    filtered_results["locations"] = filtered_results["mismatches"]\
+        .progress_apply(mmpos.findall)
 
     tqdm.pandas(desc="collapsing mismatches", unit="spacers")
     collapsed_results = (

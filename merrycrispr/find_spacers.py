@@ -139,7 +139,7 @@ def find_spacers(
                 }
                 _ = pd.DataFrame.from_dict(spacer_data)
                 spacers_df = pd.concat([spacers_df, _])
-    
+
     # duplicates were sneaking in.
     spacers_df = spacers_df.groupby('spacer').first().reset_index()
     return spacers_df
