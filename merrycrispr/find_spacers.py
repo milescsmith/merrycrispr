@@ -5,6 +5,7 @@ from typing import Optional, List
 import pandas as pd
 import pyfaidx
 import regex
+from tqdm import tqdm
 from Bio.Alphabet import IUPAC
 from Bio.Restriction import RestrictionBatch
 from Bio.Seq import Seq
@@ -60,11 +61,13 @@ def find_spacers(
             "seq_hash",
         ]
     )
-    for (
-        item
-    ) in (
-        itemlist.keys()
-    ):  # have to use `keys` here - remember it isn't a dict, it is a Fasta
+    for item in tqdm(
+        itemlist.keys(),
+        desc="Searching sequences for spacers",
+        total=len(itemlist.keys()),
+        unit="items",
+    ):
+        # have to use `keys` here - remember it isn't a dict, it is a Fasta
         # have to use the alternative Regex module instead of Re so that findall
         # can detect overlapping sequences
         # Since Cas13/Csc2 recognizes mRNA, we need to keep strandedness in mind
@@ -108,7 +111,9 @@ def find_spacers(
                 # TODO Should this also eliminate anything with G(4)?
                 pass
             # Get rid of anything that has the verboten restriction sites
-            elif bool([y for y in rsb.search(ps_full_seq).values() if y != []]):
+            elif restriction_sites and bool(
+                [y for y in rsb.search(ps_full_seq).values() if y]
+            ):
                 pass
             # BsmBI/Esp3I is used in most of the new CRISPR vectors, especially for
             # library construction. Biopython misses potential restriction sites as it tries
@@ -134,5 +139,7 @@ def find_spacers(
                 }
                 _ = pd.DataFrame.from_dict(spacer_data)
                 spacers_df = pd.concat([spacers_df, _])
-
+    
+    # duplicates were sneaking in.
+    spacers_df = spacers_df.groupby('spacer').first().reset_index()
     return spacers_df

@@ -15,7 +15,7 @@ from urllib.request import urlopen, Request
 
 import pandas as pd
 import requests
-import tqdm
+from tqdm.autonotebook import tqdm
 
 """Class for retreiving information from ensembl.org
 Heavily based on the example given at
@@ -164,7 +164,7 @@ class EnsemblRestClient:
             chunk_size = 1024
             num_bars = int(file_size / chunk_size)
             with open(destination, "wb") as fp:
-                for chunk in tqdm.tqdm(
+                for chunk in tqdm(
                     r.iter_content(chunk_size=chunk_size),
                     total=num_bars,
                     unit="KB",

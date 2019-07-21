@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-from typing import Optional, List
+from typing import Optional
 
 import click
 import numpy as np
@@ -37,10 +37,10 @@ def main():
     "--library_type",
     "-l",
     help="target library type. Accepted values are 'knockout', "
-    "'repressor/activator', 'excision', or 'Cas13'",
+    "'repressor', 'activator', 'excision', or 'Cas13'",
     default=None,
     required=False,
-    type=str,
+    type=click.Choice(("knockout", "repressor", "activator", "excision", "Cas13")),
 )
 @click.option(
     "--gtf", "-g", help="input GTF/GFF file", default=None, required=False, type=str
@@ -136,7 +136,7 @@ def prep_sequences(
                 outfile=output,
                 gene_name=gene_name,
             )
-        elif library_type == "repressor/activator":
+        elif library_type == "repressor" or library_type == "activator":
             if bound is None:
                 bound = 100
             extract_for_tss_adjacent(
@@ -225,7 +225,7 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
 
 @main.command()
 @click.option(
-    "--input",
+    "--input_sequences",
     "-i",
     help=f"Input FASTA file containing sequences to target.",
     default=None,
@@ -233,7 +233,7 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     type=str,
 )
 @click.option(
-    "--output",
+    "--output_library",
     "-p",
     help="Name of file to write library to (in CSV format).",
     default=None,
@@ -255,7 +255,9 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     default=None,
     type=str,
 )
-@click.option("--largeindex", help="", default=False, required=False, type=bool)
+@click.option(
+    "--largeindex", help="", default=False, required=False, type=bool, is_flag=True
+)
 @click.option(
     "--rule_set",
     help="On-target score rule set to use. Current options include '1', '2', and 'Azimuth'",
@@ -263,7 +265,7 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     type=str,
 )
 @click.option(
-    "--ontarget_score_threshold",
+    "--on_target_score_threshold",
     "-on",
     help="Spacers with an on-target score below this will be ignored.",
     default=0,
@@ -271,7 +273,7 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     type=int,
 )
 @click.option(
-    "--offtarget_score_threshold",
+    "--off_target_score_threshold",
     "-off",
     help="Spacers with an off-target score below this will be ignored.",
     default=0,
@@ -279,15 +281,21 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     type=int,
 )
 @click.option(
-    "--offtarget_count_threshold",
+    "--off_target_count_threshold",
     help="Spacers with more than this many off-targets will be ignored.",
     default=100,
     required=False,
     type=int,
 )
 @click.option(
+    "--number_mismatches_to_consider",
+    help="Number of mismatches to allow in potential off-targets.  A number between 0 and 3.  Without setting `off_target_count_threshold` appropriately, higher values passed to this option may result in extremely long run times.",
+    default=3,
+    type=int,
+)
+@click.option(
     "--spacers_per_feature",
-    help="Number of spacers to find for each feature.",
+    help="Number of spacers to find for each feature. Use '0' to return all spacers.",
     default=6,
     type=int,
 )
@@ -296,6 +304,7 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     help="Should spacers be designed to work as pairs (e.g. for excision)?",
     default=False,
     type=bool,
+    is_flag=True,
 )
 @click.option(
     "--number_upstream_spacers",
@@ -311,13 +320,14 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     default=3,
     type=int,
 )
-@click.option(
-    "--min_paired_distance",
-    help="If designing paired spacers, minimum space required between the up- and downstream "
-    "spacers.",
-    default=0,
-    type=int,
-)
+# reenable this option just as soon as I figure out how to implement it.
+# @click.option(
+#     "--min_paired_distance",
+#     help="If designing paired spacers, minimum space required between the up- and downstream "
+#     "spacers.",
+#     default=0,
+#     type=int,
+# )
 @click.option(
     "--cores",
     "-c",
@@ -328,21 +338,22 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
 @click.help_option()
 def create_library(
     input_sequences: str = None,
-    outfile: str = None,
-    refgenome: str = None,
-    restriction_sites: Optional[List[str]] = None,
+    output_library: str = None,
+    reference: str = None,
+    restriction_sites: str = None,
     largeindex: bool = False,
     on_target_score_threshold: int = 0,
     off_target_score_threshold: int = 0,
-    off_target_count_threshold: int = 0,
+    off_target_count_threshold: int = 100,
+    number_mismatches_to_consider: int = 3,
     nuclease: str = "SpCas9",
     spacers_per_feature: int = 9,
     reject: bool = False,
     paired: bool = False,
-    rules: str = "Azimuth",
+    rule_set: str = "Azimuth",
     number_upstream_spacers: int = 0,
     number_downstream_spacers: int = 0,
-    numcores: int = 0,
+    cores: int = 0,
 ) -> None:
     """Build a CRISPR library
     \f
@@ -350,25 +361,26 @@ def create_library(
     Parameters
     ----------
     :param input_sequences :
-    :param outfile :
-    :param refgenome :
+    :param output_library :
+    :param reference :
     :param restriction_sites :
     :param largeindex :
     :param on_target_score_threshold :
     :param off_target_score_threshold :
     :param off_target_count_threshold :
+    number_mismatches_to_consider
     :param nuclease :
     :param spacers_per_feature :
     :param reject :
     :param paired :
-    :param rules :
+    :param rule_set :
     :param number_upstream_spacers :
     :param number_downstream_spacers :
-    :param numcores :
+    :param cores :
 
     Return
     ------
-    :type refgenome: object
+    :type reference: object
     """
     targets = pyfaidx.Fasta(input_sequences)
 
@@ -382,7 +394,7 @@ def create_library(
     initialnumber = spacers_df.shape[0]
 
     spacers_df = on_target_scoring(
-        ruleset=rules,
+        ruleset=rule_set,
         spacers=spacers_df,
         on_target_score_threshold=on_target_score_threshold,
     )
@@ -401,10 +413,12 @@ def create_library(
     spacers_df["hash"] = spacers_df.apply(lambda x: hash(tuple(x)), axis=1)
     offtarget_results_file = off_target_discovery(
         spacers_df=spacers_df,
-        cpus=numcores,
-        refgenome=refgenome,
+        nuclease_info=nuc,
+        cpus=cores,
+        refgenome=reference,
         large_index_size=largeindex,
         reject=reject,
+        number_mismatches_to_consider=number_mismatches_to_consider,
     )
 
     spacers_df = off_target_scoring(
@@ -430,7 +444,7 @@ def create_library(
             off_target_score_threshold=off_target_score_threshold,
             spacers_per_feature=spacers_per_feature,
         )
-    guide_library.to_csv(outfile)
+    guide_library.to_csv(output_library)
     print("Finished.")
 
 

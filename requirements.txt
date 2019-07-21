@@ -4,9 +4,10 @@ biopython==1.73
 regex==2016.06.24
 pyfaidx==0.5.5.2
 click==7.0
-gtfparse==1.2.0
+gtfparse @ git+https://github.com/milescsmith/gtfparse
 pandas==0.24.2
 # numpy==1.15.4
 theanets @ git+https://github.com/lmjohns3/theanets
 azimuth @ git+https://github.com/milescsmith/Azimuth
 requests==2.21.0
+tqdm==4.31.1

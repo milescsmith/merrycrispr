@@ -41,13 +41,13 @@ new-species
       --help                        Show this message and exit.
 
 The `new-species` subcommand is used to import sequences from Ensembl. Currently, `new-species` is only able to
-retrieve the most current release ofa genome build (version 97 as this is written). To import files, you will need to
-know the value for one of the attributes for that genome's release.  In plain English, it is probably best if you use
-`accession` or `assembly` for the `--species_attribute` argument, look up the value on
-`Ensembl <https://uswest.ensembl.org/info/about/species.html>`_, and use that for the `--species_value`
-argument.  Alternatively, you can run `new-species` with just the `--show_available` argument to see possible values.
-While you can use the `common_name` (i.e "dog") or species `name` (i.e. "Canis familiaris`), those are
-non-unique for some values; if that is the case, `new-species` will exit and as you to make a more precise request.
+retrieve the most current release ofa genome build (which is version 97 as of this writting). To import files, you will
+need to know the value for one of the attributes for that genome's release.  In plain English, it is probably best if
+you use `accession` or `assembly` for the `--species_attribute` argument, look up the value on `Ensembl
+<https://uswest.ensembl.org/info/about/species.html>`_, and use that for the `--species_value` argument.
+Alternatively, you can run `new-species` with just the `--show_available` argument to see possible values. While you can
+use the `common_name` (i.e "dog") or species `name` (i.e. "Canis familiaris"), those are non-unique for some values; if
+that is the case, `new-species` will exit and ask you to make a more precise request.
 
 The `--dest` argument is optional.  If you do not provide it, the files will be placed in a subdirectory of the current
 working directory called "/mc_resources".
@@ -66,7 +66,7 @@ An example of using `new-species`::
         --dest ~/workdir/mc_human_files \
         --build_bowtie
 
-Note that this is all provided as a convenience -- you can download the sequence and annotation files and/or build
+Note that this is all provided as a convenience - you can download the sequence and annotation files and/or build
 the Bowtie index manually.
 
 
@@ -99,7 +99,7 @@ prep-sequences
       --help                   Show this message and exit.
 
 The `prep-sequences` subcommand is used to match sequences in a FASTA file to those described in a GTF or GFF annotation
-file for downstream use by the `create-library` command.  `prep-sequences` can, for example, be used to select one or
+file for downstream use by the `create-library` command. `prep-sequences` can, for example, be used to select one or
 more particular genes, a certain biotype, or regions surrounding a gene.
 
 Usage is fairly straightforward: give `prep-sequences` a FASTA and GTF, tell it the library_type, and give it the name

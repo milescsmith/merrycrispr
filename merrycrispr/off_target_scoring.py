@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 
+import sys
 from distutils.spawn import find_executable
 from multiprocessing import cpu_count
 from subprocess import check_call
 from tempfile import mkstemp
-from typing import Union, Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any
+from tqdm.autonotebook import tqdm
 
 import numpy as np
 import pandas as pd
 import regex
 
 
-def scoreCas9offtarget(mismatched_positions: List[int], start: int, end: int) -> float:
+def scoreCas9offtarget(mismatched_positions: List[int]) -> float:
     """ Calculate the likelihood a Cas9 protospacer will cut at a particular off-target site
     Equation from http://crispr.mit.edu/about
 
@@ -19,24 +21,21 @@ def scoreCas9offtarget(mismatched_positions: List[int], start: int, end: int) ->
     1) the effect of a mismatch at a particular position
     2) the product of the mismatch scores, weighted by the mean distance between each mismatch
     3) a penalty for the number of mismatches
-    Score is from 0 to 1, with higher scores indicating a higher likelihood the off-target will be cut.
-    e.g. the score for mismatches at [15,16,17,18,19] is infinitesimally small, indicating that those
-    mismatches are highly destablizing
+    Score is from 0 to 1, with higher scores indicating a higher likelihood the off-target will be
+    cut. e.g. the score for mismatches at [15,16,17,18,19] is infinitesimally small, indicating
+    that those mismatches are highly destablizing
     \f
     Parameters
     ----------
     mismatched_positions : :class:`~typing.List`[`int`]
-    start : `int`
-    end : `int`
 
     Return
     ------
     `float`
     """
-    search_region = range(start, end + 1)
-    mismatched_positions = [
-        int(_) - 1 - 4 for _ in mismatched_positions if int(_) in search_region
-    ]
+
+    mismatched_positions = [int(_) for _ in mismatched_positions]
+
     # remember that the for on target scoring, we have 4N-spacer-NGG-3N
     # for Cas9 off-target scoring, we only care about the spacer portion
     # also, Python uses 0-indexed arrays, so we also have to subtract 1
@@ -70,7 +69,10 @@ def scoreCas9offtarget(mismatched_positions: List[int], start: int, end: int) ->
         ]
         # if there is only one mismatch, we should ignore the second two terms.
         if len(mismatched_positions) == 1:
-            score = 1 - M[mismatched_positions[0]]
+            try:
+                score = 1 - M[mismatched_positions[0]]
+            except Exception as error:
+                print(error)
         else:
             nmm = len(mismatched_positions)
             mean_distance = (
@@ -82,12 +84,17 @@ def scoreCas9offtarget(mismatched_positions: List[int], start: int, end: int) ->
             term_3 = 1.0 / (nmm ** 2)
             term_1 = 1
             for n in mismatched_positions:
-                term_1 *= 1 - M[n - 20]
-            score = term_1 * term_2 * term_3
+                try:
+                    term_1 *= 1 - M[n - 20]
+                except Exception as error:
+                    print(error)
+                    print(f"M: {M}, n: {n}\n")
+                    sys.exit(1)
+            score = np.prod([term_1, term_2, term_3])
     return score
 
 
-def sumofftargets(offtargets: List[List[int]], start: int, end: int) -> float:
+def sumofftargets(offtargets: List[List[int]]) -> float:
     """Add all of the potential off-target scores together so that the higher
     the offtarget score, the more desirable the spacer
     \f
@@ -101,7 +108,7 @@ def sumofftargets(offtargets: List[List[int]], start: int, end: int) -> float:
     ------
     `float`
     """
-    sum_score = sum(scoreCas9offtarget(x, start, end) for x in offtargets)
+    sum_score = np.sum([scoreCas9offtarget(x) for x in offtargets])
     if sum_score == 0:
         return 100
     else:
@@ -110,10 +117,12 @@ def sumofftargets(offtargets: List[List[int]], start: int, end: int) -> float:
 
 def off_target_discovery(
     spacers_df: pd.DataFrame,
+    nuclease_info: dict,
     cpus: int = 0,
     refgenome: Optional[str] = None,
     large_index_size: bool = False,
-    reject: Union[bool, int] = False,
+    reject: Optional[int] = None,
+    number_mismatches_to_consider: int = 3,
 ) -> str:
     """Identify potential protospacer off-targets using Bowtie.
     \f
@@ -123,7 +132,13 @@ def off_target_discovery(
     cpus : `int`
     refgenome : :class:`~typing.Optional`[`str`]
     large_index_size : `bool`
-    reject : :class:`~typing.Union`[`bool`, `int`]
+    reject : :class:`~typing.Optional`[`int`]
+        Passed to the `-m` Bowtie parameter.  Suppress all alignments for a
+        particular spacer if more than this number of reportable alignments
+        exist for it.
+    number_mismatches_to_consider : `int`
+        An integer between 0 and 3.  Passed to the `-v` Bowtie parameter.
+        Report alignments with at most this number of mismatches.
 
     Return
     ------
@@ -131,8 +146,11 @@ def off_target_discovery(
     """
     if refgenome is None:
         raise ValueError("No reference Bowtie index provided")
-    spacers_df = spacers_df[spacers_df["spacer"].isin(spacers_df["spacer"].unique())]
-    if cpus is 0:
+    # keep only the two columns necessary right now
+    spacers_df = spacers_df.loc[:, ["hash", "spacer"]].drop_duplicates()
+    # spacers_df = spacers_df[spacers_df["spacer"].isin(spacers_df["spacer"].unique())]
+    # spacers_df = spacers_df[spacers_df["hash"].isin(spacers_df["hash"].unique())]
+    if cpus == 0:
         cpus = cpu_count()
     program = find_executable("bowtie")
 
@@ -140,9 +158,11 @@ def off_target_discovery(
     _, off_target_results = mkstemp()
     with open(spacers_to_score, "w") as tempfile:
         for entry in spacers_df.iterrows():
-            tempfile.writelines(f">{entry[1]['hash']}\n{entry[1]['spacer']}\n")
-
-    command = f"{program} -a -p {cpus}"
+            tempfile.writelines(
+                f">{entry[1]['hash']}\n{entry[1]['spacer'][nuclease_info['start']-1:nuclease_info['end']-1]}\n"
+            )
+    print(f"targets are in {spacers_to_score}")
+    command = f"{program} -a -p {cpus} -v {number_mismatches_to_consider}"
     if reject:
         command += f" -m {reject}"
 
@@ -158,7 +178,7 @@ def off_target_discovery(
     except BaseException:
         raise SystemExit("Bowtie encountered an error. Please check the log file.")
 
-    print("Bowtie finished.")
+    print(f"Bowtie finished. Results at {off_target_results}")
 
     return off_target_results
 
@@ -168,7 +188,7 @@ def off_target_scoring(
     spacers_df: pd.DataFrame,
     nuclease_info: Dict[str, Any],
     off_target_score_threshold: int,
-    off_target_count_threshold: Optional[int],
+    off_target_count_threshold: Optional[int] = 100,
 ) -> object:
     """Calculate a cumulative off-target score for a protospacer
     \f
@@ -184,16 +204,15 @@ def off_target_scoring(
     off_target_score_threshold : `int`
         Total off-target score threshold beyond which a spacer is rejected.
         Ranges from 0 to 100.
-    off_target_count_threshold : `int`
-        Number of potential mismatches that should be tolerated.
+    off_target_count_threshold : `int`, default: 100
+        Number of potential mismatches that should be tolerated.  Spacers 
+        exceeding the threshold will be discarded
 
     Return
     -------
     :class:`~pandas.DataFrame` matching the one passed to spacers_df containing
     off-target scores
     """
-
-    mmpos_re = regex.compile("[0-9]{1,}")
 
     bowtie_results = pd.read_csv(
         otrf,
@@ -208,52 +227,57 @@ def off_target_scoring(
             "aligncount",
             "mismatches",
         ],
+        usecols=["hash", "mismatches"],
+        dtype={"hash": "int64", "mismatches": "str"},
+        na_filter=False,
+        skip_blank_lines=True,
         sep="\t",
+        memory_map=True,
     )
 
     print(f"Total alignments from Bowtie: {bowtie_results.shape[0]}")
-    bowtie_results = bowtie_results.fillna(0)
 
-    spacers_df["off_target_score"] = np.repeat(0, spacers_df.shape[0])
-    spacers_df["number_matching"] = np.repeat(0, spacers_df.shape[0])
-
-    # for each spacer
-    for i in spacers_df["hash"].unique():
-        # get everything for that ["hash"]
-        matching_locations = bowtie_results[bowtie_results["hash"] == i]
-
-        # if the number of mismatches is above a threshold, remove the spacer
-        # if there are more than one perfect matches
-        if (
-            off_target_count_threshold & matching_locations.shape[0]
-            > off_target_count_threshold
-            or len(matching_locations[matching_locations["mismatches"] == 0].index) > 1
-        ):
-            score = 0
-        # if there is only one entry - no offtargets, assign a score of 0
-        elif matching_locations.shape[0] == 1:
-            score = 100
-        # elif there are mismatch positions, get the positions, make a list
-        # holding lists of those positions, and score
-        else:
-            bounds = range(
-                int(spacers_df.loc[spacers_df["hash"] == i, "start"]),
-                int(spacers_df.loc[spacers_df["hash"] == i, "end"]),
-            )  # ideally, this would take refseq into consideration
-            matching_locations = matching_locations.drop(
-                matching_locations[matching_locations["position"].isin(bounds)].index
-            )
-            mmpos = [
-                mmpos_re.findall(str(_[1]["mismatches"]))
-                for _ in matching_locations.iterrows()
+    # We need to reduce the number of spacers we examine.  For the most part,
+    # those with a lot of potential off-targets (>1000?) have really low
+    # scores and are worthless.  Some have >10,000 (!) potential off-targets
+    # and should just be thrown out.
+    results_count = bowtie_results.groupby("hash").agg("count").reset_index()
+    filtered_results = bowtie_results[
+        bowtie_results["hash"].isin(
+            results_count[results_count["mismatches"] < off_target_count_threshold][
+                "hash"
             ]
-            score = sumofftargets(
-                mmpos, start=nuclease_info["start"], end=nuclease_info["end"]
-            )
-        spacers_df.loc[spacers_df["hash"] == i, "off_target_score"] = score
-        spacers_df.loc[
-            spacers_df["hash"] == i, "number_matching"
-        ] = matching_locations.shape[0]
+        )
+    ]
 
+    # Keep only those spacers that have fewer than our cutoff
+    spacers_df = spacers_df[spacers_df["hash"].isin(filtered_results["hash"])]
+
+    mmpos = regex.compile("[0-9]{1,}")
+    tqdm.pandas(desc="converting mismatches", unit="spacers")
+    filtered_results["locations"] = filtered_results["mismatches"].progress_apply(
+        lambda x: mmpos.findall(x)
+    )
+
+    tqdm.pandas(desc="collapsing mismatches", unit="spacers")
+    collapsed_results = (
+        filtered_results.groupby("hash")
+        .progress_apply(lambda x: x["locations"].values)
+        .reset_index()
+        .rename(index=str, columns={0: "locations"})
+    )
+
+    tqdm.pandas(desc="scoring mismatches", unit="spacers")
+    collapsed_results["off_target_score"] = collapsed_results.apply(
+        lambda x: sumofftargets(x["locations"]), axis=1
+    )
+    spacers_df = spacers_df.merge(collapsed_results, on="hash")
+
+    tqdm.pandas("counting off-targets", unit="spacers")
+    spacers_df["off_targets"] = spacers_df.progress_apply(
+        lambda x: len(x["locations"]) - 1, axis=1
+    )
+    spacers_df = spacers_df.drop(columns=["locations"])
+    spacers_df.to_csv('/Users/milessmith/workspace/mc_human_files/pml_testing_post_off_target.csv')
     spacers_df = spacers_df[spacers_df["off_target_score"] > off_target_score_threshold]
     return spacers_df

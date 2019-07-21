@@ -195,12 +195,12 @@
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">new-species</span></code> subcommand is used to import sequences from Ensembl. Currently, <code class="docutils literal notranslate"><span class="pre">new-species</span></code> is only able to
-retrieve the most current release ofa genome build (version 97 as this is written). To import files, you will need to
-know the value for one of the attributes for that genome’s release.  In plain English, it is probably best if you use
-<code class="docutils literal notranslate"><span class="pre">accession</span></code> or <code class="docutils literal notranslate"><span class="pre">assembly</span></code> for the <code class="docutils literal notranslate"><span class="pre">--species_attribute</span></code> argument, look up the value on
-<a class="reference external" href="https://uswest.ensembl.org/info/about/species.html">Ensembl</a>, and use that for the <code class="docutils literal notranslate"><span class="pre">--species_value</span></code>
-argument.  Alternatively, you can run <code class="docutils literal notranslate"><span class="pre">new-species</span></code> with just the <code class="docutils literal notranslate"><span class="pre">--show_available</span> <span class="pre">While</span> <span class="pre">you</span> <span class="pre">can</span> <span class="pre">use</span> <span class="pre">the</span> <span class="pre">`common_name</span></code> (i.e “dog”) or species <code class="docutils literal notranslate"><span class="pre">name</span></code> (i.e. “Canis familiaris`), those are
-non-unique for some values; if that is the case, <code class="docutils literal notranslate"><span class="pre">new-species</span></code> will exit and as you to make a more precise request.</p>
+retrieve the most current release ofa genome build (which is version 97 as of this writting). To import files, you will
+need to know the value for one of the attributes for that genome’s release.  In plain English, it is probably best if
+you use <code class="docutils literal notranslate"><span class="pre">accession</span></code> or <code class="docutils literal notranslate"><span class="pre">assembly</span></code> for the <code class="docutils literal notranslate"><span class="pre">--species_attribute</span></code> argument, look up the value on <a class="reference external" href="https://uswest.ensembl.org/info/about/species.html">Ensembl</a>, and use that for the <code class="docutils literal notranslate"><span class="pre">--species_value</span></code> argument.
+Alternatively, you can run <code class="docutils literal notranslate"><span class="pre">new-species</span></code> with just the <code class="docutils literal notranslate"><span class="pre">--show_available</span></code> argument to see possible values. While you can
+use the <code class="docutils literal notranslate"><span class="pre">common_name</span></code> (i.e “dog”) or species <code class="docutils literal notranslate"><span class="pre">name</span></code> (i.e. “Canis familiaris”), those are non-unique for some values; if
+that is the case, <code class="docutils literal notranslate"><span class="pre">new-species</span></code> will exit and ask you to make a more precise request.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">--dest</span></code> argument is optional.  If you do not provide it, the files will be placed in a subdirectory of the current
 working directory called “/mc_resources”.</p>
 <p>Because it can take a up to several hours to build the index, by default <code class="docutils literal notranslate"><span class="pre">new-species</span></code> does not build one on species
@@ -215,7 +215,7 @@ downloading to build the index.</p>
     <span class="o">--</span><span class="n">build_bowtie</span>
 </pre></div>
 </div>
-<p>Note that this is all provided as a convenience – you can download the sequence and annotation files and/or build
+<p>Note that this is all provided as a convenience - you can download the sequence and annotation files and/or build
 the Bowtie index manually.</p>
 </div>
 <div class="section" id="prep-sequences">
@@ -246,7 +246,7 @@ the Bowtie index manually.</p>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">prep-sequences</span></code> subcommand is used to match sequences in a FASTA file to those described in a GTF or GFF annotation
-file for downstream use by the <code class="docutils literal notranslate"><span class="pre">create-library</span></code> command.  <code class="docutils literal notranslate"><span class="pre">prep-sequences</span></code> can, for example, be used to select one or
+file for downstream use by the <code class="docutils literal notranslate"><span class="pre">create-library</span></code> command. <code class="docutils literal notranslate"><span class="pre">prep-sequences</span></code> can, for example, be used to select one or
 more particular genes, a certain biotype, or regions surrounding a gene.</p>
 <p>Usage is fairly straightforward: give <code class="docutils literal notranslate"><span class="pre">prep-sequences</span></code> a FASTA and GTF, tell it the library_type, and give it the name
 of an output file to write to.  The <code class="docutils literal notranslate"><span class="pre">--library_type</span></code> options are setup to produce spacers that are appropriate for the

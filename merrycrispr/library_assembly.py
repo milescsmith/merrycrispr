@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from itertools import product
+from tqdm.autonotebook import tqdm
 
 import pandas as pd
 
@@ -13,8 +14,8 @@ BSMBI_ARM_3 = "Cgtctcgttttaaaa"
 
 def assemble_library(
     spacers: pd.DataFrame,
-    on_target_score_threshold: int = 100,
-    off_target_score_threshold: int = 100,
+    on_target_score_threshold: int = 0,
+    off_target_score_threshold: int = 0,
     spacers_per_feature: int = 6,
 ) -> pd.DataFrame:
     """Creates a final list of protospacers for synthesis
@@ -27,7 +28,7 @@ def assemble_library(
         :module:`~off_target_scoring.off_target_scoring`
     on_target_score_threshold : int, optional (default: 100)
         Spacers with an on-target score below this threshold will be removed
-    off_target_score_threshold : int, optional (default: 100)
+    off_target_score_threshold : int, optional (default: 0)
         Spacers with an off-target score below this threshold will be removed
     spacers_per_feature : int, optional (default: 6)
         The number of spacers to return for each gene
@@ -39,13 +40,20 @@ def assemble_library(
 
     spacers = spacers[spacers["on_target_score"] > on_target_score_threshold]
     spacers = spacers[spacers["off_target_score"] > off_target_score_threshold]
-    grouped = (
-        spacers.groupby("gene_name")
-        .apply(lambda x: x.nlargest(spacers_per_feature, "on_target_score"))
-        .reset_index(drop=True)
-    )
-
-    return grouped
+    spacers = spacers.drop(labels=["seq_hash", "hash"], axis="columns").drop_duplicates()
+    if spacers_per_feature == 0:
+        return spacers.drop(labels=["seq_hash", "hash"], axis="columns")
+    else:
+        tqdm.pandas(desc="Assembling library", unit="spacers")
+        grouped = (
+            spacers.groupby("gene_name")
+            .progress_apply(
+                lambda x: x.nlargest(spacers_per_feature, "on_target_score")
+            )
+            .reset_index(drop=True)
+            # .drop(labels=["seq_hash", "hash"], axis="columns")
+        )
+        return grouped
 
 
 def assemble_paired_library(
@@ -54,17 +62,19 @@ def assemble_paired_library(
     off_target_score_threshold: int = 100,
     number_upstream_spacers: int = 3,
     number_downstream_spacers: int = 3,
+    # min_paired_distance: int = 30, #reenable once I figure it out
     mix_and_match: bool = True,
 ) -> pd.DataFrame:
-    """Creates a final list of protospacers for synthesis.  Used to create excision libraries,
-    where two spacers are necessary to cause cuts at either side of a feature.
-    `assemble_paired_library()` will take a set of upstream and set of downstream spacers,
-    generate all permutations for those originating for the same feature, and assemble them in a
-    synthetic SpCas9 spacer array
+    """Creates a final list of protospacers for synthesis.  Used to create 
+    excision libraries, where two spacers are necessary to cause cuts at either
+    side of a feature. `assemble_paired_library()` will take a set of upstream
+    and set of downstream spacers, generate all permutations for those
+    originating for the same feature, and assemble them in a synthetic
+    SpCas9 spacer array
 
     Parameters
     __________
-     : :class:`~pd.DataFrame`
+    spacers : :class:`~pd.DataFrame`
         Dataframe with all spacers found by :module:`~find_spacers.find_spacers`,
         scores added by :module:`~on_target_scoring.on_target_scoring` and
         :module:`~off_target_scoring.off_target_scoring`
@@ -77,14 +87,15 @@ def assemble_paired_library(
     number_downstream_spacers : int, optional (default: 3)
         Number of spacers upstream of a gene to use
     mix_and_match : bool, optional (default: True)
-        If `True`, permutations of the final upstream and downstream spacers will be assebled
-        into a larger synthetic spacer array construct.
+        If `True`, permutations of the final upstream and downstream spacers
+        will be assembled into a larger synthetic spacer array construct.
 
     Return
     ______
-    :class:`~pd.DataFrame` with the final spacer sequences for synthesis.  If `mix_and_match` is
-    `True`, then this will correspond to the spacer arrays; if `False`, then this will be a
-    listing of the final upstream and downstream spacers.
+    :class:`~pd.DataFrame` with the final spacer sequences for synthesis.
+    If `mix_and_match` is `True`, then this will correspond to the spacer
+    arrays; if `False`, then this will be a listing of the final upstream and
+    downstream spacers.
     """
 
     spacers = spacers[spacers["on_target_score"] > on_target_score_threshold]
@@ -92,14 +103,21 @@ def assemble_paired_library(
     upstream_spacers = spacers[spacers["gene_name"].str.contains("upstream")]
     downstream_spacers = spacers[spacers["gene_name"].str.contains("downstream")]
 
+    tqdm.pandas(desc="finding upstream spacers with highest on-target scores")
     grouped_upstream = (
         upstream_spacers.groupby("seq_hash")
-        .apply(lambda x: x.nlargest(number_upstream_spacers, "on_target_score"))
+        .progress_apply(
+            lambda x: x.nlargest(number_upstream_spacers, "on_target_score")
+        )
         .reset_index(drop=True)
     )
+
+    tqdm.pandas(desc="finding downstream spacers with highest on-target scores")
     grouped_downstream = (
         downstream_spacers.groupby("seq_hash")
-        .apply(lambda x: x.nlargest(number_downstream_spacers, "on_target_score"))
+        .progress_apply(
+            lambda x: x.nlargest(number_downstream_spacers, "on_target_score")
+        )
         .reset_index(drop=True)
     )
 

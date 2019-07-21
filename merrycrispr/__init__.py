@@ -1,13 +1,15 @@
 from merrycrispr.__main__ import main
+from merrycrispr._version import get_versions
 from merrycrispr.find_spacers import find_spacers
-from merrycrispr.on_target_scoring import on_target_scoring, score_entry
+from merrycrispr.library_assembly import assemble_library, assemble_paired_library
 from merrycrispr.off_target_scoring import (
     scoreCas9offtarget,
     sumofftargets,
     off_target_discovery,
     off_target_scoring,
 )
-from merrycrispr.library_assembly import assemble_library, assemble_paired_library
+from merrycrispr.on_target_scoring import on_target_scoring, score_entry
+from merrycrispr.rule_set_one import calc_score
 from merrycrispr.seqextractor import (
     extract,
     extract_for_tss_adjacent,
@@ -17,9 +19,6 @@ from merrycrispr.seqextractor import (
     display_gtf_genes,
     display_gtf_geneids,
 )
-from merrycrispr.rule_set_one import calc_score
-from merrycrispr._version import get_versions
-
 from merrycrispr.species_getter import (
     EnsemblRestClient,
     available_species,
@@ -98,7 +97,7 @@ Description
 
 .. autosummary::
    :toctree: .
-   
+
    find_spacers
 
 
