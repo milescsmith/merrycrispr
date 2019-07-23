@@ -13,10 +13,10 @@ requests==2.21.0
 tqdm==4.31.1
 sphinx-autodoc-typehints>=1.6.0
 sphinx==2.1.2
-sphinx_rtd_theme=0.4.3
-sphinxcontrib-applehelp=1.0.1
-sphinxcontrib-devhelp=1.0.1
-sphinxcontrib-htmlhelp=1.0.2
-sphinxcontrib-jsmath=1.0.1
-sphinxcontrib-qthelp=1.0.2
-sphinxcontrib-serializinghtml=1.1.1
+sphinx_rtd_theme==0.4.3
+sphinxcontrib-applehelp==1.0.1
+sphinxcontrib-devhelp==1.0.1
+sphinxcontrib-htmlhelp==1.0.2
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.2
+sphinxcontrib-serializinghtml==1.1.1
