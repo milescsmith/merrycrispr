@@ -37,7 +37,8 @@ by running::
 
     docker run merrycrispr merrycrispr --help
 
-For use, see the :ref:`usage:Docker` section in :ref:`usage:Usage`.
+.. note::
+    For use, see the :ref:`usage:Docker` section in :ref:`usage:Usage`.
 
 Miniconda
 ~~~~~~~~~~~~~
@@ -102,4 +103,5 @@ Test to see that everything install correctly by running::
 
     merrycrispr --help
 
-**REMEMBER** You will still need to install Bowtie for MerryCRISPR to work.
+.. Important::
+    You will still need to install Bowtie for MerryCRISPR to work.

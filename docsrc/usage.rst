@@ -41,10 +41,12 @@ new-species
       --help                        Show this message and exit.
 
 The `new-species` subcommand is used to import sequences from Ensembl. Currently, `new-species` is only able to
-retrieve the most current release ofa genome build (which is version 97 as of this writting). To import files, you will
-need to know the value for one of the attributes for that genome's release.  In plain English, it is probably best if
-you use `accession` or `assembly` for the `--species_attribute` argument, look up the value on `Ensembl
-<https://uswest.ensembl.org/info/about/species.html>`_, and use that for the `--species_value` argument.
+retrieve the most current genome build release (which is version 97 as of this writting). To import files, you will
+need to know the value for one of the attributes for that genome's release.
+
+.. Important::
+    In plain English, it is probably best if you use `accession` or `assembly` for the `--species_attribute` argument, look up the value on `Ensembl <https://uswest.ensembl.org/info/about/species.html>`_, and use that for the `--species_value` argument.
+
 Alternatively, you can run `new-species` with just the `--show_available` argument to see possible values. While you can
 use the `common_name` (i.e "dog") or species `name` (i.e. "Canis familiaris"), those are non-unique for some values; if
 that is the case, `new-species` will exit and ask you to make a more precise request.
@@ -52,7 +54,7 @@ that is the case, `new-species` will exit and ask you to make a more precise req
 The `--dest` argument is optional.  If you do not provide it, the files will be placed in a subdirectory of the current
 working directory called "/mc_resources".
 
-Because it can take a up to several hours to build the index, by default `new-species` does not build one on species
+Because it can take a up to several hours to build the index, by default `new-species` does not build one upon species
 import.  Passing the `--build_bowtie` flag when you run the command will tell it to build the index.
 
 If there are already matching files in the `dest` directory, `new-species` will check to see if the file sizes match
@@ -66,9 +68,8 @@ An example of using `new-species`::
         --dest ~/workdir/mc_human_files \
         --build_bowtie
 
-Note that this is all provided as a convenience - you can download the sequence and annotation files and/or build
-the Bowtie index manually.
-
+.. Note::
+    This is all provided as a convenience - you can download the sequence and annotation files and/or build the Bowtie index manually.
 
 prep-sequences
 ~~~~~~~~~~~~~~~
@@ -107,8 +108,10 @@ of an output file to write to.  The `--library_type` options are setup to produc
 desired function - the "knockout" option extracts exonic sequences; the "repressor/activator" option extracts sequences
 -/+ 100 nucleotides surrounding the TSS (or, more precisely, the start of exon 1); the excision option excises a 100
 nucleotide block upstream and 100 nucleotides downstream of a feature ("gene", by default), though that can be changed
-by passing a number to the `--bound` argument; and "Cas13" returns sequences matching the processed mRNA. Note that the
-`--gene_name` argument can take multiple values with just a space between the gene names.
+by passing a number to the `--bound` argument; and "Cas13" returns sequences matching the processed mRNA. 
+
+.. Note::
+    The `--gene_name` argument can take multiple values with just a space between the gene names, allowing you to design spacers for a handful of genes at a time.
 
 For example, to extract all of the exons from the most current human assembly for use in a knockout library::
 
@@ -116,8 +119,6 @@ For example, to extract all of the exons from the most current human assembly fo
         --gtf ~/workdir/mc_human_files/Homo_sapiens.GRCh38.97.gtf.gz \
         --fasta ~/workdir/mc_human_files/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz \
         --output ~/workdir/mc_human_files/human_exons.fa
-
-
 
 create-library
 ~~~~~~~~~~~~~~~
@@ -179,7 +180,7 @@ so, Rules Set 2 should be used. Off-target scoring is a simple algorithm from
 `Hsu el al. Nat Biotechnol. 2014 <https://doi.org/10.1038/nbt.2647>`_.  Scores range from 0 to 100, with higher numbers
 being more desirable.
 
-Following from the example in `prep-sequences`_ above, the following would find 6 spacers per gene for Cas9 with on- and
+Following from the example in `prep-sequences`_ above, the command below would find 6 spacers per gene for Cas9 with on- and
 off-target scores above 50 using Rule Set 2::
 
     merrycrispr create-library --input ~/workdir/mc_human_files/human_exons.fa \
@@ -191,19 +192,20 @@ off-target scores above 50 using Rule Set 2::
         --offtarget_score_threshold 50
         --spacers_per_feature 6
 
-Of the options, probably the `--reference` is the easiest to mistake how to use.  Bowtie creates a series of 4-7 files
-with the suffix `.ewbt` (or, it the genome is exceptionally large, `.ewbtl`, thus the `--largeindex` flag). So, for
-instance, when `new-species` above created the index, the files produced were::
+.. Warning::
+    Of the options, probably the `--reference` is the easiest to mistake how to use.  Bowtie creates a series of 4-7 files
+    with the suffix `.ewbt` (or, it the genome is exceptionally large, `.ewbtl`, thus the `--largeindex` flag). So, for
+    instance, when `new-species` above created the index, the files produced were::
 
-    .
-    ├── Homo_sapiens.1.ebwt
-    ├── Homo_sapiens.2.ebwt
-    ├── Homo_sapiens.3.ebwt
-    ├── Homo_sapiens.4.ebwt
-    ├── Homo_sapiens.rev.1.ebwt
-    └── Homo_sapiens.rev.2.ebwt
+        .
+        ├── Homo_sapiens.1.ebwt
+        ├── Homo_sapiens.2.ebwt
+        ├── Homo_sapiens.3.ebwt
+        ├── Homo_sapiens.4.ebwt
+        ├── Homo_sapiens.rev.1.ebwt
+        └── Homo_sapiens.rev.2.ebwt
 
-When specifying the index to use, Bowtie needs to know the common prefix - that is, everything up to the `.1.ebwt`.
+    When specifying the index to use, Bowtie needs to know the common prefix - that is, everything up to the `.1.ebwt`.
 
 
 Docker
@@ -224,10 +226,10 @@ So to run the `new-species`_ command from above::
         --species_attribute name \
         --dest $HOME/workspace/
 
-The bind mount flag `-v "$(pwd)"/:$HOME/workspace` flag above instructs Docker to set up a link from the *p*resent
-*w*orking *d*irectory to a directory named "workspace"in the user's home folder inside the docker. Note that later in
+The bind mount flag `-v "$(pwd)"/:$HOME/workspace` flag above instructs Docker to set up a link from the *p*\ resent
+*w*\ orking *d*\ irectory to a directory named "workspace"in the user's home folder inside the docker. Note that later in
 the command, the location passed to the `--dest` argument is *inside* the container - this is fine as the link is
 two-way, meaning that any files written to "$HOME/workspace" are also written to your local $PWD/workspace directory.
 
-Also note that the double `merrycrispr merrycrispr` is not a typo - the first is to create a container from the
-merrycrispr image, the second is to run the merrycrispr command inside the new container.
+.. Important::
+    That the double `merrycrispr merrycrispr` is not a typo - the first is to create a container from the merrycrispr image, the second is to run the merrycrispr command inside the new container.
