@@ -148,8 +148,6 @@ def off_target_discovery(
         raise ValueError("No reference Bowtie index provided")
     # keep only the two columns necessary right now
     spacers_df = spacers_df.loc[:, ["hash", "spacer"]].drop_duplicates()
-    # spacers_df = spacers_df[spacers_df["spacer"].isin(spacers_df["spacer"].unique())]
-    # spacers_df = spacers_df[spacers_df["hash"].isin(spacers_df["hash"].unique())]
     if cpus == 0:
         cpus = cpu_count()
     program = find_executable("bowtie")
