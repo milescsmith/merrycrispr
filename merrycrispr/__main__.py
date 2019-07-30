@@ -2,6 +2,7 @@
 
 import os
 from typing import Optional
+from functools import partial
 
 import click
 import numpy as np
@@ -354,6 +355,7 @@ def create_library(
     number_upstream_spacers: int = 0,
     number_downstream_spacers: int = 0,
     cores: int = 0,
+    chunks: int = 8,
 ) -> None:
     """Build a CRISPR library
     \f
@@ -377,6 +379,7 @@ def create_library(
     :param number_upstream_spacers :
     :param number_downstream_spacers :
     :param cores :
+    :param chunks:
 
     Return
     ------
@@ -393,11 +396,19 @@ def create_library(
 
     initialnumber = spacers_df.shape[0]
 
-    spacers_df = on_target_scoring(
+    chunked_spacer_dfs = np.array_split(spacers_df, chunks)
+    scoring_partial = partial(
+        on_target_scoring,
         ruleset=rule_set,
-        spacers=spacers_df,
         on_target_score_threshold=on_target_score_threshold,
     )
+    spacers_df = pd.concat(map(scoring_partial, chunked_spacer_dfs))
+
+    # spacers_df = on_target_scoring(
+    #     ruleset=rule_set,
+    #     spacers=spacers_df,
+    #     on_target_score_threshold=on_target_score_threshold,
+    # )
 
     if spacers_df.shape[0] == 0:
         print("Sorry, no spacers matching that criteria were found")
@@ -411,7 +422,7 @@ def create_library(
         )
 
     spacers_df["hash"] = spacers_df.apply(lambda x: hash(tuple(x)), axis=1)
-    offtarget_results_file = off_target_discovery(
+    off_target_results_file = off_target_discovery(
         spacers_df=spacers_df,
         nuclease_info=nuc,
         cpus=cores,
@@ -422,7 +433,7 @@ def create_library(
     )
 
     spacers_df = off_target_scoring(
-        otrf=offtarget_results_file,
+        otrf=off_target_results_file,
         spacers_df=spacers_df,
         nuclease_info=nuc,
         off_target_score_threshold=off_target_score_threshold,

@@ -2,20 +2,24 @@
 
 from typing import Optional, List
 
+import re
+from functools import partial
+
 import pandas as pd
+import numpy as np
 import pyfaidx
 import regex
+
 from tqdm import tqdm
-from Bio.Alphabet import IUPAC
 from Bio.Restriction import RestrictionBatch
 from Bio.Seq import Seq
-from Bio.SeqUtils import GC
 
 
 def find_spacers(
     itemlist: pyfaidx.Fasta,
     nuclease_info: dict,
     restriction_sites: Optional[List[str]] = None,
+    chunks: int = 8,
 ) -> pd.DataFrame:
     """Find protospacers in a sequence for a given nuclease.  The search region can be more
     expansive than just the PAM (for scoring purposes) and strand can be taken into account.
@@ -32,6 +36,9 @@ def find_spacers(
     restriction_sites : `List[str]`, optional (default: `None`)
         For a found spacer, ignore it if it contains the sequence for recognition by these
         restriction endonucleases.
+    chunks : `int`, optional (default: 8)
+        Number of pieces to divide the spacer dataframe into.  Higher number
+        means less memory used at a time, but may result in slower processing
 
 
     Return
@@ -39,7 +46,7 @@ def find_spacers(
     :class:`~pandas.DataFrame`
 
     """
-    spacer_regex: regex.Regex = regex.compile(nuclease_info["spacer_regex"])
+    spacer_regex = regex.compile(nuclease_info["spacer_regex"])
     spacer_start: int = nuclease_info["start"]
     spacer_end: int = nuclease_info["end"]
 
@@ -47,99 +54,160 @@ def find_spacers(
     # spacers
     if restriction_sites:
         rsb = RestrictionBatch(restriction_sites)
+    else:
+        rsb = None
 
     # For each entry in the file (i.e. exonic sequence), find all of the
     # potential protospacer sequences.
-    spacers_df = pd.DataFrame(
-        columns=[
-            "gene_name",
-            "feature_id",
-            "strand",
-            "start",
-            "end",
-            "spacer",
-            "seq_hash",
-        ]
+    spacers_df = fasta_to_df(itemlist)
+
+    tqdm.pandas(desc="finding forward spacers", unit="sequences")
+    spacers_df["forward_spacers"] = spacers_df["sequence"].progress_apply(
+        spacer_regex.findall
     )
-    for item in tqdm(
-        itemlist.keys(),
-        desc="Searching sequences for spacers",
-        total=len(itemlist.keys()),
-        unit="items",
-    ):
-        # have to use `keys` here - remember it isn't a dict, it is a Fasta
-        # have to use the alternative Regex module instead of Re so that findall
-        # can detect overlapping sequences
-        # Since Cas13/Csc2 recognizes mRNA, we need to keep strandedness in mind
-        # go ahead and check for all three possibilites to future proof for
-        # other nucleases.
-        try:
-            if nuclease_info["strand"] == "b":
-                spacers = spacer_regex.findall(
-                    itemlist[item][:].seq, overlapped=True
-                ) + spacer_regex.findall(
-                    itemlist[item][:].reverse.complement.seq, overlapped=True
-                )
-            elif nuclease_info["strand"] == "p":
-                spacers = spacer_regex.findall(itemlist[item][:].seq, overlapped=True)
-            elif nuclease_info["strand"] == "n":
-                spacers = spacer_regex.findall(
-                    itemlist[item][:].reverse.complement.seq, overlapped=True
-                )
-        except ValueError:
-            print(
-                f"The current nuclease is set to recognize {nuclease_info['strand']} strand, "
-                f"which is not one I recognize"
-            )
+    tqdm.pandas(desc="finding reverse spacers", unit="sequences")
+    spacers_df["reverse_spacers"] = spacers_df["reverse_complement"].progress_apply(
+        spacer_regex.findall
+    )
+    spacers_df = spacers_df.drop(columns=["sequence", "reverse_complement"])
 
-        info = dict(
-            zip(
-                ["gene_name", "feature_id", "strand", "start", "end", "seq_hash"],
-                item.split("_"),
-            )
-        )
-
-        for ps in spacers:
-            # Note that ps[4:24] is the actual protospacer.  I need the rest of
-            # the sequence for scoring
-            ps_seq = Seq(ps[spacer_start:spacer_end], IUPAC.unambiguous_dna)
-            ps_full_seq = Seq(ps, IUPAC.unambiguous_dna)
-
-            # Get rid of anything with T(4+) as those act as RNAPIII
-            # terminators
-            if "TTTT" in ps:
-                # TODO Should this also eliminate anything with G(4)?
-                pass
-            # Get rid of anything that has the verboten restriction sites
-            elif restriction_sites and bool(
-                [y for y in rsb.search(ps_full_seq).values() if y]
-            ):
-                pass
-            # BsmBI/Esp3I is used in most of the new CRISPR vectors, especially for
-            # library construction. Biopython misses potential restriction sites as it tries
-            # to match GAGACGN(5), whereas we need to find matches of just the GAGACG core.
-            # The next four lines take care of that.
-            elif "GAGACG" in ps[spacer_start:spacer_end]:
-                pass
-            elif "CGTCTC" in ps[spacer_start:spacer_end]:
-                pass
-            # Eliminate potentials with a GC content <20 or >80%
-            elif GC(ps_seq) <= 20 or GC(ps_seq) >= 80:
-                pass
-            else:
-                ps_start = itemlist[item][:].seq.find(ps) + int(info["start"])
-                spacer_data = {
-                    "gene_name": [info["gene_name"]],
-                    "feature_id": [info["feature_id"]],
-                    "strand": [info["strand"]],
-                    "start": [ps_start],
-                    "end": [ps_start + len(ps)],
-                    "spacer": [ps],
-                    "seq_hash": [info["seq_hash"]],
-                }
-                _ = pd.DataFrame.from_dict(spacer_data)
-                spacers_df = pd.concat([spacers_df, _])
+    chunked_spacer_dfs = np.array_split(spacers_df, chunks)
+    pivot_partial = partial(
+        pivot_spacers,
+        spacer_start=spacer_start,
+        spacer_end=spacer_end,
+        restriction_sites=rsb,
+    )
+    spacers_df = pd.concat(map(pivot_partial, chunked_spacer_dfs))
 
     # duplicates were sneaking in.
-    spacers_df = spacers_df.groupby('spacer').first().reset_index()
+    spacers_df = spacers_df.groupby("spacer").first().reset_index()
+    
     return spacers_df
+
+
+def fasta_to_df(fasta: pyfaidx.Fasta) -> pd.DataFrame:
+    """Convert the fasta file from seqextractor to a Pandas DataFrame
+
+    Parameters
+    ----------
+    fasta : :class:`pyfaidx.Fasta`
+        Parsed FASTA with sequences to examine for spacers that needs to be
+        converted to a Pandas DataFrame
+
+    Results
+    ----------
+    :class:`pd.DataFrame`
+    """
+    df = pd.DataFrame(
+        [fasta[_].name.split("_") for _ in fasta.keys()],
+        columns=["gene_name", "feature_id", "strand", "start", "stop", "seq_hash"],
+    )
+
+    df = df.astype(
+        {
+            "feature_id": "category",
+            "gene_name": "category",
+            "strand": "category",
+            "start": np.uint32,
+            "stop": np.uint32,
+            "seq_hash": np.int32,
+        },
+        copy=False,
+    )
+
+    df["sequence"] = pd.Series([fasta[_][:].seq for _ in fasta.keys()])
+    df["reverse_complement"] = pd.Series(
+        [fasta[_][:].reverse.complement.seq for _ in fasta.keys()]
+    )
+    return df
+
+
+def pivot_spacers(
+    wide_df: pd.DataFrame,
+    spacer_start: int,
+    spacer_end: int,
+    restriction_sites: Optional[RestrictionBatch] = None,
+) -> pd.DataFrame:
+    """
+    
+    Parameters
+    ----------
+
+    Returns
+    -------
+    """
+    BsmBI_fwd = "GAGACG"
+    BsmBI_rev = "CGTCTC"
+
+    print("separating spacer lists")
+    tqdm.pandas(desc="forward", unit="sequences")
+    long_df = (
+        wide_df.progress_apply(
+            lambda x: pd.Series(x["forward_spacers"], dtype="str"), axis=1
+        )
+        .stack()
+        .reset_index(level=1)
+        .drop(columns=["level_1"])
+        .rename(columns={0: "spacer"})
+    )
+
+    tqdm.pandas(desc="reverse", unit="sequences")
+    long_df_rev = (
+        wide_df.progress_apply(
+            lambda x: pd.Series(x["reverse_spacers"], dtype="str"), axis=1
+        )
+        .stack()
+        .reset_index(level=1)
+        .drop(columns=["level_1"])
+        .rename(columns={0: "spacer"})
+    )
+
+    print("appending lists")
+    long_df = long_df.append(long_df_rev)
+
+    print("eliminating duplicates")
+    # eliminate anything that appears more than once
+    # will probably have to run this again for the entire list, not just a chunk
+    long_df_counts = (
+        long_df["spacer"]
+        .value_counts()
+        .reset_index()
+        .rename(columns={"index": "spacer", "spacer": "count"})
+    )
+    long_df = long_df.reset_index().merge(long_df_counts, on="spacer", left_index=True)
+    long_df = long_df[long_df["count"] == 1].drop(columns="count").set_index("index")
+    if restriction_sites:
+        long_df = long_df[
+            ~long_df["spacer"].apply(restriction_sites_present, rsb=restriction_sites)
+        ]
+
+    print("eliminating undesirable sequences")
+    # eliminate those with a polyT or a BsmBI site within the spacer
+    long_df = long_df[
+        long_df["spacer"]
+        .str[spacer_start:spacer_end]
+        .str.match(f"^((?!T{{4,}}|{BsmBI_fwd}|{BsmBI_rev}).)*$")
+    ]  # match antthing not followed by a polyT or a BsmBI recognition site in the forward seq or a BsmBI recognition site in the reverse seq
+
+    print("eliminating high/low GC sequences")
+    long_df = long_df[long_df["spacer"].apply(GC).between(20, 80)]
+
+    print("merging with spacer info")
+    wide_df = wide_df.drop(columns=["forward_spacers", "reverse_spacers"])
+    long_df = wide_df.merge(long_df, how="inner", left_index=True, right_index=True)
+
+    return long_df
+
+
+def GC(seq: str) -> float:
+    gc = len(re.findall(string=seq, pattern="[GgCc]"))
+    try:
+        return gc * 100.0 / len(seq)
+    except ZeroDivisionError:
+        return 0.0
+
+
+def restriction_sites_present(spacer, rsb):
+    sites = bool([_ for results in rsb.search(Seq(spacer)).values() for _ in results])
+    return sites

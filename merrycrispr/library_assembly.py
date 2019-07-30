@@ -40,7 +40,9 @@ def assemble_library(
 
     spacers = spacers[spacers["on_target_score"] > on_target_score_threshold]
     spacers = spacers[spacers["off_target_score"] > off_target_score_threshold]
-    spacers = spacers.drop(labels=["seq_hash", "hash"], axis="columns").drop_duplicates()
+    spacers = spacers.drop(
+        labels=["seq_hash", "hash"], axis="columns"
+    ).drop_duplicates()
     if spacers_per_feature == 0:
         return spacers.drop(labels=["seq_hash", "hash"], axis="columns")
     else:

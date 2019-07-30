@@ -51,7 +51,9 @@ def on_target_scoring(
         spacerscores = np.asarray([x for x in sublist[0]])
         spacers["on_target_score"] = spacerscores
     elif ruleset == "Azimuth":
-        spacers["on_target_score"] = model_comparison.predict(spacers["spacer"].values)*100
+        spacers["on_target_score"] = (
+            model_comparison.predict(spacers["spacer"].values) * 100
+        )
     spacers = spacers[spacers["on_target_score"] > on_target_score_threshold]
     return spacers
 

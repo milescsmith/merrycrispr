@@ -253,8 +253,9 @@ def off_target_scoring(
 
     mmpos = regex.compile("[0-9]{1,}")
     tqdm.pandas(desc="converting mismatches", unit="spacers")
-    filtered_results["locations"] = filtered_results["mismatches"]\
-        .progress_apply(mmpos.findall)
+    filtered_results["locations"] = filtered_results["mismatches"].progress_apply(
+        mmpos.findall
+    )
 
     tqdm.pandas(desc="collapsing mismatches", unit="spacers")
     collapsed_results = (
@@ -275,6 +276,6 @@ def off_target_scoring(
         lambda x: len(x["locations"]) - 1, axis=1
     )
     spacers_df = spacers_df.drop(columns=["locations"])
-    spacers_df.to_csv('/Users/milessmith/workspace/mc_human_files/pml_testing_post_off_target.csv')
+
     spacers_df = spacers_df[spacers_df["off_target_score"] > off_target_score_threshold]
     return spacers_df
