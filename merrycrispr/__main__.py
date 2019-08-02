@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import os
+import sys
 from typing import Optional
 from functools import partial
+from pathos.multiprocessing import ProcessingPool as Pool
 
 import click
 import numpy as np
@@ -336,6 +338,20 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     default=None,
     type=int,
 )
+@click.option(
+    "--chunks",
+    "-k",
+    help="Number of parts to split internal dataframes into.",
+    default=8,
+    type=int,
+)
+@click.option(
+    "--write_early_exit",
+    help="Write the pre-on-target scoring spacer dataframe to a file",
+    default=False,
+    type=bool,
+    is_flag=True,
+)
 @click.help_option()
 def create_library(
     input_sequences: str = None,
@@ -356,6 +372,7 @@ def create_library(
     number_downstream_spacers: int = 0,
     cores: int = 0,
     chunks: int = 8,
+    write_early_exit: bool = False,
 ) -> None:
     """Build a CRISPR library
     \f
@@ -391,24 +408,28 @@ def create_library(
     nuc = NUCLEASES[NUCLEASES["nuclease"] == nuclease].to_dict(orient="records")[0]
 
     spacers_df = find_spacers(
-        itemlist=targets, nuclease_info=nuc, restriction_sites=restriction_sites
+        itemlist=targets, nuclease_info=nuc, restriction_sites=restriction_sites, chunks=chunks,
     )
-
+    if write_early_exit:
+        spacers_df.to_csv("/Users/milessmith/workspace/mc_human_files/early_exit.csv")
+        sys.exit(0)
     initialnumber = spacers_df.shape[0]
 
+    # thank the gods for the tutorial at 
+    # https://www.machinelearningplus.com/python/parallel-processing-python/
+    scoring_pool = Pool(cores)
     chunked_spacer_dfs = np.array_split(spacers_df, chunks)
     scoring_partial = partial(
         on_target_scoring,
         ruleset=rule_set,
         on_target_score_threshold=on_target_score_threshold,
     )
-    spacers_df = pd.concat(map(scoring_partial, chunked_spacer_dfs))
 
-    # spacers_df = on_target_scoring(
-    #     ruleset=rule_set,
-    #     spacers=spacers_df,
-    #     on_target_score_threshold=on_target_score_threshold,
-    # )
+    spacers_df = pd.concat(scoring_pool.map(scoring_partial, chunked_spacer_dfs))
+
+    scoring_pool.close()
+    scoring_pool.join()
+    scoring_pool.clear()
 
     if spacers_df.shape[0] == 0:
         print("Sorry, no spacers matching that criteria were found")

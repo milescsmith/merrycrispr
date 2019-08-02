@@ -40,11 +40,9 @@ def find_spacers(
         Number of pieces to divide the spacer dataframe into.  Higher number
         means less memory used at a time, but may result in slower processing
 
-
     Return
     ------
     :class:`~pandas.DataFrame`
-
     """
     spacer_regex = regex.compile(nuclease_info["spacer_regex"])
     spacer_start: int = nuclease_info["start"]
@@ -129,13 +127,22 @@ def pivot_spacers(
     spacer_end: int,
     restriction_sites: Optional[RestrictionBatch] = None,
 ) -> pd.DataFrame:
-    """
-    
+    """`Regex.findall` returns a list of matches, with the entirety of the
+    list being placed in a single cell of the `wide_df` for each sequence. This
+    function makes a row for each spacer in those lists, filtering undesireable
+    sequences (high/low GC content, presence of BsmBI sites, multiples), and
+    scores them with the chose on-target algorithm.
+
     Parameters
     ----------
+    wide_df : :class:`pandas.DataFrame`
+    spacer_start : `int`
+    spacer_end : `int`
+    restriction_sites : :class:`Bio.Restriction.RestrictionBatch`, optional
 
     Returns
     -------
+    :class:`pandas.DataFrame`
     """
     BsmBI_fwd = "GAGACG"
     BsmBI_rev = "CGTCTC"
@@ -201,6 +208,17 @@ def pivot_spacers(
 
 
 def GC(seq: str) -> float:
+    """Calculate the QC content of a string corresponding to a genetic sequence\f
+    
+    Parameters
+    ----------
+    seq : `str`
+        DNA sequence to examine for GC content
+
+    Returns
+    -------
+    `float`
+    """
     gc = len(re.findall(string=seq, pattern="[GgCc]"))
     try:
         return gc * 100.0 / len(seq)
@@ -208,6 +226,19 @@ def GC(seq: str) -> float:
         return 0.0
 
 
-def restriction_sites_present(spacer, rsb):
+def restriction_sites_present(spacer: str, rsb: RestrictionBatch) -> List[int]:
+    """Determine if and where a set of restriction sites are present in a
+    sequence\f
+    
+    Parameters
+    ----------
+    spacer : `str`
+        Spacer sequence to examine for restriction sites.
+
+    Returns
+    -------
+    :class:`typing.List`[`int`]
+    """
+
     sites = bool([_ for results in rsb.search(Seq(spacer)).values() for _ in results])
     return sites

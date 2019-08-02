@@ -11,20 +11,20 @@ from .rule_set_one import calc_score
 
 
 def on_target_scoring(
-    ruleset: str, spacers: pd.DataFrame, on_target_score_threshold: float
+     spacers: pd.DataFrame, ruleset: str, on_target_score_threshold: float
 ) -> pd.DataFrame:
 
     """
 
     Parameters
     ----------
-    ruleset : `str`
     spacers : :class:`~pandas.DataFrame`
+    ruleset : `str`
     on_target_score_threshold : `float`
 
     Return
     ------
-
+    :class:`~pandas.DataFrame`
     """
     if ruleset == 1:
         spacerlist = spacers["spacer"].tolist()
@@ -72,7 +72,7 @@ def score_entry(scoring_entry: dict, **kwargs) -> Dict[str, float]:
 
     Return
     ------
-    :class:`typing.Dict[str, float]`
+    :class:`typing.Dict`[`str`, `float`]
 
     """
     calc_method = kwargs["method"]
