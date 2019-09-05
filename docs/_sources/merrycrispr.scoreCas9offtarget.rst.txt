@@ -1,6 +1,6 @@
-merrycrispr.scoreCas9offtarget
+merrycrispr.hsu_offtarget_score
 ==============================
 
 .. currentmodule:: merrycrispr
 
-.. autofunction:: scoreCas9offtarget
+.. autofunction:: hsu_offtarget_score

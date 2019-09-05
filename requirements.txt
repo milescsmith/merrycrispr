@@ -1,6 +1,6 @@
 # freezing in place
 # I don't want to mess with tracking down requirement-based bugs
-biopython==1.73
+biopython>=1.73
 regex==2016.06.24
 pyfaidx==0.5.5.2
 click==7.0

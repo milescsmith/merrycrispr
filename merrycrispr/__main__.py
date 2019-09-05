@@ -4,7 +4,9 @@ import os
 import sys
 from typing import Optional
 from functools import partial
-from pathos.multiprocessing import ProcessingPool as Pool
+#from pathos.multiprocessing import ProcessingPool as Pool
+from p_tqdm import p_umap
+from tqdm.autonotebook import tqdm
 
 import click
 import numpy as np
@@ -39,19 +41,22 @@ def main():
 @click.option(
     "--library_type",
     "-l",
-    help="target library type. Accepted values are 'knockout', "
+    help="Target library type. Accepted values are 'knockout', "
     "'repressor', 'activator', 'excision', or 'Cas13'",
     default=None,
     required=False,
     type=click.Choice(("knockout", "repressor", "activator", "excision", "Cas13")),
 )
 @click.option(
-    "--gtf", "-g", help="input GTF/GFF file", default=None, required=False, type=str
+    "--gtf", "-g", help="Input GTF/GFF file", default=None, required=False, type=str
 )
 @click.option("--fasta", "-f", help="FASTA sequence file", default=None, type=str)
-@click.option("--output", "-o", help="output file", default=None, type=str)
-@click.option("--feature_type", "-t", help="feature type", default=None)
-@click.option("--gene_name", "-n", help="gene(s) to extract", default=None, type=str)
+@click.option("--output", "-o", help="Output file", default=None, type=str)
+@click.option("--feature_type", "-t", help="Feature type", default=None)
+@click.option("--gene_name", "-n", help="Gene(s) to extract.  To extract multiple genes, "
+                                        "enclose the entire list in quotation marks and leave a "
+                                        "space between each gene.",
+              default=None, type=str)
 @click.option(
     "--bound",
     help="Retrieve a given number of bases on either side of the feature "
@@ -219,6 +224,8 @@ NUCLEASES = pd.read_csv(
         "start": np.int8,
         "end": np.int8,
         "strand": str,
+        "on_target_rule": str,
+        "off_target_rule": str,
     },
     skip_blank_lines=True,
 )
@@ -262,8 +269,9 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     "--largeindex", help="", default=False, required=False, type=bool, is_flag=True
 )
 @click.option(
-    "--rule_set",
-    help="On-target score rule set to use. Current options include '1', '2', and 'Azimuth'",
+    "--on_target_rule_set",
+    help="Override nuclease on-target rule set defined in nuclease.csv.  Current options include "
+         "'1', '2', and 'Azimuth'.",
     default="Azimuth",
     type=str,
 )
@@ -274,6 +282,14 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     default=0,
     required=False,
     type=int,
+)
+@click.option(
+    "--off_target_rule_set",
+    help="Override nuclease off-target rule set defined in nuclease.csv.  Currently 'Hsu' is the "
+         "only option",
+    default=None,
+    required=False,
+    type=str,
 )
 @click.option(
     "--off_target_score_threshold",
@@ -346,8 +362,16 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
     type=int,
 )
 @click.option(
+    "--verbose",
+    "-v",
+    help="Display messages indicative of progress.",
+    is_flag=True,
+    default=False,
+    type=bool,
+)
+@click.option(
     "--write_early_exit",
-    help="Write the pre-on-target scoring spacer dataframe to a file",
+    help="Write the pre-on-target scoring spacer dataframe to a file for debuging purposes",
     default=False,
     type=bool,
     is_flag=True,
@@ -359,7 +383,9 @@ def create_library(
     reference: str = None,
     restriction_sites: str = None,
     largeindex: bool = False,
+    on_target_rule_set: Optional[str] = None,
     on_target_score_threshold: int = 0,
+    off_target_rule_set: Optional[str] = None,
     off_target_score_threshold: int = 0,
     off_target_count_threshold: int = 100,
     number_mismatches_to_consider: int = 3,
@@ -367,11 +393,11 @@ def create_library(
     spacers_per_feature: int = 9,
     reject: bool = False,
     paired: bool = False,
-    rule_set: str = "Azimuth",
     number_upstream_spacers: int = 0,
     number_downstream_spacers: int = 0,
     cores: int = 0,
     chunks: int = 8,
+    verbose: bool = False,
     write_early_exit: bool = False,
 ) -> None:
     """Build a CRISPR library
@@ -397,6 +423,7 @@ def create_library(
     :param number_downstream_spacers :
     :param cores :
     :param chunks:
+    verbose : bool
 
     Return
     ------
@@ -417,32 +444,36 @@ def create_library(
 
     # thank the gods for the tutorial at 
     # https://www.machinelearningplus.com/python/parallel-processing-python/
-    scoring_pool = Pool(cores)
-    chunked_spacer_dfs = np.array_split(spacers_df, chunks)
+    #scoring_pool = Pool(cores)
+    chunked_spacer_dfs = np.array_split(spacers_df, chunks*10)
+
     scoring_partial = partial(
         on_target_scoring,
-        ruleset=rule_set,
+        rule_set=on_target_rule_set,
         on_target_score_threshold=on_target_score_threshold,
     )
 
-    spacers_df = pd.concat(scoring_pool.map(scoring_partial, chunked_spacer_dfs))
+    spacers_df = pd.concat(p_umap(scoring_partial, chunked_spacer_dfs))
 
-    scoring_pool.close()
-    scoring_pool.join()
-    scoring_pool.clear()
+    # scoring_pool.close()
+    # scoring_pool.join()
+    # scoring_pool.clear()
 
     if spacers_df.shape[0] == 0:
         print("Sorry, no spacers matching that criteria were found")
         exit()
     else:
-        print(
-            f"Finished scoring spacers. {spacers_df.shape[0]} of {initialnumber} "
-            f"spacers have an on-target score above the cutoff threshold of "
-            f"{on_target_score_threshold}."
-            f"\nBeginning Bowtie alignment..."
+        if verbose:
+            print(
+                f"Finished scoring spacers. {spacers_df.shape[0]} of {initialnumber} "
+                f"spacers have an on-target score above the cutoff threshold of "
+                f"{on_target_score_threshold}."
         )
 
-    spacers_df["hash"] = spacers_df.apply(lambda x: hash(tuple(x)), axis=1)
+    tqdm.pandas(desc="Adding tracking hashes", unit="spacers")
+    spacers_df["hash"] = spacers_df.progress_apply(lambda x: hash(tuple(x)), axis=1)
+    if verbose:
+        print("\nBeginning Bowtie alignment...")
     off_target_results_file = off_target_discovery(
         spacers_df=spacers_df,
         nuclease_info=nuc,
@@ -451,14 +482,17 @@ def create_library(
         large_index_size=largeindex,
         reject=reject,
         number_mismatches_to_consider=number_mismatches_to_consider,
+        verbose=verbose,
     )
 
     spacers_df = off_target_scoring(
         otrf=off_target_results_file,
         spacers_df=spacers_df,
         nuclease_info=nuc,
+        rule_set=off_target_rule_set,
         off_target_score_threshold=off_target_score_threshold,
         off_target_count_threshold=off_target_count_threshold,
+        verbose=verbose,
     )
 
     if paired:

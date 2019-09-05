@@ -3,7 +3,7 @@ from merrycrispr._version import get_versions
 from merrycrispr.find_spacers import find_spacers
 from merrycrispr.library_assembly import assemble_library, assemble_paired_library
 from merrycrispr.off_target_scoring import (
-    scoreCas9offtarget,
+    hsu_offtarget_score,
     sumofftargets,
     off_target_discovery,
     off_target_scoring,
@@ -120,7 +120,7 @@ Find and score potential off-targets
 .. autosummary::
    :toctree: .
 
-   scoreCas9offtarget
+   hsu_offtarget_score
    sumofftargets
    off_target_discovery
    off_target_scoring

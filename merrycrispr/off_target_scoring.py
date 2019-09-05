@@ -13,7 +13,7 @@ import pandas as pd
 import regex
 
 
-def scoreCas9offtarget(mismatched_positions: List[int]) -> float:
+def hsu_offtarget_score(mismatched_positions: List[int]) -> float:
     """ Calculate the likelihood a Cas9 protospacer will cut at a particular off-target site
     Equation from http://crispr.mit.edu/about
 
@@ -94,7 +94,7 @@ def scoreCas9offtarget(mismatched_positions: List[int]) -> float:
     return score
 
 
-def sumofftargets(offtargets: List[List[int]]) -> float:
+def sumofftargets(offtargets: List[List[int]], rule_set: Optional[str] = None) -> float:
     """Add all of the potential off-target scores together so that the higher
     the offtarget score, the more desirable the spacer
     \f
@@ -108,11 +108,18 @@ def sumofftargets(offtargets: List[List[int]]) -> float:
     ------
     `float`
     """
-    sum_score = np.sum([scoreCas9offtarget(x) for x in offtargets])
-    if sum_score == 0:
-        return 100
-    else:
-        return (1.0 / sum_score) * 100
+    if rule_set is None:
+        return 0
+    elif isinstance(rule_set, str):
+        if rule_set.lower() == "hsu":
+            sum_score = np.sum([hsu_offtarget_score(x) for x in offtargets])
+        elif rule_set.lower() == "none":
+            sum_score = 0
+
+        if sum_score == 0:
+            return 100
+        else:
+            return (1.0 / sum_score) * 100
 
 
 def off_target_discovery(
@@ -123,6 +130,7 @@ def off_target_discovery(
     large_index_size: bool = False,
     reject: Optional[int] = None,
     number_mismatches_to_consider: int = 3,
+    verbose: bool = False,
 ) -> str:
     """Identify potential protospacer off-targets using Bowtie.
     \f
@@ -172,11 +180,14 @@ def off_target_discovery(
     command += f" -f {spacers_to_score} {off_target_results}"
 
     try:
+        if verbose:
+            print(f"bowtie command: {command.split()}")
         check_call(command.split())
     except BaseException:
         raise SystemExit("Bowtie encountered an error. Please check the log file.")
 
-    print(f"Bowtie finished. Results at {off_target_results}")
+    if verbose:
+        print(f"Bowtie finished. Results at {off_target_results}")
 
     return off_target_results
 
@@ -185,8 +196,10 @@ def off_target_scoring(
     otrf: str,
     spacers_df: pd.DataFrame,
     nuclease_info: Dict[str, Any],
-    off_target_score_threshold: int,
+    rule_set: Optional[str] = None,
+    off_target_score_threshold: int = 0,
     off_target_count_threshold: Optional[int] = 100,
+    verbose: bool = False,
 ) -> object:
     """Calculate a cumulative off-target score for a protospacer
     \f
@@ -205,6 +218,7 @@ def off_target_scoring(
     off_target_count_threshold : `int`, default: 100
         Number of potential mismatches that should be tolerated.  Spacers
         exceeding the threshold will be discarded
+    verbose : `bool`
 
     Return
     -------
@@ -230,10 +244,11 @@ def off_target_scoring(
         na_filter=False,
         skip_blank_lines=True,
         sep="\t",
-        memory_map=True,
+        memory_map=True
     )
 
-    print(f"Total alignments from Bowtie: {bowtie_results.shape[0]}")
+    if verbose:
+        print(f"Total alignments from Bowtie: {bowtie_results.shape[0]}")
 
     # We need to reduce the number of spacers we examine.  For the most part,
     # those with a lot of potential off-targets (>1000?) have really low
@@ -267,7 +282,7 @@ def off_target_scoring(
 
     tqdm.pandas(desc="scoring mismatches", unit="spacers")
     collapsed_results["off_target_score"] = collapsed_results.apply(
-        lambda x: sumofftargets(x["locations"]), axis=1
+        lambda x: sumofftargets(x["locations"], rule_set=rule_set), axis=1
     )
     spacers_df = spacers_df.merge(collapsed_results, on="hash")
 
