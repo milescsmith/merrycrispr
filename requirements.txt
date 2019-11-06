@@ -10,7 +10,8 @@ pandas==0.24.2
 theanets @ git+https://github.com/lmjohns3/theanets
 azimuth @ git+https://github.com/milescsmith/Azimuth
 requests==2.21.0
-tqdm==4.31.1
+p_tqdm>=1.2
+tqdm>=4.35.0
 sphinx-autodoc-typehints>=1.6.0
 sphinx==2.1.2
 sphinx_rtd_theme==0.4.3
