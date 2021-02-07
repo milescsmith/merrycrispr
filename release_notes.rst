@@ -17,6 +17,7 @@ Version 2.1: :small:`July, 5 2019`
     - Can build a Bowtie index from fetched sequences
 - Added Documentation
 
+
 Version 2.0: :small:`June, 17 2019`
 ------------------------------------
 - Initial release of major overhaul of MerryCRISPR:

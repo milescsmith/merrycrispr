@@ -9,12 +9,12 @@ from tqdm import tqdm
 
 
 def extract(
-    gtffile: str,
-    fastafile: str,
+    gtffile     : str,
+    fastafile   : str,
     feature_type: str,
-    outfile: str,
-    gene_name: List[str],
-    boundary: int = 0,
+    outfile     : str,
+    gene_name   : List[str],
+    boundary    : int = 0,
     **kwargs,
 ) -> Optional[List[pyfaidx.Sequence]]:
     """Match the features present in a GTF/GFF and use it to divide the sequences of a FASTA file

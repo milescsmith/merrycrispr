@@ -16,12 +16,12 @@ setup(
     name="MerryCRISPR",
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
-    description="Machine Learning-Based Predictive Modelling of CRISPR/Cas9 guide efficiency",
+    description="Generate gene and genome-wide CRISPR/Cas9 knockout and excision libraries",
     long_description=Path("README.rst").read_text("utf-8"),
     url="https://github.com/milescsmith/merrycrispr",
     author=__author__,
     author_email=__email__,
-    license="Proprietary",
+    license="LGPL-3.0-or-later",
     python_requires=">=3.6",
     install_requires=[
         l.strip() for l in Path("requirements.txt").read_text("utf-8").splitlines()
