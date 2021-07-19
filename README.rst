@@ -4,7 +4,7 @@
    :target: https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=milescsmith/merrycrispr&amp;utm_campaign=Badge_Grade
 .. |Code style: black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/python/black
-.. |License| image:: https://img.shields.io/badge/license-proprietary-red.svg
+.. |License| image:: https://img.shields.io/badge/License-LGPL%20v3-blue.svg
 .. |Documentation| image:: https://readthedocs.org/projects/merrycrispr/badge/?version=latest
    :target: https://merrycrispr.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
