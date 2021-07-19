@@ -26,8 +26,8 @@ from merrycrispr.species_getter import (
     get_resources,
 )
 
-__author__  = ("Miles Smith",)
-__email__   = "mileschristiansmith@gmail.com"
+__author__ = ("Miles Smith",)
+__email__ = "mileschristiansmith@gmail.com"
 
 __version__ = get_versions()["version"]
 
@@ -101,7 +101,7 @@ Description
    find_spacers
 
 
-on_target_scoring 
+on_target_scoring
 -----------------
 
 Description
@@ -133,7 +133,7 @@ Description
 
 .. autosummary::
    :toctree: .
- 
+
    assemble_library
    assemble_paired_library
 """

@@ -11,7 +11,9 @@ from .rule_set_one import calc_score
 
 
 def on_target_scoring(
-     spacers: pd.DataFrame, rule_set: Optional[str] = None, on_target_score_threshold: float = 0.0
+    spacers: pd.DataFrame,
+    rule_set: Optional[str] = None,
+    on_target_score_threshold: float = 0.0,
 ) -> pd.DataFrame:
 
     """
@@ -27,8 +29,9 @@ def on_target_scoring(
     :class:`~pandas.DataFrame`
     """
     if rule_set is None:
-        spacers["on_target_score"] = np.ones(shape=spacers["spacer"].values.shape,
-                                             dtype=np.uint8) * 100
+        spacers["on_target_score"] = (
+            np.ones(shape=spacers["spacer"].values.shape, dtype=np.uint8) * 100
+        )
     elif isinstance(rule_set, str):
         if rule_set == "1":
             spacerlist = spacers["spacer"].tolist()
@@ -55,12 +58,11 @@ def on_target_scoring(
             spacerscores = np.asarray([x for x in sublist[0]])
             spacers["on_target_score"] = spacerscores
         elif rule_set.lower() == "azimuth":
-            spacers["on_target_score"] = (
-                predict(spacers["spacer"].values) * 100
-            )
+            spacers["on_target_score"] = predict(spacers["spacer"].values) * 100
         elif rule_set.lower() == "none":
-            spacers["on_target_score"] = np.ones(shape=spacers["spacer"].values.shape,
-                                                 dtype=np.uint8) * 100
+            spacers["on_target_score"] = (
+                np.ones(shape=spacers["spacer"].values.shape, dtype=np.uint8) * 100
+            )
     spacers = spacers[spacers["on_target_score"] > on_target_score_threshold]
     return spacers
 

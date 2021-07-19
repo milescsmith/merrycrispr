@@ -4,7 +4,8 @@ import os
 import sys
 from typing import Optional
 from functools import partial
-#from pathos.multiprocessing import ProcessingPool as Pool
+
+# from pathos.multiprocessing import ProcessingPool as Pool
 from p_tqdm import p_umap
 from tqdm.autonotebook import tqdm
 from pathlib import Path
@@ -54,10 +55,15 @@ def main():
 @click.option("--fasta", "-f", help="FASTA sequence file", default=None, type=str)
 @click.option("--output", "-o", help="Output file", default=None, type=str)
 @click.option("--feature_type", "-t", help="Feature type", default=None)
-@click.option("--gene_name", "-n", help="Gene(s) to extract.  To extract multiple genes, "
-                                        "enclose the entire list in quotation marks and leave a "
-                                        "space between each gene.",
-              default=None, type=str)
+@click.option(
+    "--gene_name",
+    "-n",
+    help="Gene(s) to extract.  To extract multiple genes, "
+    "enclose the entire list in quotation marks and leave a "
+    "space between each gene.",
+    default=None,
+    type=str,
+)
 @click.option(
     "--bound",
     help="Retrieve a given number of bases on either side of the feature "
@@ -84,16 +90,16 @@ def main():
 )
 @click.help_option()
 def prep_sequences(
-    gtf          : str,
-    library_type : str,
-    fasta        : str,
-    output       : str,
-    feature_type : Optional[str]  = None,
-    gene_name    : Optional[str]  = None,
-    bound        : int            = 0,
+    gtf: str,
+    library_type: str,
+    fasta: str,
+    output: str,
+    feature_type: Optional[str] = None,
+    gene_name: Optional[str] = None,
+    bound: Optional[int] = None,
     show_features: Optional[bool] = False,
-    show_genes   : Optional[bool] = False,
-    show_geneids : Optional[bool] = False,
+    show_genes: Optional[bool] = False,
+    show_geneids: Optional[bool] = False,
 ) -> None:
     """Generate target sequences to search for spacers
     \f
@@ -139,40 +145,40 @@ def prep_sequences(
         if library_type == "knockout":
             feature_type = "exon"
             extract(
-                gtffile      = gtf,
-                fastafile    = fasta,
-                feature_type = feature_type,
-                outfile      = output,
-                gene_name    = gene_name,
+                gtffile=gtf,
+                fastafile=fasta,
+                feature_type=feature_type,
+                outfile=output,
+                gene_name=gene_name,
             )
         elif library_type == "repressor" or library_type == "activator":
             if bound is None:
                 bound = 100
             extract_for_tss_adjacent(
-                gtffile   = gtf,
-                fastafile = fasta,
-                outfile   = output,
-                gene_name = gene_name,
-                boundary  = bound,
+                gtffile=gtf,
+                fastafile=fasta,
+                outfile=output,
+                gene_name=gene_name,
+                boundary=bound,
             )
         elif library_type == "excision":
             if bound is None:
                 bound = 100
             extract(
-                gtffile      = gtf,
-                fastafile    = fasta,
-                feature_type = feature_type,
-                outfile      = output,
-                gene_name    = gene_name,
-                boundary     = bound,
+                gtffile=gtf,
+                fastafile=fasta,
+                feature_type=feature_type,
+                outfile=output,
+                gene_name=gene_name,
+                boundary=bound,
             )
         elif library_type == "Cas13":
             extract(
-                gtffile      = gtf,
-                fastafile    = fasta,
-                feature_type = "CDS",
-                outfile      = output,
-                gene_name    = gene_name,
+                gtffile=gtf,
+                fastafile=fasta,
+                feature_type="CDS",
+                outfile=output,
+                gene_name=gene_name,
             )
 
     elif show_features:
@@ -206,12 +212,12 @@ def prep_sequences(
         print("Please enter the name of the file containing features (in GFF format)")
     else:
         extract(
-            gtffile      = gtf,
-            fastafile    = fasta,
-            feature_type = feature_type,
-            outfile      = output,
-            gene_name    = gene_name,
-            boundary     = bound,
+            gtffile=gtf,
+            fastafile=fasta,
+            feature_type=feature_type,
+            outfile=output,
+            gene_name=gene_name,
+            boundary=bound,
         )
 
 
@@ -219,13 +225,13 @@ DATA_PATH = resource_filename("merrycrispr", "data/")
 NUCLEASES = pd.read_csv(
     f"{DATA_PATH}nuclease_list.csv",
     dtype={
-        "nuclease"       : str,
-        "pam"            : str,
-        "spacer_regex"   : str,
-        "start"          : np.int8,
-        "end"            : np.int8,
-        "strand"         : str,
-        "on_target_rule" : str,
+        "nuclease": str,
+        "pam": str,
+        "spacer_regex": str,
+        "start": np.int8,
+        "end": np.int8,
+        "strand": str,
+        "on_target_rule": str,
         "off_target_rule": str,
     },
     skip_blank_lines=True,
@@ -238,131 +244,125 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
 @click.option(
     "--input_sequences",
     "-i",
-    help     = f"Input FASTA file containing sequences to target.",
-    default  = None,
-    required = False,
-    type     = str,
+    help="Input FASTA file containing sequences to target.",
+    default=None,
+    required=False,
+    type=str,
 )
 @click.option(
     "--output_library",
     "-p",
-    help     = "Name of file to write library to (in CSV format).",
-    default  = None,
-    required = False,
-    type     = str,
+    help="Name of file to write library to (in CSV format).",
+    default=None,
+    required=False,
+    type=str,
 )
 @click.option(
     "--nuclease",
     "-n",
-    help     = (
-        f"Cas nuclease to design for. "
-        f"Current options include {AVAILABLE_NUCLEASES}"
-        ),
-    default  = "SpCas9",
-    required = False,
-    type     = str,
+    help=(
+        f"Cas nuclease to design for. " f"Current options include {AVAILABLE_NUCLEASES}"
+    ),
+    default="SpCas9",
+    required=False,
+    type=str,
 )
 @click.option(
     "--reference",
     "-r",
-    help    = "Path to the directory containing the appropriate Bowtie index.",
-    default = None,
-    type    = str,
+    help="Path to the directory containing the appropriate Bowtie index.",
+    default=None,
+    type=str,
 )
 @click.option(
-    "--largeindex",
-    help     = "",
-    default  = False,
-    required = False,
-    type     = bool,
-    is_flag  = True
+    "--largeindex", help="", default=False, required=False, type=bool, is_flag=True
 )
 @click.option(
     "--on_target_rule_set",
-    help    = (
-        f"Override nuclease on-target rule set defined in nuclease.csv."
-        f"Current options include '1', '2', and 'Azimuth'."
+    help=(
+        "Override nuclease on-target rule set defined in nuclease.csv. "
+        "Current options include '1', '2', and 'Azimuth'."
     ),
-    default = "Azimuth",
-    type    = str,
+    default="Azimuth",
+    type=str,
 )
 @click.option(
     "--on_target_score_threshold",
     "-on",
-    help     = "Spacers with an on-target score below this will be ignored.",
-    default  = 0,
-    required = False,
-    type     = int,
+    help="Spacers with an on-target score below this will be ignored.",
+    default=0,
+    required=False,
+    type=int,
 )
 @click.option(
     "--off_target_rule_set",
-    help     = (
-        f"Override nuclease off-target rule set defined in nuclease.csv."
-        f"Currently 'Hsu' is the only option"
-        ),
-    default  = None,
-    required = False,
-    type     = str,
+    help=(
+        "Override nuclease off-target rule set defined in nuclease.csv. "
+        "Currently 'Hsu' is the only option"
+    ),
+    default=None,
+    required=False,
+    type=str,
 )
 @click.option(
     "--off_target_score_threshold",
     "-off",
-    help     = "Spacers with an off-target score below this will be ignored.",
-    default  = 0,
-    required = False,
-    type     = int,
+    help="Spacers with an off-target score below this will be ignored.",
+    default=0,
+    required=False,
+    type=int,
 )
 @click.option(
     "--off_target_count_threshold",
-    help     = "Spacers with more than this many off-targets will be ignored.",
-    default  = 100,
-    required = False,
-    type     = int,
+    help="Spacers with more than this many off-targets will be ignored.",
+    default=100,
+    required=False,
+    type=int,
 )
 @click.option(
     "--number_mismatches_to_consider",
-    help    = (
-        f"Number of mismatches to allow in potential off-targets.  A number "
-        f"between 0 and 3.  Without setting `off_target_count_threshold` "
-        f"appropriately, higher values passed to this option may result in "
-        f"extremely long run times."
-        ),
-    default = 3,
-    type    = int,
+    help=(
+        "Number of mismatches to allow in potential off-targets.  A number "
+        "between 0 and 3.  Without setting `off_target_count_threshold` "
+        "appropriately, higher values passed to this option may result in "
+        "extremely long run times."
+    ),
+    default=3,
+    type=int,
 )
 @click.option(
     "--spacers_per_feature",
-    help    = (
-        f"Number of spacers to find for each feature. Use '0' to return "
-        f"all spacers."
-        ),
-    default = 6,
-    type    = int,
+    help=(
+        "Number of spacers to find for each feature. Use '0' to return "
+        "all spacers."
+    ),
+    default=6,
+    type=int,
 )
 @click.option(
     "--paired",
-    help    = "Should spacers be designed to work as pairs (e.g. for excision)?",
-    default = False,
-    type    = bool,
-    is_flag = True,
+    help="Should spacers be designed to work as pairs (e.g. for excision)?",
+    default=False,
+    type=bool,
+    is_flag=True,
 )
 @click.option(
     "--number_upstream_spacers",
-    help    = (
-        f"If designing paired spacers, number of spacers to design that target "
-        f"upstream of the feature."
-        ),
-    default = 3,
-    type    = int,
+    help=(
+        "If designing paired spacers, number of spacers to design that target "
+        "upstream of the feature."
+    ),
+    default=3,
+    type=int,
 )
 @click.option(
     "--number_downstream_spacers",
-    help    = (
-        f"If designing paired spacers, number of spacers to "
-        f"design that target downstream of the feature."
-        ),
-    default = 3,
-    type    = int,
+    help=(
+        "If designing paired spacers, number of spacers to "
+        "design that target downstream of the feature."
+    ),
+    default=3,
+    type=int,
 )
 # reenable this option just as soon as I figure out how to implement it.
 # @click.option(
@@ -375,55 +375,55 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
 @click.option(
     "--cores",
     "-c",
-    help    = "Number of processors to use. By default, will use all available.",
-    default = None,
-    type    = int,
+    help="Number of processors to use. By default, will use all available.",
+    default=None,
+    type=int,
 )
 @click.option(
     "--chunks",
     "-k",
-    help    = "Number of parts to split internal dataframes into.",
-    default = 8,
-    type    = int,
+    help="Number of parts to split internal dataframes into.",
+    default=8,
+    type=int,
 )
 @click.option(
     "--verbose",
     "-v",
-    help    = "Display messages indicative of progress.",
-    is_flag = True,
-    default = False,
-    type    = bool,
+    help="Display messages indicative of progress.",
+    is_flag=True,
+    default=False,
+    type=bool,
 )
 @click.option(
     "--write_early_exit",
-    help    = "Write the pre-on-target scoring spacer dataframe to a file for debuging purposes",
-    default = False,
-    type    = bool,
-    is_flag = True,
+    help="Write the pre-on-target scoring spacer dataframe to a file for debuging purposes",
+    default=False,
+    type=bool,
+    is_flag=True,
 )
 @click.help_option()
 def create_library(
-    input_sequences              : str           = None,
-    output_library               : str           = None,
-    reference                    : str           = None,
-    restriction_sites            : str           = None,
-    largeindex                   : bool          = False,
-    on_target_rule_set           : Optional[str] = None,
-    on_target_score_threshold    : int           = 0,
-    off_target_rule_set          : Optional[str] = None,
-    off_target_score_threshold   : int           = 0,
-    off_target_count_threshold   : int           = 100,
-    number_mismatches_to_consider: int           = 3,
-    nuclease                     : str           = "SpCas9",
-    spacers_per_feature          : int           = 9,
-    reject                       : bool          = False,
-    paired                       : bool          = False,
-    number_upstream_spacers      : int           = 0,
-    number_downstream_spacers    : int           = 0,
-    cores                        : int           = 0,
-    chunks                       : int           = 8,
-    verbose                      : bool          = False,
-    write_early_exit             : bool          = False,
+    input_sequences: str = None,
+    output_library: str = None,
+    reference: str = None,
+    restriction_sites: str = None,
+    largeindex: bool = False,
+    on_target_rule_set: Optional[str] = None,
+    on_target_score_threshold: int = 0,
+    off_target_rule_set: Optional[str] = None,
+    off_target_score_threshold: int = 0,
+    off_target_count_threshold: int = 100,
+    number_mismatches_to_consider: int = 3,
+    nuclease: str = "SpCas9",
+    spacers_per_feature: int = 9,
+    reject: bool = False,
+    paired: bool = False,
+    number_upstream_spacers: int = 0,
+    number_downstream_spacers: int = 0,
+    cores: int = 0,
+    chunks: int = 8,
+    verbose: bool = False,
+    write_early_exit: bool = False,
 ) -> None:
     """Build a CRISPR library
     \f
@@ -460,22 +460,25 @@ def create_library(
     nuc = NUCLEASES[NUCLEASES["nuclease"] == nuclease].to_dict(orient="records")[0]
 
     spacers_df = find_spacers(
-        itemlist=targets, nuclease_info=nuc, restriction_sites=restriction_sites, chunks=chunks,
+        itemlist=targets,
+        nuclease_info=nuc,
+        restriction_sites=restriction_sites,
+        chunks=chunks,
     )
     if write_early_exit:
         spacers_df.to_csv("/Users/milessmith/workspace/mc_human_files/early_exit.csv")
         sys.exit(0)
     initialnumber = spacers_df.shape[0]
 
-    # thank the gods for the tutorial at 
+    # thank the gods for the tutorial at
     # https://www.machinelearningplus.com/python/parallel-processing-python/
-    #scoring_pool = Pool(cores)
-    chunked_spacer_dfs = np.array_split(spacers_df, chunks*10)
+    # scoring_pool = Pool(cores)
+    chunked_spacer_dfs = np.array_split(spacers_df, chunks * 10)
 
     scoring_partial = partial(
         on_target_scoring,
-        rule_set                  = on_target_rule_set,
-        on_target_score_threshold = on_target_score_threshold,
+        rule_set=on_target_rule_set,
+        on_target_score_threshold=on_target_score_threshold,
     )
 
     spacers_df = pd.concat(p_umap(scoring_partial, chunked_spacer_dfs))
@@ -493,47 +496,47 @@ def create_library(
                 f"Finished scoring spacers. {spacers_df.shape[0]} of {initialnumber} "
                 f"spacers have an on-target score above the cutoff threshold of "
                 f"{on_target_score_threshold}."
-        )
+            )
 
     tqdm.pandas(desc="Adding tracking hashes", unit="spacers")
     spacers_df["hash"] = spacers_df.progress_apply(lambda x: hash(tuple(x)), axis=1)
     if verbose:
         print("\nBeginning Bowtie alignment...")
     off_target_results_file = off_target_discovery(
-        spacers_df                    = spacers_df,
-        nuclease_info                 = nuc,
-        cpus                          = cores,
-        refgenome                     = reference,
-        large_index_size              = largeindex,
-        reject                        = reject,
-        number_mismatches_to_consider = number_mismatches_to_consider,
-        verbose                       = verbose,
+        spacers_df=spacers_df,
+        nuclease_info=nuc,
+        cpus=cores,
+        refgenome=reference,
+        large_index_size=largeindex,
+        reject=reject,
+        number_mismatches_to_consider=number_mismatches_to_consider,
+        verbose=verbose,
     )
 
     spacers_df = off_target_scoring(
-        otrf                       = off_target_results_file,
-        spacers_df                 = spacers_df,
-        nuclease_info              = nuc,
-        rule_set                   = off_target_rule_set,
-        off_target_score_threshold = off_target_score_threshold,
-        off_target_count_threshold = off_target_count_threshold,
-        verbose                    = verbose,
+        otrf=off_target_results_file,
+        spacers_df=spacers_df,
+        nuclease_info=nuc,
+        rule_set=off_target_rule_set,
+        off_target_score_threshold=off_target_score_threshold,
+        off_target_count_threshold=off_target_count_threshold,
+        verbose=verbose,
     )
 
     if paired:
         guide_library = assemble_paired_library(
-            spacers                    = spacers_df,
-            on_target_score_threshold  = on_target_score_threshold,
-            off_target_score_threshold = off_target_score_threshold,
-            number_upstream_spacers    = number_upstream_spacers,
-            number_downstream_spacers  = number_downstream_spacers,
+            spacers=spacers_df,
+            on_target_score_threshold=on_target_score_threshold,
+            off_target_score_threshold=off_target_score_threshold,
+            number_upstream_spacers=number_upstream_spacers,
+            number_downstream_spacers=number_downstream_spacers,
         )
     else:
         guide_library = assemble_library(
-            spacers                    = spacers_df,
-            on_target_score_threshold  = on_target_score_threshold,
-            off_target_score_threshold = off_target_score_threshold,
-            spacers_per_feature        = spacers_per_feature,
+            spacers=spacers_df,
+            on_target_score_threshold=on_target_score_threshold,
+            off_target_score_threshold=off_target_score_threshold,
+            spacers_per_feature=spacers_per_feature,
         )
     guide_library.to_csv(output_library)
     print("Finished.")
@@ -543,57 +546,57 @@ def create_library(
 @click.option(
     "--species_value",
     "-s",
-    help     = (
-        f"Species value to retrieve sequences for.  Must be a value for the  "
-        f"attribute chosen, i.e. 'canis_familiaris' if using the 'name' attribute"
-        ),
-    default  = None,
-    required = False,
-    type     = str,
+    help=(
+        "Species value to retrieve sequences for.  Must be a value for the "
+        "attribute chosen, i.e. 'canis_familiaris' if using the 'name' attribute"
+    ),
+    default=None,
+    required=False,
+    type=str,
 )
 @click.option(
     "--species_attribute",
     "-a",
-    help     = (
-        f"Species attribute to search when retrieving sequences. Acceptable "
-        f"values include 'taxon_id', 'accession', 'aliases', 'division', "
-        f"'groups', 'release', 'name', 'strain', 'strain_collection', "
-        f"'display_name', 'assembly', and 'common_name'"
-        ),
-    default  = None,
-    required = False,
-    type     = str,
+    help=(
+        "Species attribute to search when retrieving sequences. Acceptable "
+        "values include 'taxon_id', 'accession', 'aliases', 'division', "
+        "'groups', 'release', 'name', 'strain', 'strain_collection', "
+        "'display_name', 'assembly', and 'common_name'"
+    ),
+    default=None,
+    required=False,
+    type=str,
 )
 @click.option(
     "--dest",
     "-d",
-    help     = (
-        f"Location in which to place downloaded files and, if selected, new "
-        f"Bowtie index."
-        ),
-    default  = None,
-    required = False,
-    type     = str,
+    help=(
+        "Location in which to place downloaded files and, if selected, new "
+        "Bowtie index."
+    ),
+    default=None,
+    required=False,
+    type=str,
 )
 @click.option(
     "--build_bowtie",
     "-b",
-    help    = "Build a bowtie index for the retrieved species",
-    is_flag = True,
+    help="Build a bowtie index for the retrieved species",
+    is_flag=True,
 )
 @click.option(
     "--show_available_builds",
     "-w",
-    help    = "Display a list of the species available from Ensembl",
-    is_flag = True,
+    help="Display a list of the species available from Ensembl",
+    is_flag=True,
 )
 @click.help_option()
 def new_species(
-    species_value        : str,
-    species_attribute    : str,
-    dest                 : Optional[str] = None,
-    build_bowtie         : bool          = False,
-    show_available_builds: bool          = False,
+    species_value: str,
+    species_attribute: str,
+    dest: Optional[str] = None,
+    build_bowtie: bool = False,
+    show_available_builds: bool = False,
 ):
     """Import a new species from Ensembl.  Optionally, build a Bowtie index for the files.
     \f
@@ -623,13 +626,13 @@ def new_species(
 
     else:
         if not dest:
-            dest              = os.path.expandvars("$PWD") + "/mc_resources"
+            dest = os.path.expandvars("$PWD") + "/mc_resources"
         if not os.path.exists(dest):
             os.mkdir(dest)
         gtf, fasta = get_resources(
-            species_value     = species_value,
-            species_attribute = species_attribute,
-            resource_folder   = dest,
+            species_value=species_value,
+            species_attribute=species_attribute,
+            resource_folder=dest,
         )
         message += f"GTF located at {gtf}, FASTA located at {fasta}"
         if build_bowtie:

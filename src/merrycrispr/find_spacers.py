@@ -80,7 +80,7 @@ def find_spacers(
 
     # duplicates were sneaking in.
     spacers_df = spacers_df.groupby("spacer").first().reset_index()
-    
+
     return spacers_df
 
 
@@ -209,7 +209,7 @@ def pivot_spacers(
 
 def GC(seq: str) -> float:
     """Calculate the QC content of a string corresponding to a genetic sequence\f
-    
+
     Parameters
     ----------
     seq : `str`
@@ -229,7 +229,7 @@ def GC(seq: str) -> float:
 def restriction_sites_present(spacer: str, rsb: RestrictionBatch) -> List[int]:
     """Determine if and where a set of restriction sites are present in a
     sequence\f
-    
+
     Parameters
     ----------
     spacer : `str`

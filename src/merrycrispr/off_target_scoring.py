@@ -70,7 +70,7 @@ def hsu_offtarget_score(mismatched_positions: List[int]) -> float:
         # if there is only one mismatch, we should ignore the second two terms.
         if len(mismatched_positions) == 1:
             try:
-                score = 1 - M[mismatched_positions[0]]
+                score = 1.0 - M[mismatched_positions[0]]
             except Exception as error:
                 print(error)
         else:
@@ -244,7 +244,7 @@ def off_target_scoring(
         na_filter=False,
         skip_blank_lines=True,
         sep="\t",
-        memory_map=True
+        memory_map=True,
     )
 
     if verbose:

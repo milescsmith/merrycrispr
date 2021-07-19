@@ -85,11 +85,11 @@ class EnsemblRestClient:
     self : :class:`species_getter.EnsemblRestClient`
         Calling object
     value : `str`
-        Attribute selection value.  For instance, if selecting by "name" (i.e. scientific name) 
+        Attribute selection value.  For instance, if selecting by "name" (i.e. scientific name)
         then "bos_taurus" or if selecting by "accession" then "GCA_002263795.2"
     attribute : `str`, optional (default: 'name')
-        Attribute to use when selecting the species. Acceptable values include 'taxon_id', 
-        'accession', 'aliases', 'division', 'groups', 'release', 'name', 'strain', 
+        Attribute to use when selecting the species. Acceptable values include 'taxon_id',
+        'accession', 'aliases', 'division', 'groups', 'release', 'name', 'strain',
         'strain_collection', 'display_name', 'assembly', and 'common_name'
 
     Return
@@ -133,7 +133,7 @@ class EnsemblRestClient:
 
     Return
     ------
-    `str` 
+    `str`
         Folder in which the file was placed
     """
 
@@ -181,10 +181,10 @@ class EnsemblRestClient:
     self : :class:`species_getter.EnsemblRestClient`
         Calling object
     species_value : `str`
-        Value being used to select species of interest, i.e. "canis_familiaris", "CanFam3.1", 
+        Value being used to select species of interest, i.e. "canis_familiaris", "CanFam3.1",
         "9615", "GCA_000002285.2", etc...
     species_attribute : `str`
-        Value being used to select species of interest, i.e. name, assembly, taxon_id, accession, 
+        Value being used to select species of interest, i.e. name, assembly, taxon_id, accession,
         etc...
     destination : `str`, optional.
         Folder in which to place the downloaded file.  If none provided,
@@ -192,7 +192,7 @@ class EnsemblRestClient:
 
     Return
     -------
-    `str` 
+    `str`
         Folder in which the file was placed
     """
 
@@ -232,10 +232,10 @@ class EnsemblRestClient:
     destination : `str`, optional.
         Folder in which to place the downloaded file.  If none provided,
         the file will be downloaded to a temp directory.
-    
+
     Return
     -------
-    `str` 
+    `str`
         Folder in which the file was placed
     """
 
@@ -322,8 +322,7 @@ def get_resources(
         try:
             os.makedirs("resource_folder")
         except OSError as error:
-            if error.errno != errno.EEXIST:
-                raise (f"problem making {resource_folder}")
+            raise (f"{error} problem making {resource_folder}")
 
     gtf = client.get_annotation(
         species_value=species_value,
@@ -351,7 +350,7 @@ cpus: `int`, optional (default: 0).
 
 Return
 -------
-`str` 
+`str`
     Folder in which the file was placed
 """
 

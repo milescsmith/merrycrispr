@@ -1,0 +1,9 @@
+**/*.img
+.Rproj.user
+.vscode
+container
+dist
+example
+notebooks
+tests
+**/*.Rproj

@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "merrycrispr"
+version = "3.0.0"
+description = "Generate gene and genome-wide CRISPR/Cas9 knockout and excision libraries"
+authors = ["milescsmith <mileschristiansmith@gmail.com>"]
+license = "LGPL-3.0-or-later"
+homepage = "https://github.com/milescsmith/merrycrispr"
+repository = "https://github.com/milescsmith/merrycrispr"
+readme = "README.rst"
+classifiers = [  # Update me
+    "Development Status :: 3 - Production",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+keywords = ["CRISPR"]
+include = ["data/*.*"]
+
+[tool.poetry.scripts]
+# Entry points for the package https://python-poetry.org/docs/pyproject/#scripts
+"merrycrispr" = "merrycrispr.__main__:main"
+
+[tool.poetry.dependencies]
+python = "^3.8,<4.0"
+biopython = "^1.79"
+regex = "^2021.7.6"
+pyfaidx = "^0.6.1"
+click = "^8.0.1"
+gtfparse = {git = "https://github.com/milescsmith/gtfparse"}
+pandas = "^1.3.0"
+colorlogs = "^0.1"
+requests = "^2.26.0"
+p-tqdm = "^1.3.3"
+tqdm = "^4.61.2"
+pathos = "^0.2.8"
+
+[tool.poetry.dev-dependencies]
+black = "^21.7b0"
+isort = "^5.9.2"
+mypy = "^0.910"
+flake8 = "^3.9.2"
+pyre-check = "^0.9.3"
+Sphinx = "^4.1.1"
+sphinx-rtd-theme = "^0.5.2"
+sphinxcontrib-applehelp = "^1.0.2"
+sphinxcontrib-devhelp = "^1.0.2"
+sphinxcontrib-jsmath = "^1.0.1"
+sphinxcontrib-qthelp = "^1.0.3"
+sphinxcontrib-serializinghtml = "^1.1.5"
+ipython = "^7.25.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

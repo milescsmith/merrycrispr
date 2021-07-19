@@ -3,6 +3,11 @@
 .. role:: noteversion
 
 
+Version 3.0: :small:`July,18 2021`
+------------------------------------
+- Use Poetry for PEP517 compliance
+- Add use of pre-commit tools, linters, type checkers, etc....
+
 Version 2.2: :small:`July, 21 2019`
 ------------------------------------
 - Major overhaul of off-target scoring
