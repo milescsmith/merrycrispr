@@ -8,10 +8,10 @@ from distutils.spawn import find_executable
 from multiprocessing import cpu_count
 from subprocess import check_call
 from tempfile import mkdtemp, mkstemp
-from typing import Optional, Dict, Tuple
+from typing import Dict, Optional, Tuple
 from urllib.error import HTTPError
 from urllib.parse import urlencode
-from urllib.request import urlopen, Request
+from urllib.request import Request, urlopen
 
 import pandas as pd
 import requests

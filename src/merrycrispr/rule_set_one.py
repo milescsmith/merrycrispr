@@ -107,6 +107,6 @@ def calc_score(s):
             dinuc = nuc + s[i + 1] + str(i + 1)
             if dinuc in dinuc_hash:
                 score = score + dinuc_hash[dinuc]
-    partial_score = math.e ** -score
+    partial_score = math.e**-score
     final_score = 1 / (1 + partial_score)
     return final_score

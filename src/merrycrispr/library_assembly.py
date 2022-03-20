@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 from itertools import product
-from tqdm.autonotebook import tqdm
 
 import pandas as pd
+from tqdm.auto import tqdm
 
 # the capitals below are to make it easier to visually discern the arm/extra spacer boundaries
 BSMBI_ARM_5 = "aaaagcacgagacG"

@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
 
-from typing import Optional, List
-
 import re
 from functools import partial
+from typing import List, Optional
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 import pyfaidx
 import regex
-
-from tqdm import tqdm
 from Bio.Restriction import RestrictionBatch
 from Bio.Seq import Seq
+from tqdm.auto import tqdm
 
 
 def find_spacers(

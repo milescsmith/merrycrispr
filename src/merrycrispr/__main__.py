@@ -2,36 +2,28 @@
 
 import os
 import sys
-from typing import Optional
 from functools import partial
-
-# from pathos.multiprocessing import ProcessingPool as Pool
-from p_tqdm import p_umap
-from tqdm.autonotebook import tqdm
 from pathlib import Path
+from typing import Optional
 
 import click
 import numpy as np
 import pandas as pd
 import pyfaidx
+# from pathos.multiprocessing import ProcessingPool as Pool
+from p_tqdm import p_umap
 from pkg_resources import resource_filename
+from tqdm.auto import tqdm
 
-from merrycrispr.find_spacers import find_spacers
-from merrycrispr.library_assembly import assemble_paired_library, assemble_library
-from merrycrispr.off_target_scoring import off_target_discovery, off_target_scoring
-from merrycrispr.on_target_scoring import on_target_scoring
-from merrycrispr.seqextractor import (
-    extract,
-    extract_for_tss_adjacent,
-    display_gtf_features,
-    display_gtf_genes,
-    display_gtf_geneids,
-)
-from merrycrispr.species_getter import (
-    get_resources,
-    build_bowtie_index,
-    available_species,
-)
+from .find_spacers import find_spacers
+from .library_assembly import assemble_library, assemble_paired_library
+from .off_target_scoring import off_target_discovery, off_target_scoring
+from .on_target_scoring import on_target_scoring
+from .seqextractor import (display_gtf_features, display_gtf_geneids,
+                           display_gtf_genes, extract,
+                           extract_for_tss_adjacent)
+from .species_getter import (available_species, build_bowtie_index,
+                             get_resources)
 
 
 @click.group()
@@ -333,8 +325,7 @@ AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
 @click.option(
     "--spacers_per_feature",
     help=(
-        "Number of spacers to find for each feature. Use '0' to return "
-        "all spacers."
+        "Number of spacers to find for each feature. Use '0' to return " "all spacers."
     ),
     default=6,
     type=int,

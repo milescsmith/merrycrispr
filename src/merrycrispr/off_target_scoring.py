@@ -5,16 +5,16 @@ from distutils.spawn import find_executable
 from multiprocessing import cpu_count
 from subprocess import check_call
 from tempfile import mkstemp
-from typing import Optional, List, Dict, Any
-from tqdm.autonotebook import tqdm
+from typing import Any, Dict, List, Optional
 
 import numpy as np
 import pandas as pd
 import regex
+from tqdm.auto import tqdm
 
 
 def hsu_offtarget_score(mismatched_positions: List[int]) -> float:
-    """ Calculate the likelihood a Cas9 protospacer will cut at a particular off-target site
+    """Calculate the likelihood a Cas9 protospacer will cut at a particular off-target site
     Equation from http://crispr.mit.edu/about
 
     The mismatch scoring algorithm from the Zhang group has three terms:
@@ -81,7 +81,7 @@ def hsu_offtarget_score(mismatched_positions: List[int]) -> float:
                 / (nmm - 1)
             )
             term_2 = 1 / ((((19 - mean_distance) / 19) * 4) + 1)
-            term_3 = 1.0 / (nmm ** 2)
+            term_3 = 1.0 / (nmm**2)
             term_1 = 1
             for n in mismatched_positions:
                 try:

@@ -1,30 +1,34 @@
-from merrycrispr.__main__ import main
-from merrycrispr._version import get_versions
-from merrycrispr.find_spacers import find_spacers
-from merrycrispr.library_assembly import assemble_library, assemble_paired_library
-from merrycrispr.off_target_scoring import (
-    hsu_offtarget_score,
-    sumofftargets,
-    off_target_discovery,
-    off_target_scoring,
-)
-from merrycrispr.on_target_scoring import on_target_scoring, score_entry
-from merrycrispr.rule_set_one import calc_score
-from merrycrispr.seqextractor import (
-    extract,
-    extract_for_tss_adjacent,
-    match_seq,
-    split_records,
-    display_gtf_features,
-    display_gtf_genes,
-    display_gtf_geneids,
-)
-from merrycrispr.species_getter import (
-    EnsemblRestClient,
-    available_species,
-    build_bowtie_index,
-    get_resources,
-)
+# src/merrycrispr/__init__.py
+from importlib.metadata import metadata, version
+
+try:
+    __author__ = metadata(__name__)["Author"]
+except KeyError:
+    __author__ = "unknown"
+
+try:
+    __email__ = metadata(__name__)["Author-email"]
+except KeyError:  # pragma: no cover
+    __email__ = "unknown"
+
+try:
+    __version__ = version(__name__)
+except KeyError:  # pragma: no cover
+    __version__ = "unknown"
+
+from .__main__ import main
+from ._version import get_versions
+from .find_spacers import find_spacers
+from .library_assembly import assemble_library, assemble_paired_library
+from .off_target_scoring import (hsu_offtarget_score, off_target_discovery,
+                                 off_target_scoring, sumofftargets)
+from .on_target_scoring import on_target_scoring, score_entry
+from .rule_set_one import calc_score
+from .seqextractor import (display_gtf_features, display_gtf_geneids,
+                           display_gtf_genes, extract,
+                           extract_for_tss_adjacent, match_seq, split_records)
+from .species_getter import (EnsemblRestClient, available_species,
+                             build_bowtie_index, get_resources)
 
 __author__ = ("Miles Smith",)
 __email__ = "mileschristiansmith@gmail.com"
