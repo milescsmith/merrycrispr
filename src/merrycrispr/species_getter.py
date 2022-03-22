@@ -1,13 +1,13 @@
 import gzip
 import json
-import os
 import shutil
 import sys
 import time
+from pathlib import Path
 from distutils.spawn import find_executable
 from multiprocessing import cpu_count
 from subprocess import check_call
-from tempfile import mkdtemp, mkstemp
+from tempfile import mkdtemp
 from typing import Dict, Optional, Tuple
 from urllib.error import HTTPError
 from urllib.parse import urlencode
@@ -78,28 +78,27 @@ class EnsemblRestClient:
                 )
         return data
 
-    """Retrieve information for a species from Ensembl
-    \f
-    Parameters
-    -----------
-    self : :class:`species_getter.EnsemblRestClient`
-        Calling object
-    value : `str`
-        Attribute selection value.  For instance, if selecting by "name" (i.e. scientific name)
-        then "bos_taurus" or if selecting by "accession" then "GCA_002263795.2"
-    attribute : `str`, optional (default: 'name')
-        Attribute to use when selecting the species. Acceptable values include 'taxon_id',
-        'accession', 'aliases', 'division', 'groups', 'release', 'name', 'strain',
-        'strain_collection', 'display_name', 'assembly', and 'common_name'
 
-    Return
-    -------
-    `dict`
-    """
+    def get_species_info(self, value: str, attribute: Optional[str] = "name") -> Dict[str, str]:
+        """Retrieve information for a species from Ensembl
+        \f
+        Parameters
+        -----------
+        self : :class:`species_getter.EnsemblRestClient`
+            Calling object
+        value : `str`
+            Attribute selection value.  For instance, if selecting by "name" (i.e. scientific name)
+            then "bos_taurus" or if selecting by "accession" then "GCA_002263795.2"
+        attribute : `str`, optional (default: 'name')
+            Attribute to use when selecting the species. Acceptable values include 'taxon_id',
+            'accession', 'aliases', 'division', 'groups', 'release', 'name', 'strain',
+            'strain_collection', 'display_name', 'assembly', and 'common_name'
 
-    def get_species_info(
-        self, value: str, attribute: Optional[str] = "name"
-    ) -> Dict[str, str]:
+        Return
+        -------
+        `dict`
+        """
+
         all_species = self.perform_rest_action(endpoint="/info/species")
         potential_matches = [_ for _ in all_species["species"] if value in _[attribute]]
         if not potential_matches:
@@ -119,32 +118,32 @@ class EnsemblRestClient:
         else:
             return potential_matches[0]
 
-    """Generalized getter to retrieve files from ftp.ensembl.org
-    \f
-    Parameters
-    -----------
-    self : :class:`species_getter.EnsemblRestClient`
-        Calling object
-    file_url : `str`
-        Location of the remote file.
-    destination : `str`, default=False
-        Folder in which to place the downloaded file.
-    force_redownload : `bool`, default=False
-
-    Return
-    ------
-    `str`
-        Folder in which the file was placed
-    """
 
     def get_genome_file(
         self,
         file_url: str,
-        destination: Optional[str] = None,
+        destination: Optional[Path] = None,
         force_redownload: bool = False,
     ) -> str:
+        """Generalized getter to retrieve files from ftp.ensembl.org
+        \f
+        Parameters
+        -----------
+        self : :class:`species_getter.EnsemblRestClient`
+            Calling object
+        file_url : `str`
+            Location of the remote file.
+        destination : :class:`Path`, default=False
+            Folder in which to place the downloaded file.
+        force_redownload : `bool`, default=False
+
+        Return
+        ------
+        :class:`Path`
+            Folder in which the file was placed
+        """
         if not destination:
-            destination = mkstemp()
+            destination = mkdtemp()
 
         try:
             r = requests.get(file_url, stream=True)
@@ -154,9 +153,9 @@ class EnsemblRestClient:
 
         file_size = int(r.headers["Content-Length"])
         if (
-            os.path.exists(destination)
-            and os.path.isfile(destination)
-            and os.stat(destination).st_size == file_size
+            destination.exists()
+            and destination.is_file()
+            and destination.stat().st_size == file_size
             and not force_redownload
         ):
             print(f"File is already present and at {destination}")
@@ -174,27 +173,7 @@ class EnsemblRestClient:
                     fp.write(chunk)
         return destination
 
-    """Retrieve the latest GTF for a given species
-    \f
-    Parameters
-    -----------
-    self : :class:`species_getter.EnsemblRestClient`
-        Calling object
-    species_value : `str`
-        Value being used to select species of interest, i.e. "canis_familiaris", "CanFam3.1",
-        "9615", "GCA_000002285.2", etc...
-    species_attribute : `str`
-        Value being used to select species of interest, i.e. name, assembly, taxon_id, accession,
-        etc...
-    destination : `str`, optional.
-        Folder in which to place the downloaded file.  If none provided,
-        the file will be downloaded to a temp directory.
-
-    Return
-    -------
-    `str`
-        Folder in which the file was placed
-    """
+    
 
     def get_annotation(
         self,
@@ -202,6 +181,28 @@ class EnsemblRestClient:
         species_attribute: str,
         destination: Optional[str] = None,
     ) -> str:
+        """Retrieve the latest GTF for a given species
+        \f
+        Parameters
+        -----------
+        self : :class:`species_getter.EnsemblRestClient`
+            Calling object
+        species_value : `str`
+            Value being used to select species of interest, i.e. "canis_familiaris", "CanFam3.1",
+            "9615", "GCA_000002285.2", etc...
+        species_attribute : `str`
+            Value being used to select species of interest, i.e. name, assembly, taxon_id, accession,
+            etc...
+        destination : `str`, optional.
+            Folder in which to place the downloaded file.  If none provided,
+            the file will be downloaded to a temp directory.
+
+        Return
+        -------
+        `str`
+            Folder in which the file was placed
+        """
+
         species_info = self.get_species_info(
             value=species_value, attribute=species_attribute
         )
@@ -221,23 +222,6 @@ class EnsemblRestClient:
             f"{species_info['release']}.gtf.gz",
         )
 
-    """Retrieve the latest primary DNA sequence FASTA for a given species
-    \f
-    Parameters
-    -----------
-    self : :class:`species_getter.EnsemblRestClient`
-        Calling object
-    species : `str`
-        Species of interest.  Either scientific or common name.
-    destination : `str`, optional.
-        Folder in which to place the downloaded file.  If none provided,
-        the file will be downloaded to a temp directory.
-
-    Return
-    -------
-    `str`
-        Folder in which the file was placed
-    """
 
     def get_sequences(
         self,
@@ -245,6 +229,24 @@ class EnsemblRestClient:
         species_attribute: str,
         destination: Optional[str] = None,
     ) -> str:
+        """Retrieve the latest primary DNA sequence FASTA for a given species
+        \f
+        Parameters
+        -----------
+        self : :class:`species_getter.EnsemblRestClient`
+            Calling object
+        species : `str`
+            Species of interest.  Either scientific or common name.
+        destination : `str`, optional.
+            Folder in which to place the downloaded file.  If none provided,
+            the file will be downloaded to a temp directory.
+
+        Return
+        -------
+        `str`
+            Folder in which the file was placed
+        """
+
         species_info = self.get_species_info(
             value=species_value, attribute=species_attribute
         )
@@ -263,18 +265,17 @@ class EnsemblRestClient:
         )
 
 
-"""List the species currently available from Ensembl
-\f
-Parameters
------------
-
-Return
--------
-`None`
-"""
-
 
 def available_species() -> None:
+    """List the species currently available from Ensembl
+    \f
+    Parameters
+    -----------
+
+    Return
+    -------
+    `None`
+    """
     client = EnsemblRestClient()
     species = client.perform_rest_action(endpoint="/info/species")
     if species:
@@ -296,31 +297,30 @@ def available_species() -> None:
         )
 
 
-"""Retrieve the latest GTF for a given species
-\f
-Parameters
------------
-species : `str`
-    Species of interest.  Either common or scientific name.
-resource_folder : `str`, optional (default: None)
-    Folder to download files to.  If not provided, a new directory called "resource_folder"
-    will be created and used.
-
-Return
--------
-:class:`typing.Tuple`[`str`,`str`]
-    The locations of the files downloaded.
-"""
-
-
 def get_resources(
-    species_value: str, species_attribute: str, resource_folder: Optional[str] = None
+    species_value: str, species_attribute: str, resource_folder: Optional[Path] = None
 ) -> Tuple[str, str]:
+    """Retrieve the latest GTF for a given species
+    \f
+    Parameters
+    -----------
+    species : `str`
+        Species of interest.  Either common or scientific name.
+    resource_folder : `str`, optional (default: None)
+        Folder to download files to.  If not provided, a new directory called "resource_folder"
+        will be created and used.
+
+    Return
+    -------
+    :class:`typing.Tuple`[`str`,`str`]
+        The locations of the files downloaded.
+    """
+
     client = EnsemblRestClient()
-    resource_folder = os.path.expanduser(resource_folder)
-    if not os.path.exists(resource_folder):
+    resource_folder = Path().home() / resource_folder
+    if not resource_folder.exists():
         try:
-            os.makedirs("resource_folder")
+            resource_folder.mkdirs()
         except OSError as error:
             raise (f"{error} problem making {resource_folder}")
 
@@ -337,25 +337,24 @@ def get_resources(
     return gtf, fasta
 
 
-"""Build an index for Bowtie
-\f
-Parameters
------------
-fasta : `str`
-    Sequence file (in FASTA format) to build index against
-dest: `str`, optional (default: None).
-    Directory in which to place index.
-cpus: `int`, optional (default: 0).
-    Number of CPUs to use in building index.
+def build_bowtie_index(fasta: str, dest: Optional[Path] = None, cpus: int = 0) -> str:
+    """Build an index for Bowtie
+    \f
+    Parameters
+    -----------
+    fasta : `str`
+        Sequence file (in FASTA format) to build index against
+    dest: `str`, optional (default: None).
+        Directory in which to place index.
+    cpus: `int`, optional (default: 0).
+        Number of CPUs to use in building index.
 
-Return
--------
-`str`
-    Folder in which the file was placed
-"""
+    Return
+    -------
+    `str`
+        Folder in which the file was placed
+    """
 
-
-def build_bowtie_index(fasta: str, dest: Optional[str] = None, cpus: int = 0) -> str:
     if cpus == 0:
         cpus = cpu_count()
     program = find_executable("bowtie-build")

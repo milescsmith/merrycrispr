@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "merrycrispr"
-version = "3.0.1"
+version = "3.1.0"
 description = "Generate gene and genome-wide CRISPR/Cas9 knockout and excision libraries"
 authors = ["milescsmith <mileschristiansmith@gmail.com>"]
 license = "LGPL-3.0-or-later"
@@ -22,7 +22,7 @@ keywords = ["CRISPR"]
 include = ["data/*.*"]
 
 [tool.poetry.scripts]
-"merrycrispr" = "merrycrispr.__main__:main"
+"merrycrispr" = "merrycrispr.__init__:merrycrispr"
 
 [tool.poetry.dependencies]
 python = "^3.9,<3.10"
@@ -35,7 +35,9 @@ pandas = "^1.4.1"
 requests = "^2.27.1"
 p-tqdm = "^1.3.3"
 tqdm = "^4.63.0"
-azimuth = {git = "https://github.com/milescsmith/azimuth", branch = "main"}
+azimuth = { git = "https://github.com/milescsmith/Azimuth", branch = "main" }
+typer = "^0.4.0"
+rich = "^12.0.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"

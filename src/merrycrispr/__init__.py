@@ -16,8 +16,6 @@ try:
 except KeyError:  # pragma: no cover
     __version__ = "unknown"
 
-from .__main__ import main
-from ._version import get_versions
 from .find_spacers import find_spacers
 from .library_assembly import assemble_library, assemble_paired_library
 from .off_target_scoring import (hsu_offtarget_score, off_target_discovery,
@@ -30,10 +28,27 @@ from .seqextractor import (display_gtf_features, display_gtf_geneids,
 from .species_getter import (EnsemblRestClient, available_species,
                              build_bowtie_index, get_resources)
 
-__author__ = ("Miles Smith",)
-__email__ = "mileschristiansmith@gmail.com"
 
-__version__ = get_versions()["version"]
+import typer
+from rich.console import Console
+
+console = Console()
+
+
+def version_callback(value: bool):
+    """Prints the version of the package."""
+    if value:
+        console.print(
+            f"[yellow]plinkliftover[/] version: [bold blue]{__version__}[/]"
+        )
+        raise typer.Exit()
+
+
+merrycrispr = typer.Typer(
+    name="merrycrispr",
+    help="Generate CRISPR libraries suitable for screening assays",
+    add_completion=False,
+)
 
 __doc__ = """\
 merrycrispr

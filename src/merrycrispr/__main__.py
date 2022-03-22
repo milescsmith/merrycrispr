@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 
-import os
-import sys
+from enum import Enum
 from functools import partial
 from pathlib import Path
 from typing import Optional
 
-import click
 import numpy as np
 import pandas as pd
 import pyfaidx
+import typer
 # from pathos.multiprocessing import ProcessingPool as Pool
 from p_tqdm import p_umap
 from pkg_resources import resource_filename
 from tqdm.auto import tqdm
 
+from . import merrycrispr
 from .find_spacers import find_spacers
 from .library_assembly import assemble_library, assemble_paired_library
 from .off_target_scoring import off_target_discovery, off_target_scoring
@@ -26,72 +26,58 @@ from .species_getter import (available_species, build_bowtie_index,
                              get_resources)
 
 
-@click.group()
-def main():
-    pass
+class LibraryType(str, Enum):
+    knockout = "knockout"
+    repressor = "repressor"
+    activator = "activator"
+    excision = "excision"
+    cas13 = "Cas13"
 
 
-@main.command()
-@click.option(
-    "--library_type",
-    "-l",
-    help="Target library type. Accepted values are 'knockout', "
-    "'repressor', 'activator', 'excision', or 'Cas13'",
-    default=None,
-    required=False,
-    type=click.Choice(("knockout", "repressor", "activator", "excision", "Cas13")),
-)
-@click.option(
-    "--gtf", "-g", help="Input GTF/GFF file", default=None, required=False, type=str
-)
-@click.option("--fasta", "-f", help="FASTA sequence file", default=None, type=str)
-@click.option("--output", "-o", help="Output file", default=None, type=str)
-@click.option("--feature_type", "-t", help="Feature type", default=None)
-@click.option(
-    "--gene_name",
-    "-n",
-    help="Gene(s) to extract.  To extract multiple genes, "
-    "enclose the entire list in quotation marks and leave a "
-    "space between each gene.",
-    default=None,
-    type=str,
-)
-@click.option(
-    "--bound",
-    help="Retrieve a given number of bases on either side of the feature "
-    "instead of the sequence corresponding to a feature",
-    default=0,
-    type=int,
-)
-@click.option(
-    "--show_features",
-    help="Scan an annotation file to identify the features present",
-    is_flag=True,
-)
-@click.option(
-    "--show_genes",
-    help="Scan an annotation file to identify the genes present",
-    default=False,
-    is_flag=True,
-)
-@click.option(
-    "--show_geneids",
-    help="Scan an annotation file to identify the geneIDs present",
-    default=False,
-    is_flag=True,
-)
-@click.help_option()
+@merrycrispr.command("prep_sequences")
 def prep_sequences(
-    gtf: str,
-    library_type: str,
-    fasta: str,
-    output: str,
-    feature_type: Optional[str] = None,
-    gene_name: Optional[str] = None,
-    bound: Optional[int] = None,
-    show_features: Optional[bool] = False,
-    show_genes: Optional[bool] = False,
-    show_geneids: Optional[bool] = False,
+    gtf: Path = typer.Argument(..., "--gtf", "-g", help="Input GTF/GFF file"),
+    library_type: LibraryType = typer.Option(
+        LibraryType.knockout, "--library_type", "-l", help="Target library type"
+    ),
+    fasta: Path = typer.Argument(
+        ...,
+        "--fasta",
+        "-f",
+        help="FASTA sequence file",
+    ),
+    output: Optional[Path] = typer.Option(
+        None, "--output", "-o", help="Location to write output file"
+    ),
+    feature_type: Optional[str] = typer.Option(
+        None, "--feature_type", "-t", help="Feature type"
+    ),
+    gene_name: Optional[str] = typer.Option(
+        None,
+        "--gene_name",
+        "-n",
+        help="Gene(s) to extract.  To extract multiple genes, enclose the entire list in quotation marks and leave a space between each gene.",
+    ),
+    bound: Optional[int] = typer.Option(
+        0,
+        "--bound",
+        help="Retrieve a given number of bases on either side of the feature instead of the sequence corresponding to a feature",
+    ),
+    show_features: Optional[bool] = typer.Option(
+        False,
+        "--show_features",
+        help="Scan an annotation file to identify the features present",
+    ),
+    show_genes: Optional[bool] = typer.Option(
+        False,
+        "--show_genes",
+        help="Scan an annotation file to identify the genes present",
+    ),
+    show_geneids: Optional[bool] = typer.Option(
+        False,
+        "--show_geneids",
+        help="Scan an annotation file to identify the geneIDs present",
+    ),
 ) -> None:
     """Generate target sequences to search for spacers
     \f
@@ -232,189 +218,119 @@ NUCLEASES = pd.read_csv(
 AVAILABLE_NUCLEASES = ", ".join(NUCLEASES["nuclease"])
 
 
-@main.command()
-@click.option(
-    "--input_sequences",
-    "-i",
-    help="Input FASTA file containing sequences to target.",
-    default=None,
-    required=False,
-    type=str,
-)
-@click.option(
-    "--output_library",
-    "-p",
-    help="Name of file to write library to (in CSV format).",
-    default=None,
-    required=False,
-    type=str,
-)
-@click.option(
-    "--nuclease",
-    "-n",
-    help=(
-        f"Cas nuclease to design for. " f"Current options include {AVAILABLE_NUCLEASES}"
-    ),
-    default="SpCas9",
-    required=False,
-    type=str,
-)
-@click.option(
-    "--reference",
-    "-r",
-    help="Path to the directory containing the appropriate Bowtie index.",
-    default=None,
-    type=str,
-)
-@click.option(
-    "--largeindex", help="", default=False, required=False, type=bool, is_flag=True
-)
-@click.option(
-    "--on_target_rule_set",
-    help=(
-        "Override nuclease on-target rule set defined in nuclease.csv. "
-        "Current options include '1', '2', and 'Azimuth'."
-    ),
-    default="Azimuth",
-    type=str,
-)
-@click.option(
-    "--on_target_score_threshold",
-    "-on",
-    help="Spacers with an on-target score below this will be ignored.",
-    default=0,
-    required=False,
-    type=int,
-)
-@click.option(
-    "--off_target_rule_set",
-    help=(
-        "Override nuclease off-target rule set defined in nuclease.csv. "
-        "Currently 'Hsu' is the only option"
-    ),
-    default=None,
-    required=False,
-    type=str,
-)
-@click.option(
-    "--off_target_score_threshold",
-    "-off",
-    help="Spacers with an off-target score below this will be ignored.",
-    default=0,
-    required=False,
-    type=int,
-)
-@click.option(
-    "--off_target_count_threshold",
-    help="Spacers with more than this many off-targets will be ignored.",
-    default=100,
-    required=False,
-    type=int,
-)
-@click.option(
-    "--number_mismatches_to_consider",
-    help=(
-        "Number of mismatches to allow in potential off-targets.  A number "
-        "between 0 and 3.  Without setting `off_target_count_threshold` "
-        "appropriately, higher values passed to this option may result in "
-        "extremely long run times."
-    ),
-    default=3,
-    type=int,
-)
-@click.option(
-    "--spacers_per_feature",
-    help=(
-        "Number of spacers to find for each feature. Use '0' to return " "all spacers."
-    ),
-    default=6,
-    type=int,
-)
-@click.option(
-    "--paired",
-    help="Should spacers be designed to work as pairs (e.g. for excision)?",
-    default=False,
-    type=bool,
-    is_flag=True,
-)
-@click.option(
-    "--number_upstream_spacers",
-    help=(
-        "If designing paired spacers, number of spacers to design that target "
-        "upstream of the feature."
-    ),
-    default=3,
-    type=int,
-)
-@click.option(
-    "--number_downstream_spacers",
-    help=(
-        "If designing paired spacers, number of spacers to "
-        "design that target downstream of the feature."
-    ),
-    default=3,
-    type=int,
-)
-# reenable this option just as soon as I figure out how to implement it.
-# @click.option(
-#     "--min_paired_distance",
-#     help="If designing paired spacers, minimum space required between the up- and downstream "
-#     "spacers.",
-#     default=0,
-#     type=int,
-# )
-@click.option(
-    "--cores",
-    "-c",
-    help="Number of processors to use. By default, will use all available.",
-    default=None,
-    type=int,
-)
-@click.option(
-    "--chunks",
-    "-k",
-    help="Number of parts to split internal dataframes into.",
-    default=8,
-    type=int,
-)
-@click.option(
-    "--verbose",
-    "-v",
-    help="Display messages indicative of progress.",
-    is_flag=True,
-    default=False,
-    type=bool,
-)
-@click.option(
-    "--write_early_exit",
-    help="Write the pre-on-target scoring spacer dataframe to a file for debuging purposes",
-    default=False,
-    type=bool,
-    is_flag=True,
-)
-@click.help_option()
+@merrycrispr.command()
 def create_library(
-    input_sequences: str = None,
-    output_library: str = None,
-    reference: str = None,
-    restriction_sites: str = None,
-    largeindex: bool = False,
-    on_target_rule_set: Optional[str] = None,
-    on_target_score_threshold: int = 0,
-    off_target_rule_set: Optional[str] = None,
-    off_target_score_threshold: int = 0,
-    off_target_count_threshold: int = 100,
-    number_mismatches_to_consider: int = 3,
-    nuclease: str = "SpCas9",
-    spacers_per_feature: int = 9,
-    reject: bool = False,
-    paired: bool = False,
-    number_upstream_spacers: int = 0,
-    number_downstream_spacers: int = 0,
-    cores: int = 0,
-    chunks: int = 8,
-    verbose: bool = False,
-    write_early_exit: bool = False,
+    input_sequences: Path = typer.Argument(
+        ...,
+        "--input_sequences",
+        "-i",
+        help="Input FASTA file containing sequences to target.",
+    ),
+    output_library: Path = typer.Argument(
+        ...,
+        "--output_library",
+        "-p",
+        help="Name of file to write library to (in CSV format).",
+    ),
+    reference: Path = typer.Argument(
+        ...,
+        "--reference",
+        "-r",
+        help="Path to the directory containing the appropriate Bowtie index.",
+    ),
+    restriction_sites: str = typer.Option(None),
+    largeindex: bool = typer.Option(False, "--largeindex", help=""),
+    on_target_rule_set: Optional[str] = typer.Option(
+        None,
+        "--on_target_rule_set",
+        help="Override nuclease on-target rule set defined in nuclease.csv. Current options include '1', '2', and 'Azimuth'.",
+    ),
+    on_target_score_threshold: int = typer.Option(
+        0,
+        "--on_target_score_threshold",
+        "-on",
+        help="Spacers with an on-target score below this will be ignored.",
+    ),
+    off_target_rule_set: Optional[str] = typer.Option(
+        None,
+        "--off_target_rule_set",
+        help="Override nuclease off-target rule set defined in nuclease.csv. Currently 'Hsu' is the only option",
+    ),
+    off_target_score_threshold: int = typer.Option(
+        0,
+        "--off_target_score_threshold",
+        "-off",
+        help="Spacers with an off-target score below this will be ignored.",
+    ),
+    off_target_count_threshold: int = typer.Option(
+        100,
+        "--off_target_count_threshold",
+        help="Spacers with more than this many off-targets will be ignored.",
+    ),
+    number_mismatches_to_consider: int = typer.Option(
+        3,
+        "--number_mismatches_to_consider",
+        help=(
+            "Number of mismatches to allow in potential off-targets.  A number "
+            "between 0 and 3.  Without setting `off_target_count_threshold` "
+            "appropriately, higher values passed to this option may result in "
+            "extremely long run times."
+        ),
+    ),
+    nuclease: str = typer.Option(
+        "SpCas9",
+        "--nuclease",
+        "-n",
+        help=f"Cas nuclease to design for. "
+        f"Current options include {AVAILABLE_NUCLEASES}",
+    ),
+    spacers_per_feature: int = typer.Option(
+        9,
+        "--spacers_per_feature",
+        help=(
+            "Number of spacers to find for each feature. Use '0' to return "
+            "all spacers."
+        ),
+    ),
+    reject: bool = typer.Option(False, "--reject", help=""),
+    paired: bool = typer.Option(
+        False,
+        "--paired",
+        help="Should spacers be designed to work as pairs (e.g. for excision)?",
+    ),
+    number_upstream_spacers: int = typer.Option(
+        0,
+        "--number_upstream_spacers",
+        help=(
+            "If designing paired spacers, number of spacers to design that target "
+            "upstream of the feature."
+        ),
+    ),
+    number_downstream_spacers: int = typer.Option(
+        0,
+        "--number_downstream_spacers",
+        help=(
+            "If designing paired spacers, number of spacers to "
+            "design that target downstream of the feature."
+        ),
+    ),
+    cores: int = typer.Option(
+        0,
+        "--cores",
+        "-c",
+        help="Number of processors to use. By default, will use all available.",
+    ),
+    chunks: int = typer.Option(
+        8, "--chunks", "-k", help="Number of parts to split internal dataframes into."
+    ),
+    verbose: bool = typer.Option(
+        False, "--verbose", "-v", help="Display messages indicative of progress."
+    ),
+    write_early_exit: bool = typer.Option(
+        False,
+        "--write_early_exit",
+        help="Write the pre-on-target scoring spacer dataframe to a file for debuging purposes",
+    ),
 ) -> None:
     """Build a CRISPR library
     \f
@@ -458,7 +374,7 @@ def create_library(
     )
     if write_early_exit:
         spacers_df.to_csv("/Users/milessmith/workspace/mc_human_files/early_exit.csv")
-        sys.exit(0)
+        return None
     initialnumber = spacers_df.shape[0]
 
     # thank the gods for the tutorial at
@@ -533,61 +449,59 @@ def create_library(
     print("Finished.")
 
 
-@main.command()
-@click.option(
-    "--species_value",
-    "-s",
-    help=(
-        "Species value to retrieve sequences for.  Must be a value for the "
-        "attribute chosen, i.e. 'canis_familiaris' if using the 'name' attribute"
-    ),
-    default=None,
-    required=False,
-    type=str,
-)
-@click.option(
-    "--species_attribute",
-    "-a",
-    help=(
-        "Species attribute to search when retrieving sequences. Acceptable "
-        "values include 'taxon_id', 'accession', 'aliases', 'division', "
-        "'groups', 'release', 'name', 'strain', 'strain_collection', "
-        "'display_name', 'assembly', and 'common_name'"
-    ),
-    default=None,
-    required=False,
-    type=str,
-)
-@click.option(
-    "--dest",
-    "-d",
-    help=(
-        "Location in which to place downloaded files and, if selected, new "
-        "Bowtie index."
-    ),
-    default=None,
-    required=False,
-    type=str,
-)
-@click.option(
-    "--build_bowtie",
-    "-b",
-    help="Build a bowtie index for the retrieved species",
-    is_flag=True,
-)
-@click.option(
-    "--show_available_builds",
-    "-w",
-    help="Display a list of the species available from Ensembl",
-    is_flag=True,
-)
-@click.help_option()
+class SpeciesAttribute(str, Enum):
+    taxon_id = "taxon_id"
+    accession = "accession"
+    aliases = "aliases"
+    division = "division"
+    groups = "groups"
+    release = "release"
+    name = "name"
+    strain = "strain"
+    strain_collection = "strain_collection"
+    display_name = "display_name"
+    assembly = "assembly"
+    common_name = "common_name"
+
+
+@merrycrispr.command()
 def new_species(
-    species_value: str,
-    species_attribute: str,
-    dest: Optional[str] = None,
-    build_bowtie: bool = False,
-    show_available_builds: bool = False,
+    species_value: str = typer.Argument(
+        ...,
+        "--species_value",
+        "-s",
+        help=(
+            "Species value to retrieve sequences for.  Must be a value for the "
+            "attribute chosen, i.e. 'canis_familiaris' if using the 'name' attribute"
+        ),
+    ),
+    species_attribute: SpeciesAttribute = typer.Argument(
+        ...,
+        "--species_attribute",
+        "-a",
+        help=("Species attribute to search when retrieving sequences."),
+    ),
+    dest: Optional[Path] = typer.Option(
+        None,
+        "--dest",
+        "-d",
+        help=(
+            "Location in which to place downloaded files and, if selected, new "
+            "Bowtie index."
+        ),
+    ),
+    build_bowtie: bool = typer.Option(
+        False,
+        "--build_bowtie",
+        "-b",
+        help="Build a bowtie index for the retrieved species",
+    ),
+    show_available_builds: bool = typer.Option(
+        False,
+        "--show_available_builds",
+        "-w",
+        help="Display a list of the species available from Ensembl",
+    ),
 ):
     """Import a new species from Ensembl.  Optionally, build a Bowtie index for the files.
     \f
@@ -617,9 +531,9 @@ def new_species(
 
     else:
         if not dest:
-            dest = os.path.expandvars("$PWD") + "/mc_resources"
-        if not os.path.exists(dest):
-            os.mkdir(dest)
+            dest = Path().cwd() / "mc_resources"
+        if not dest.exists():
+            dest.mkdir()
         gtf, fasta = get_resources(
             species_value=species_value,
             species_attribute=species_attribute,
@@ -632,4 +546,4 @@ def new_species(
 
 
 if __name__ == "__main__":
-    main()
+    merrycrispr()

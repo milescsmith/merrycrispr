@@ -3,6 +3,10 @@
 .. role:: noteversion
 
 
+Version 4.1: :small:`March, 21 2022`
+-----------------------------------
+- Replace `click` with `typer` for cli
+
 Version 3.0: :small:`July,18 2021`
 ------------------------------------
 - Use Poetry for PEP517 compliance
